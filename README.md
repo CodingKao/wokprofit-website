@@ -1,34 +1,70 @@
-# WokProfit
+# Getting Started with Create React App
 
-## Overview
-WokProfit is a financial services business focused on helping Asian restaurant owners improve financial visibility and increase profitability. This repository contains the source code for the official WokProfit website.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-The website is designed to communicate the mission of WokProfit and provide information about bookkeeping, financial reporting, and controller-level services tailored to the needs of restaurant businesses.
+## Available Scripts
 
-## Mission
-The mission of WokProfit is to help Asian restaurants better understand their financial performance and increase profits through improved bookkeeping, financial reporting, and data-driven insights.
+In the project directory, you can run:
 
-Many restaurant owners work extremely hard but lack clear financial visibility. WokProfit aims to provide the financial clarity needed to make smarter business decisions.
+### `npm start`
 
-## Services
-WokProfit provides financial services including:
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-- Bookkeeping
-- Financial reporting
-- Cash flow analysis
-- Budgeting and forecasting
-- Controller-level financial advisory
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-These services help restaurant owners track performance, control costs, and improve profitability.
+### `npm test`
 
-## Technology Stack
-This website is built using:
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- HTML
-- CSS
-- Git
-- GitHub
-- GitHub Pages for deployment
+### `npm run build`
 
-The goal is to maintain a lightweight, fast-loading static website that is easy to update and maintain.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
