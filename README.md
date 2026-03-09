@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# WokProfit
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+WokProfit is a financial consulting platform designed to help restaurant owners—especially Asian restaurants—improve profitability, reduce waste, and gain clear financial insights into their operations.
 
-## Available Scripts
+This repository contains the source code for the official WokProfit website.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Mission
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The mission of WokProfit is to empower restaurant owners with financial clarity and operational insights that lead to higher profitability and sustainable growth.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Many restaurants operate on thin margins and lack clear financial visibility. WokProfit helps bridge that gap by providing actionable insights into revenue, food costs, labor, inventory, and menu performance.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Services
 
-### `npm run build`
+WokProfit provides three levels of financial support designed for restaurant owners.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Profit Clarity
+Provides restaurant owners with a clear monthly understanding of their business performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Includes:
+- Monthly financial summaries
+- Profit and loss analysis
+- Cash flow insights
+- Operational highlights and improvement opportunities
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Operational Insight
+Helps owners proactively manage their business with structured financial planning.
 
-### `npm run eject`
+Includes:
+- Budgeting and forecasting
+- Weekly performance review
+- Labor and food cost analysis
+- Prime cost monitoring
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Menu & Growth Optimization
+Advanced analysis focused on increasing profitability and operational efficiency.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Includes:
+- Menu engineering and profitability analysis
+- Inventory management recommendations
+- Waste reduction strategies
+- Pricing and growth insights
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Technology Stack
 
-## Learn More
+This website is built using modern web development tools:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- React
+- JavaScript
+- HTML5
+- CSS3
+- Node.js
+- GitHub Pages (deployment)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
