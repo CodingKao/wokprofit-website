@@ -1,4 +1,3 @@
-
 /**
  * @file Footer.jsx
  * @description Footer section with navigation links, product lists, and social media icons.

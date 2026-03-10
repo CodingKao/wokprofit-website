@@ -1,0 +1,261 @@
+/**
+ * @file _base.scss
+ * @description Core global styles for typography, layout, components
+ */
+
+/** Typography & Base Styles **/
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.cormorant-garamond {
+  font-family: "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 900 !important;
+  font-style: bold;
+}
+
+a {
+  color: #ed7b0b;
+  text-decoration: none;
+}
+
+/** Headings **/
+h2 {
+  font-size: 30px;
+  font-weight: 600;
+  font-family: "Libre Baskerville", "Poppins", serif;
+  color: #000000;
+  opacity: 0.8;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+h2::before {
+  content: "";
+  display: block;
+  width: 400px;
+  height: 30px;
+  margin: 0 0 10px 0;
+  background-image: url('../images/heading-bg.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/** Section Spacing **/
+section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/** Icons **/
+.menuicon svg {
+  color: #ed7b0b;
+}
+
+.fa-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  transform: scaleX(-1);
+}
+
+/** Backgrounds **/
+.section-bg {
+  background-color: #ffecd8;
+}
+
+/** Buttons **/
+.btn-primary {
+  padding: 12px 28px;
+  font-size: 18px;
+  font-weight: 400;
+  border-radius: 6px;
+  color: #ffffff;
+  background-color: #ed7b0b;
+  border-color: #ed7b0b;
+}
+
+.btn-primary:hover {
+  color: #ed7b0b;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+.btn-secondary {
+  padding: 12px 28px;
+  font-size: 18px;
+  font-weight: 400;
+  border-radius: 6px;
+  color: #ffffff;
+  background-color: #302d46;
+  border-color: #302d46;
+}
+
+.btn-secondary:hover {
+  color: #302d46;
+  background-color: #ffffff;
+  border-color: #302d46;
+}
+
+/** MUI Overrides **/
+.MuiPaper-root a {
+  color: #000;
+}
+
+.MuiListItemIcon-root {
+  min-width: 42px !important;
+}
+
+/** Header **/
+#header .container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/** Navbar **/
+.navbar ul {
+  margin-top: 1rem;
+  display: flex;
+  list-style: none;
+  align-items: center;
+  padding-left: 0;
+}
+
+.navbar ul li {
+  padding: 10px 0 10px 40px;
+}
+
+.navbar ul li:first-child {
+  padding-left: 0;
+}
+
+.navbar ul li a {
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/** Intro Section **/
+#intro {
+  padding-top: 300px;
+  padding-bottom: 300px;
+  min-height: 100%;
+  background: linear-gradient(111deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../images/premium-quality-dry-fruit-wholesaler.webp);
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  color: #ffffff;
+}
+
+#intro h1 {
+  font-size: 44px;
+  font-weight: 600;
+  font-family: "Libre Baskerville", "Poppins", serif;
+  text-transform: capitalize;
+}
+
+#intro p {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/** About Section **/
+#about {
+  text-align: center;
+}
+
+#about p {
+  font-size: 18px;
+  line-height: 36px;
+  font-weight: 400;
+  color: #000000;
+  opacity: 0.7;
+}
+
+/** Decorative Elements **/
+.design-7 {
+  float: right;
+  margin-top: -3%;
+}
+
+/** Footer **/
+#footer {
+  background-color: #312d46;
+}
+
+#footer section {
+  padding-top: 68px;
+  padding-bottom: 10px;
+}
+
+#footer hr {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  color: #ffffff;
+}
+
+#footer ul {
+  margin-top: 2rem;
+  padding-left: unset;
+  list-style: none;
+}
+
+#footer ul li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#footer h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ed7b0b;
+  text-transform: uppercase;
+}
+
+#footer h5:after {
+  display: block;
+  position: absolute;
+  width: 2rem;
+  height: 4px;
+  content: "";
+  background: #ed7b0b;
+  border-radius: 10px;
+  margin-top: 5px;
+  border: 1px solid #ed7b0b;
+}
+
+#footer h6 a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+#footer h6 a:hover {
+  color: #ed7b0b;
+}
+
+/** Copyright **/
+.copyright {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.copyright p,
+.copyright a {
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  color: #fcfcfc;
+  opacity: 0.8;
+}
+
+.copyright a:hover {
+  color: #ed7b0b;
+}

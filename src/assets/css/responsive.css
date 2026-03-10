@@ -1,0 +1,66 @@
+/**
+ * @media _responsive.scss
+ * @description Mobile-first responsive styles (max-width: 768px)
+ */
+
+ @media (max-width: 768px) {
+  /** Header Padding **/
+  .header {
+    padding: 15px 0;
+  }
+
+  /** Intro Section Spacing **/
+  .intro {
+    padding: 42px 0 50px;
+  }
+
+  /** Intro Title Scaling **/
+  .intro__title {
+    font-size: 1.625rem;
+  }
+
+  /** Primary Button Adjustments **/
+  .btn--primary {
+    padding: 10px 14px;
+    font-size: 0.875rem;
+  }
+
+  /** Heading Font & Spacing **/
+  .heading {
+    font-size: 1.25rem;
+    margin-bottom: 18px;
+
+    /** Heading Decoration **/
+    &::before {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+  }
+
+  /** About Section Text **/
+  .about__text {
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+
+  /** Generic Section Spacing **/
+  section {
+    padding: 32px 0;
+  }
+
+  /** Copyright Text & Link Styling **/
+  .copyright {
+    &__text,
+    &__link {
+      font-size: 0.875rem;
+    }
+  }
+
+  /** Decorative Lines in Headings **/
+  .design-2 {
+    .heading::before,
+    .heading::after {
+      width: 100%;
+    }
+  }
+}
