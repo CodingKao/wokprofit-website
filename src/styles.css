@@ -1,0 +1,58 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+/* Navigation */
+nav {
+  background: #B71C1C;
+}
+nav a {
+  color: #fff;
+  margin: 0 15px;
+  font-weight: 500;
+}
+
+/* Hero */
+.hero-banner {
+  background-image: url('./assets/images/wok-toss.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 140px 20px;
+  text-align: center;
+  color: #FFD700;
+}
+.hero-banner h1 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+/* Section Borders */
+.section-border {
+  border-top: 4px solid #B71C1C;
+  border-bottom: 4px solid #B71C1C;
+}
+
+/* Buttons */
+.btn-premium {
+  background: #FFD700;
+  color: #B71C1C;
+  font-weight: bold;
+  border-radius: 50px;
+}
+
+/* Testimonials */
+.testimonial-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px;
+}
+
+/* Footer */
+footer {
+  background: #B71C1C;
+  color: #FFD700;
+  padding: 15px;
+}
