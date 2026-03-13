@@ -505,7 +505,7 @@ section {
                 <div className="price-amount">
                   <span>
                     {' '}
-                    $400–700
+                    $695
                     <span
                       dangerouslySetInnerHTML={{
                         __html: ' ',
@@ -545,7 +545,7 @@ section {
                 <div className="price-amount">
                   <span>
                     {' '}
-                    $1200–1800
+                    $1850
                     <span
                       dangerouslySetInnerHTML={{
                         __html: ' ',
@@ -582,7 +582,7 @@ section {
                 <div className="price-amount">
                   <span>
                     {' '}
-                    $2000–3000
+                    $3,800
                     <span
                       dangerouslySetInnerHTML={{
                         __html: ' ',
