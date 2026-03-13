@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/wokprofit-website/static/css/main.e313665c.css",
-    "main.js": "/wokprofit-website/static/js/main.45709193.js",
-    "index.html": "/wokprofit-website/index.html",
-    "main.e313665c.css.map": "/wokprofit-website/static/css/main.e313665c.css.map",
-    "main.45709193.js.map": "/wokprofit-website/static/js/main.45709193.js.map"
+    "main.css": "/static/css/main.e313665c.css",
+    "main.js": "/static/js/main.45709193.js",
+    "index.html": "/index.html",
+    "main.e313665c.css.map": "/static/css/main.e313665c.css.map",
+    "main.45709193.js.map": "/static/js/main.45709193.js.map"
   },
   "entrypoints": [
     "static/css/main.e313665c.css",
