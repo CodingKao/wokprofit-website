@@ -1,26 +1,22 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from 'react-router-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import './style.css'
-import Home from './views/home'
-import NotFound from './views/not-found'
+import './style.css';
+import Home from './views/home';
+import NotFound from './views/not-found';
 
 const App = () => {
   return (
-    <Router>
+    // Add basename so React Router works on GitHub Pages/custom domain
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route component={Home} exact path="/" />
-        <Route component={NotFound} path="**" />
-        <Redirect to="**" />
+        <Route component={NotFound} path="*" />
       </Switch>
-    </Router>
-  )
-}
+    </BrowserRouter>
+  );
+};
 
-ReactDOM.render(<App />, document.getElementById('app'))
+// Make sure your root element ID matches your index.html
+ReactDOM.render(<App />, document.getElementById('app'));

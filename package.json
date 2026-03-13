@@ -2,7 +2,7 @@
   "name": "wokprofit-website",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://CodingKao.github.io/wokprofit-website",
+  "homepage": "https://wokprofit.com",
   "dependencies": {
     "@craco/craco": "^7.1.0",
     "@teleporthq/react-components": "latest",
