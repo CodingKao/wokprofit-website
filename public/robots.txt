@@ -1,7 +1,4 @@
-User-agent: Googlebot
-Disallow: /nogooglebot/
-
 User-agent: *
-Allow: /
+Disallow:
 
-Sitemap: https://lustrous-composed-mosquito-4a47l9.teleporthq.app/sitemap.xml
+Sitemap: https://wokprofit.com/sitemap.xml

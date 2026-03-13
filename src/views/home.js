@@ -10,18 +10,12 @@ import './home.css'
 const Home = (props) => {
   return (
     <div className="home-container1">
-      <Helmet>
-        <title>Lustrous Composed Mosquito</title>
-        <meta property="og:title" content="Lustrous Composed Mosquito" />
-        <link
-          rel="canonical"
-          href="https://lustrous-composed-mosquito-4a47l9.teleporthq.app/"
-        />
-        <meta
-          property="og:url"
-          content="https://lustrous-composed-mosquito-4a47l9.teleporthq.app/"
-        />
-      </Helmet>
+        <Helmet>
+          <title>Wok Profit</title>
+          <meta property="og:title" content="Wok Profit" />
+          <link rel="canonical" href="https://wokprofit.com/" />
+          <meta property="og:url" content="https://wokprofit.com/" />
+        </Helmet>
       <Navigation></Navigation>
       <div className="home-container2">
         <div className="home-container3">
