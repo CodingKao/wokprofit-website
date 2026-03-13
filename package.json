@@ -1,7 +1,8 @@
 {
-  "name": "lustrous-composed-mosquito",
+  "name": "wokprofit-website",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://CodingKao.github.io/wokprofit-website",
   "dependencies": {
     "@craco/craco": "^7.1.0",
     "@teleporthq/react-components": "latest",
@@ -16,7 +17,9 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test --env=jsdom",
-    "eject": "craco eject"
+    "eject": "craco eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "engines": {
     "node": ">=18.x"
@@ -34,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "react-scripts": "^5.0.1"
   }
 }
