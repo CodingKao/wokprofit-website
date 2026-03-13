@@ -245,7 +245,7 @@ const Footer = (props) => {
           </div>
           <div className="footer-bottom">
             <div className="footer-copyright">
-              <span>&amp;copy; 2026 Wok Profit. All rights reserved.</span>
+              <span>&copy; 2026 Wok Profit. All rights reserved.</span>
             </div>
             <div className="footer-legal">
               <a href="#">
