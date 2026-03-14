@@ -1,0 +1,12 @@
+.cta{
+text-align:center;
+padding:80px;
+background:#111;
+color:white;
+}
+
+.cta button{
+margin-top:20px;
+padding:12px 24px;
+font-size:16px;
+}
