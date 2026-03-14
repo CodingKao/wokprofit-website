@@ -1,5 +1,33 @@
-.analytics{
-padding:80px 20px;
-background:#fafafa;
-text-align:center;
+.analytics-section {
+  padding: 4rem 2rem;
+  background: #f9f9f9;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.carousel-slide {
+  min-width: 300px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.carousel-slide img {
+  width: 100%;
+  display: block;
+}
+
+.carousel-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background: rgba(0,0,0,0.5);
+  color: white;
 }

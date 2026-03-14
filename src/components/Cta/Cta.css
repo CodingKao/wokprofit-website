@@ -1,12 +1,27 @@
-.cta{
-text-align:center;
-padding:80px;
-background:#111;
-color:white;
+.cta-section {
+  background-color: #B23ADE;
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
 }
 
-.cta button{
-margin-top:20px;
-padding:12px 24px;
-font-size:16px;
+.cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.btn-primary {
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  background-color: white;
+  color: #B23ADE;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
 }
