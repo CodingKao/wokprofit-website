@@ -4,7 +4,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>© 2026 Wok Profit</p>
+      <p>© 2026 Wok Profit.  All rights reserved.</p>
     </footer>
   );
 };
