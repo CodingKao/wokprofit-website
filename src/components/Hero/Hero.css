@@ -1,155 +1,189 @@
-/* HERO SECTION */
-
 .hero-section {
-  position: relative;
-  height: 90vh;
-  width: 100%;
-  overflow: hidden;
+  padding: 50px 0;
+  background: #f7f4f5; /* soft warm background that matches red theme */
 }
 
-/* SLIDES */
+/* MAIN LAYOUT */
 
-.hero-slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.hero-container {
+  max-width: 1300px;
+  margin: auto;
 
-  background-size: cover;
-  background-position: center;
+  display: grid;
+  grid-template-columns: 62% 38%;
 
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.hero-slide.active {
-  opacity: 1;
-  z-index: 1;
-}
-
-/* DARK OVERLAY */
-
-.hero-overlay {
-  width: 100%;
-  height: 100%;
-
-  background: linear-gradient(
-    rgba(0,0,0,0.65),
-    rgba(0,0,0,0.45)
-  );
-
-  display: flex;
   align-items: center;
+
+  gap: 0px;
+
+  padding: 0 40px;
 }
 
-/* CONTENT */
+/* HERO TEXT */
 
-.hero-content {
-  max-width: 650px;
-  margin-left: 10%;
-  color: white;
+.hero-text h1 {
+  font-size: 3.4rem;
+  line-height: 1.15;
+  margin-bottom: 24px;
 }
 
-/* BADGE */
+.hero-text p {
+  font-size: 1.5rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 560px;
+}
 
 .hero-badge {
-  background: #c8102e;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
   display: inline-block;
+
+  background: #ffe5ea; /* soft red tint */
+  color: #a80e26; /* darker red than button */
+
+  padding: 8px 16px;
+
+  border-radius: 20px;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
   margin-bottom: 20px;
 }
 
-/* TITLE */
-
-.hero-content h1 {
-  font-size: 3rem;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-
-/* TEXT */
-
-.hero-content p {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  color: #e5e5e5;
-}
-
-/* BUTTONS */
+/* CTA BUTTONS */
 
 .hero-actions {
   display: flex;
-  gap: 15px;
+  gap: 18px;
 }
 
-.btn {
-  padding: 14px 26px;
-  border-radius: 6px;
+.hero-btn {
+  padding: 16px 30px;
+
+  border-radius: 10px;
+
   font-weight: 600;
+
+  font-size: 1rem;
+
   text-decoration: none;
-  transition: all 0.3s ease;
+
+  transition: 0.25s ease;
 }
 
-.btn-primary {
+.hero-btn.primary {
   background: #c8102e;
   color: white;
 }
 
-.btn-primary:hover {
-  background: #a50e25;
+.hero-btn.primary:hover {
+  background: #a80e26;
+  transform: translateY(-2px);
 }
 
-.btn-outline {
-  border: 2px solid white;
+.hero-btn.secondary {
+  border: 2px solid #c8102e;
+  color: #c8102e;
+}
+
+.hero-btn.secondary:hover {
+  background: #c8102e;
   color: white;
 }
 
-.btn-outline:hover {
-  background: white;
-  color: black;
+/* GRAPH AREA */
+
+.hero-graph {
+  position: relative;
+  max-width: 800px;
 }
 
-/* DOT INDICATORS */
+.hero-graph img {
+  width: 130%;
+  border-radius: 25px;
+}
 
-.hero-dots {
+/* KPI CARDS */
+
+.kpi-card {
   position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
+
+  background: white;
+
+  padding: 18px 22px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+
+  animation: float 4s ease-in-out infinite;
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
-  background: rgba(255,255,255,0.4);
-  border-radius: 50%;
-  cursor: pointer;
+.kpi-label {
+  font-size: 0.85rem;
+  color: #777;
 }
 
-.active-dot {
-  background: #c8102e;
+.kpi-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2ca24c;
+}
+
+/* KPI POSITIONS — NO OVERLAP */
+
+.food {
+  bottom: 15px;
+  left: 10px;
+}
+
+.profit {
+  top: 10px;
+  right: 10px;
+}
+
+.labor {
+  bottom: 120px;
+  left: -30px;
+}
+
+/* FLOAT ANIMATION */
+
+@keyframes float {
+
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+
 }
 
 /* MOBILE */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
-  .hero-content {
-    margin: 0 20px;
+  .hero-container {
+    grid-template-columns: 1fr;
   }
 
-  .hero-content h1 {
-    font-size: 2rem;
+  .hero-text h1 {
+    font-size: 2.4rem;
   }
 
-  .hero-content p {
-    font-size: 1rem;
+  .hero-graph {
+    margin-top: 40px;
   }
 
 }

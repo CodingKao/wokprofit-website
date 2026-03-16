@@ -1,48 +1,56 @@
 /* src/components/Navbar/Navbar.css */
 
+/* --- Navbar main --- */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 1rem 2rem;
-
-  background: transparent;
-
+  justify-content: center; /* center container */
   z-index: 1000;
-
+  background: transparent;
   transition: all 0.3s ease;
 }
 
+/* --- Navbar container for alignment --- */
+.navbar-container {
+  width: 100%;
+  max-width: 1300px; /* same as Hero max-width */
+  padding: 0 40px; /* same left/right padding as Hero */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Navbar background when scrolled */
 .navbar-scrolled {
   background: #ffffff;
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
+/* Logo */
 .navbar-logo {
   height: 50px;
 }
 
+/* Nav links */
 .navbar-right {
   display: flex;
   gap: 2rem;
   list-style: none;
 }
 
+/* Links styling */
 .navbar-right li a {
   text-decoration: none;
   color: #000;
   font-weight: 500;
   position: relative;
+  transition: 0.2s ease;
 }
 
 /* underline animation */
-
 .navbar-right li a::after {
   content: "";
   position: absolute;
@@ -59,13 +67,25 @@
 }
 
 /* active section highlight */
-
 .active-link {
   color: #c8102e;
 }
 
-/* hamburger menu */
+/* CTA Button */
+.cta-btn a {
+  background-color: #c8102e; /* same as Boost Margins button */
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
 
+.cta-btn a:hover {
+  background-color: #a50e25;
+}
+
+/* Hamburger menu */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -80,10 +100,8 @@
   transition: 0.3s;
 }
 
-/* mobile */
-
+/* Mobile */
 @media (max-width: 768px) {
-
   .hamburger {
     display: flex;
   }
@@ -92,18 +110,12 @@
     position: absolute;
     top: 80px;
     right: 0;
-
     background: white;
-
     flex-direction: column;
-
     width: 220px;
-
     padding: 20px;
-
     transform: translateX(100%);
     transition: transform 0.3s ease;
-
     box-shadow: -2px 0 10px rgba(0,0,0,0.1);
   }
 
@@ -112,16 +124,7 @@
   }
 
   .cta-btn a {
-  background-color: #c8102e;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: background 0.3s;
-}
-
-.cta-btn a:hover {
-  background-color: #a50e25;
-}
-
+    padding: 12px 20px;
+    border-radius: 6px;
+  }
 }

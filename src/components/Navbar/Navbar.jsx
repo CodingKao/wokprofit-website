@@ -1,5 +1,7 @@
+// src/components/Navbar/Navbar.jsx
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
+import logo from "../../assets/images/logo.png";
 
 const Navbar = () => {
   const [active, setActive] = useState("hero");
@@ -28,40 +30,80 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
-      <div className="navbar-left">
-        <img src="/logo.png" alt="Wok Profit Logo" className="navbar-logo" />
-      </div>
+      <div className="navbar-container">
+        {/* LOGO */}
+        <div className="navbar-left">
+          <a href="#hero">
+            <img src={logo} alt="Wok Profit Logo" className="navbar-logo" />
+          </a>
+        </div>
 
-      <div
-        className={`hamburger ${menuOpen ? "active" : ""}`}
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+        {/* HAMBURGER */}
+        <div
+          className={`hamburger ${menuOpen ? "active" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
 
-      <ul className={`navbar-right ${menuOpen ? "open" : ""}`}>
-        <li>
-          <a href="#hero" className={active === "hero" ? "active-link" : ""} onClick={() => setMenuOpen(false)}>Home</a>
-        </li>
-        <li>
-          <a href="#services" className={active === "services" ? "active-link" : ""} onClick={() => setMenuOpen(false)}>Services</a>
-        </li>
-        <li>
-          <a href="#pricing" className={active === "pricing" ? "active-link" : ""} onClick={() => setMenuOpen(false)}>Pricing</a>
-        </li>
-        <li>
-          <a href="#analytics" className={active === "analytics" ? "active-link" : ""} onClick={() => setMenuOpen(false)}>Analytics</a>
-        </li>
-        <li>
-          <a href="#contact" className={active === "contact" ? "active-link" : ""} onClick={() => setMenuOpen(false)}>Contact</a>
-        </li>
-        {/* CTA Button */}
-        <li className="cta-btn">
-          <a href="#contact">Book Free Audit</a>
-        </li>
-      </ul>
+        {/* NAV LINKS */}
+        <ul className={`navbar-right ${menuOpen ? "open" : ""}`}>
+          <li>
+            <a
+              href="#hero"
+              className={active === "hero" ? "active-link" : ""}
+              onClick={() => setMenuOpen(false)}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="#services"
+              className={active === "services" ? "active-link" : ""}
+              onClick={() => setMenuOpen(false)}
+            >
+              Services
+            </a>
+          </li>
+          <li>
+            <a
+              href="#pricing"
+              className={active === "pricing" ? "active-link" : ""}
+              onClick={() => setMenuOpen(false)}
+            >
+              Pricing
+            </a>
+          </li>
+          <li>
+            <a
+              href="#analytics"
+              className={active === "analytics" ? "active-link" : ""}
+              onClick={() => setMenuOpen(false)}
+            >
+              Analytics
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              className={active === "contact" ? "active-link" : ""}
+              onClick={() => setMenuOpen(false)}
+            >
+              Contact
+            </a>
+          </li>
+
+          {/* CTA BUTTON */}
+          <li className="cta-btn">
+            <a href="#contact" onClick={() => setMenuOpen(false)}>
+              Get Started
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };

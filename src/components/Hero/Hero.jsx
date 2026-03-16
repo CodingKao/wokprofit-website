@@ -1,106 +1,87 @@
 // src/components/Hero/Hero.jsx
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Hero.css";
 
-const slides = [
-  {
-    badge: "Fractional Controller Services",
-    title: "Enterprise-Level Financial Strategy for Restaurant Groups",
-    description:
-      "Transform complex restaurant data into executive-level insights. Our fractional controller services help multi-location restaurants scale profitably with advanced financial analytics.",
-    image: "<INSERT IMAGE: upscale restaurant group / financial dashboard>",
-    primaryBtn: "Book Free Audit",
-    primaryLink: "#contact",
-    secondaryBtn: "View Services",
-    secondaryLink: "#services",
-  },
-
-  {
-    badge: "Restaurant Profit Optimization",
-    title: "Increase Restaurant Profit Margins with Data",
-    description:
-      "Most restaurants lose profit through hidden inefficiencies. Wok Profit analyzes food costs, labor metrics, and menu performance to unlock hidden margins.",
-    image: "<INSERT IMAGE: chef plating food / restaurant kitchen>",
-    primaryBtn: "Boost My Margins",
-    primaryLink: "#pricing",
-    secondaryBtn: "See Pricing",
-    secondaryLink: "#pricing",
-  },
-
-  {
-    badge: "Financial Intelligence for Owners",
-    title: "Understand Your Restaurant Numbers Like Never Before",
-    description:
-      "Stop guessing your profitability. Our analytics dashboards give restaurant owners clear financial insights to make smarter decisions every month.",
-    image: "<INSERT IMAGE: restaurant owner reviewing laptop data>",
-    primaryBtn: "Try Profit Calculator",
-    primaryLink: "#calculator",
-    secondaryBtn: "Learn More",
-    secondaryLink: "#services",
-  },
-];
+import graph from "../../assets/images/graph.jpg";
 
 const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section id="hero" className="hero-section">
 
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`hero-slide ${
-            index === currentSlide ? "active" : ""
-          }`}
-          style={{
-            backgroundImage: `url(${slide.image})`,
-          }}
-        >
-          <div className="hero-overlay">
+      <div className="hero-container">
 
-            <div className="hero-content">
+        {/* LEFT SIDE - TEXT */}
 
-              <span className="hero-badge">{slide.badge}</span>
+        <div className="hero-text">
 
-              <h1>{slide.title}</h1>
+          <span className="hero-badge">
+            Wok Profit Restaurant Profit Optimization
+          </span>
 
-              <p>{slide.description}</p>
+          <h1>
+            Turn Your Restaurant Data Into Higher Margins
+          </h1>
 
-              <div className="hero-actions">
-                <a href={slide.primaryLink} className="btn btn-primary">
-                  {slide.primaryBtn}
-                </a>
+          <p>
+            Most restaurants lose profit through hidden inefficiencies.
+            Wok Profit analyzes food costs, labor metrics, and menu
+            performance to uncover hidden margins and help restaurant
+            owners make smarter financial decisions.
+          </p>
 
-                <a href={slide.secondaryLink} className="btn btn-outline">
-                  {slide.secondaryBtn}
-                </a>
-              </div>
+          <div className="hero-actions">
 
-            </div>
+            <a href="#contact" className="hero-btn primary">
+              Boost Margins
+            </a>
+
+            <a href="#services" className="hero-btn secondary">
+              View Services
+            </a>
 
           </div>
+
         </div>
-      ))}
 
-      {/* Slider indicators */}
+        {/* RIGHT SIDE - GRAPH */}
 
-      <div className="hero-dots">
-        {slides.map((_, index) => (
-          <span
-            key={index}
-            className={`dot ${index === currentSlide ? "active-dot" : ""}`}
-            onClick={() => setCurrentSlide(index)}
-          ></span>
-        ))}
+        <div className="hero-graph">
+
+          <img src={graph} alt="Restaurant analytics dashboard" />
+
+          {/* KPI 1 */}
+
+          <div className="kpi-card food">
+
+            <span className="kpi-label">Food Cost</span>
+
+            <span className="kpi-value">28.4%</span>
+
+          </div>
+
+          {/* KPI 2 */}
+
+          <div className="kpi-card profit">
+
+            <span className="kpi-label">Weekly Profit</span>
+
+            <span className="kpi-value">+$4,250</span>
+
+          </div>
+
+          {/* KPI 3 */}
+
+          <div className="kpi-card labor">
+
+            <span className="kpi-label">Labor Cost</span>
+
+            <span className="kpi-value">24.1%</span>
+
+          </div>
+
+        </div>
+
       </div>
 
     </section>
