@@ -3,31 +3,132 @@
   background: #f9f9f9;
 }
 
-.carousel {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  gap: 1rem;
-  margin-top: 2rem;
+/* SAME CONTAINER ALIGNMENT AS SERVICES */
+
+.analytics-container {
+  max-width: 1200px;
+  margin: 0 auto;   /* centers entire section */
 }
 
+/* TITLE */
+
+.analytics-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+/* SUBTITLE */
+
+.analytics-subtitle {
+  text-align: center;
+  margin-top: 10px;
+  color: #555;
+}
+
+/* WRAPPER */
+
+.carousel-wrapper {
+  max-width: 900px;   /* controls carousel width */
+  margin: 2rem auto;  /* centers it horizontally */
+}
+
+/* TRACK */
+
+.carousel-track {
+  display: flex;
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+/* SLIDE */
+
 .carousel-slide {
-  min-width: 300px;
+  min-width: 100%;
   position: relative;
   border-radius: 10px;
   overflow: hidden;
 }
 
+/* IMAGE */
+
 .carousel-slide img {
   width: 100%;
+  height: 420px;
+  object-fit: cover;
   display: block;
 }
+
+/* OVERLAY */
 
 .carousel-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 1rem;
-  background: rgba(0,0,0,0.5);
+  width: 100%;
+
+  padding: 1.5rem;
+
+  background: rgba(0,0,0,0.55);
   color: white;
+}
+
+/* TEXT */
+
+.carousel-overlay h4 {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+}
+
+/* CONTROLS */
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* BUTTON */
+
+.carousel-btn {
+  background: #c8102e;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.carousel-btn:hover {
+  background: #a50e25;
+}
+
+/* DOT INDICATORS */
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* DOT */
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+/* ACTIVE DOT */
+
+.dot.active {
+  background-color: #c8102e;
 }
