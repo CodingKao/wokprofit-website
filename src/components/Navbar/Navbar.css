@@ -16,8 +16,8 @@
 /* --- Navbar container for alignment --- */
 .navbar-container {
   width: 100%;
-  max-width: 1300px; /* same as Hero max-width */
-  padding: 0 40px; /* same left/right padding as Hero */
+  max-width: 1500px; /* same as Hero max-width */
+  padding: 10px 0px; /* same left/right padding as Hero */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,6 +32,7 @@
 /* Logo */
 .navbar-logo {
   height: 50px;
+  margin-left: 140px; /* pushes it to the right */
 }
 
 /* Nav links */
@@ -74,15 +75,22 @@
 /* CTA Button */
 .cta-btn a {
   background-color: #c8102e; /* same as Boost Margins button */
-  color: #fff;
-  padding: 10px 22px;
+  color: #fff;                /* White font */
+  font-size: 1.10rem;         /* Slightly bigger */
+  padding: 12px 26px;         /* Adjusted for bigger text */
   border-radius: 6px;
   font-weight: 600;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Only target the CTA link inside .cta-btn */
+.navbar-right li.cta-btn > a {
+  color: #ffffff; /* White text */
 }
 
 .cta-btn a:hover {
   background-color: #a50e25;
+  transform: translateY(-2px); /* Slight hover lift for effect */
 }
 
 /* Hamburger menu */
