@@ -1,36 +1,189 @@
 .hero-section {
-  padding: 4rem 2rem;
-  display: flex;
-  justify-content: center;
+  padding: 50px 0;
+  background: #f7f4f5; /* soft warm background that matches red theme */
 }
+
+/* MAIN LAYOUT */
 
 .hero-container {
+  max-width: 1300px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 62% 38%;
+
+  align-items: center;
+
+  gap: 0px;
+
+  padding: 0 40px;
+}
+
+/* HERO TEXT */
+
+.hero-text h1 {
+  font-size: 3.4rem;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 560px;
+}
+
+.hero-badge {
+  display: inline-block;
+
+  background: #ffe5ea; /* soft red tint */
+  color: #a80e26; /* darker red than button */
+
+  padding: 8px 16px;
+
+  border-radius: 20px;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  margin-bottom: 20px;
+}
+
+/* CTA BUTTONS */
+
+.hero-actions {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1200px;
+  gap: 18px;
 }
 
-.hero-content {
-  flex: 1 1 500px;
+.hero-btn {
+  padding: 16px 30px;
+
+  border-radius: 10px;
+
+  font-weight: 600;
+
+  font-size: 1rem;
+
+  text-decoration: none;
+
+  transition: 0.25s ease;
 }
 
-.hero-visual {
-  flex: 1 1 500px;
-}
-
-.hero-actions a {
-  margin-right: 1rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
-}
-
-.btn-primary {
-  background-color: #B23ADE;
+.hero-btn.primary {
+  background: #c8102e;
   color: white;
 }
 
-.btn-outline {
-  border: 2px solid #B23ADE;
-  color: #B23ADE;
+.hero-btn.primary:hover {
+  background: #a80e26;
+  transform: translateY(-2px);
+}
+
+.hero-btn.secondary {
+  border: 2px solid #c8102e;
+  color: #c8102e;
+}
+
+.hero-btn.secondary:hover {
+  background: #c8102e;
+  color: white;
+}
+
+/* GRAPH AREA */
+
+.hero-graph {
+  position: relative;
+  max-width: 800px;
+}
+
+.hero-graph img {
+  width: 130%;
+  border-radius: 25px;
+}
+
+/* KPI CARDS */
+
+.kpi-card {
+  position: absolute;
+
+  background: white;
+
+  padding: 18px 22px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+
+  display: flex;
+  flex-direction: column;
+
+  animation: float 4s ease-in-out infinite;
+}
+
+.kpi-label {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.kpi-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2ca24c;
+}
+
+/* KPI POSITIONS — NO OVERLAP */
+
+.food {
+  bottom: 15px;
+  left: 10px;
+}
+
+.profit {
+  top: 10px;
+  right: 10px;
+}
+
+.labor {
+  bottom: 120px;
+  left: -30px;
+}
+
+/* FLOAT ANIMATION */
+
+@keyframes float {
+
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+  .hero-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-graph {
+    margin-top: 40px;
+  }
+
 }
