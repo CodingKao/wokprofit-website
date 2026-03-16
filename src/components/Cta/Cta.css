@@ -1,8 +1,8 @@
 .cta-section {
-  background-color: #B23ADE;
+  background-color: #c8102e; /* Theme red */
   color: white;
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 1rem 1rem;
 }
 
 .cta-container {
@@ -10,18 +10,30 @@
   margin: 0 auto;
 }
 
+.cta-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Button styling */
 .btn-primary {
   margin-top: 1.5rem;
   padding: 0.75rem 2rem;
-  background-color: white;
-  color: #B23ADE;
+  background-color: white; /* white button with red text */
+  color: #c8102e;
   font-weight: bold;
   border-radius: 5px;
   text-decoration: none;
   display: inline-block;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .btn-primary:hover {
   transform: scale(1.05);
+  background-color: #ffe5ea; /* subtle hover effect with light red background */
 }

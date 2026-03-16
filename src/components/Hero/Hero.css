@@ -8,14 +8,10 @@
 .hero-container {
   max-width: 1300px;
   margin: auto;
-
   display: grid;
   grid-template-columns: 62% 38%;
-
   align-items: center;
-
   gap: 0px;
-
   padding: 0 40px;
 }
 
@@ -37,18 +33,12 @@
 
 .hero-badge {
   display: inline-block;
-
   background: #ffe5ea; /* soft red tint */
   color: #a80e26; /* darker red than button */
-
   padding: 8px 16px;
-
   border-radius: 20px;
-
   font-size: 0.9rem;
-
   font-weight: 600;
-
   margin-bottom: 20px;
 }
 
