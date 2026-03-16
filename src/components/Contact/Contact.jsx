@@ -1,59 +1,62 @@
+// src/components/Contact/Contact.jsx
 import React from "react";
 import "./Contact.css";
+import logo from "../../assets/images/logo.png";
+
+// React icons for social links
+import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 
 const Contact = () => {
   return (
     <section id="contact" className="contact">
-
-      <div className="contact-header">
-        <h2>Contact Wok Profit</h2>
-        <p>Have questions about improving your restaurant profitability? Let's talk.</p>
-      </div>
-
       <div className="contact-container">
 
         {/* LEFT SIDE */}
-        <div className="contact-socials">
+        <div className="contact-left">
+          {/* Logo */}
+          <div className="contact-logo">
+            <img src={logo} alt="Wok Profit Logo" />
+          </div>
 
-          <h3>Get In Touch</h3>
-
-          <p>
-            We help restaurants analyze their financial data to increase profit
-            margins and reduce costs.
+          {/* Description */}
+          <p className="contact-description">
+            Wok Profit helps restaurants analyze their financial data to optimize profits, reduce food and labor costs, and improve overall operations. 
+            Our tools provide actionable insights on menu performance, contribution margins, labor efficiency, and cost control strategies. 
+            <br></br>
+            <br></br>
+            <p>Partner with us to unlock hidden profit opportunities and make smarter, data-driven business decisions. 
+            Whether you’re a single-location restaurant or a growing chain, Wok Profit’s dashboards and analytics empower restaurant owners to increase margins and operational efficiency.
+            </p>
           </p>
 
+          {/* Social Links */}
+          <div className="contact-social-icons">
+            <a href="#" target="_blank" rel="noreferrer"><FaFacebookF /></a>
+            <a href="#" target="_blank" rel="noreferrer"><FaInstagram /></a>
+            <a href="#" target="_blank" rel="noreferrer"><FaTwitter /></a>
+            <a href="#" target="_blank" rel="noreferrer"><FaLinkedinIn /></a>
+            <a href="#" target="_blank" rel="noreferrer"><FaYoutube /></a>
+          </div>
+
+          {/* Contact Info */}
           <div className="contact-info">
             <p><strong>Email:</strong> kao@wokprofit.com</p>
-            <p><strong>Location:</strong> Portland, Oregon</p>
-            <p><strong>Response Time:</strong> Within 24 hours</p>
           </div>
-
-          <div className="contact-links">
-            <a href="#">LinkedIn</a>
-            <a href="#">Schedule Call</a>
-          </div>
-
         </div>
 
-        {/* RIGHT SIDE */}
-        <form className="contact-form">
-
-          <input type="text" placeholder="Full Name" required />
-
-          <input type="text" placeholder="Business Name" />
-
-          <input type="email" placeholder="Email Address" required />
-
-          <input type="tel" placeholder="Phone Number" />
-
-          <textarea placeholder="How can we help your business?" rows="5"></textarea>
-
-          <button type="submit">Send Message</button>
-
-        </form>
+        {/* RIGHT SIDE FORM */}
+        <div className="contact-right">
+          <form className="contact-form">
+            <input type="text" placeholder="Full Name" required />
+            <input type="text" placeholder="Business Name" />
+            <input type="email" placeholder="Email Address" required />
+            <input type="tel" placeholder="Phone Number" />
+            <textarea placeholder="How can we help your business?" rows="6"></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
 
       </div>
-
     </section>
   );
 };
