@@ -20,14 +20,11 @@ const Hero = () => {
           </span>
 
           <h1>
-            Turn Your Restaurant Data Into Higher Margins
+            Financial Clarity for Restaurant Owners
           </h1>
 
           <p>
-            Most restaurants lose profit through hidden inefficiencies.
-            Wok Profit analyzes food costs, labor metrics, and menu
-            performance to uncover hidden margins and help restaurant
-            owners make smarter financial decisions.
+            We help restaurants understand their numbers, control food and labor costs, and improve profitability through clear financial reporting and analysis.
           </p>
 
           <div className="hero-actions">

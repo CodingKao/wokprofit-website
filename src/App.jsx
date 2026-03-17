@@ -2,8 +2,9 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
+import Problem from "./components/Problem/Problem";
 import Services from "./components/Services/Services";
-import Pricing from "./components/Pricing/Pricing";
+import About from "./components/About/About";
 import Analytics from "./components/Analytics/Analytics";
 import Cta from "./components/Cta/Cta";
 import Contact from "./components/Contact/Contact";
@@ -16,8 +17,9 @@ function App() {
     <div className="App">
       <Navbar />
       <Hero />
+      <Problem />
       <Services />
-      <Pricing />
+      <About />
       <Analytics />
       <Cta />
       <Contact />

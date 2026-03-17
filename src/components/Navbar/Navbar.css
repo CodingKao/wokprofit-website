@@ -1,57 +1,56 @@
 /* src/components/Navbar/Navbar.css */
 
-/* --- Navbar main --- */
+/* --- Navbar Main --- */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: center; /* center container */
+  justify-content: center;
   z-index: 1000;
   background: transparent;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
-/* --- Navbar container for alignment --- */
+.navbar-scrolled {
+  background: var(--bg-white);
+  box-shadow: var(--shadow-soft);
+}
+
+/* --- Navbar Container --- */
 .navbar-container {
   width: 100%;
-  max-width: 1500px; /* same as Hero max-width */
-  padding: 10px 0px; /* same left/right padding as Hero */
+  max-width: 1480px; /* aligns with Hero section */
+  padding: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Navbar background when scrolled */
-.navbar-scrolled {
-  background: #ffffff;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-}
-
-/* Logo */
+/* --- Logo --- */
 .navbar-logo {
   height: 50px;
-  margin-left: 140px; /* pushes it to the right */
+  margin-left: 140px; /* adjust logo position */
 }
 
-/* Nav links */
+/* --- Nav Links --- */
 .navbar-right {
   display: flex;
   gap: 2rem;
   list-style: none;
 }
 
-/* Links styling */
+/* Links */
 .navbar-right li a {
   text-decoration: none;
-  color: #000;
+  color: var(--text-dark);
   font-weight: 500;
   position: relative;
-  transition: 0.2s ease;
+  transition: var(--transition);
 }
 
-/* underline animation */
+/* Underline animation */
 .navbar-right li a::after {
   content: "";
   position: absolute;
@@ -59,7 +58,7 @@
   height: 2px;
   left: 0;
   bottom: -5px;
-  background: #c8102e;
+  background: var(--primary);
   transition: width 0.3s ease;
 }
 
@@ -67,33 +66,28 @@
   width: 100%;
 }
 
-/* active section highlight */
+/* Active link highlight */
 .active-link {
-  color: #c8102e;
+  color: var(--primary);
 }
 
 /* CTA Button */
 .cta-btn a {
-  background-color: #c8102e; /* same as Boost Margins button */
-  color: #fff;                /* White font */
-  font-size: 1.10rem;         /* Slightly bigger */
-  padding: 12px 26px;         /* Adjusted for bigger text */
+  background-color: var(--primary);
+  color: var(--text-white);
+  font-size: 1.1rem;
+  padding: 12px 26px;
   border-radius: 6px;
   font-weight: 600;
   transition: background 0.3s, transform 0.2s;
 }
 
-/* Only target the CTA link inside .cta-btn */
-.navbar-right li.cta-btn > a {
-  color: #ffffff; /* White text */
-}
-
 .cta-btn a:hover {
-  background-color: #a50e25;
-  transform: translateY(-2px); /* Slight hover lift for effect */
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
 }
 
-/* Hamburger menu */
+/* --- Hamburger Menu --- */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -103,12 +97,12 @@
 .hamburger span {
   height: 3px;
   width: 25px;
-  background: #000;
-  margin: 4px;
-  transition: 0.3s;
+  background: var(--text-dark);
+  margin: 4px 0;
+  transition: var(--transition);
 }
 
-/* Mobile */
+/* --- Mobile --- */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -118,10 +112,11 @@
     position: absolute;
     top: 80px;
     right: 0;
-    background: white;
-    flex-direction: column;
     width: 220px;
     padding: 20px;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--bg-white);
     transform: translateX(100%);
     transition: transform 0.3s ease;
     box-shadow: -2px 0 10px rgba(0,0,0,0.1);
@@ -134,5 +129,6 @@
   .cta-btn a {
     padding: 12px 20px;
     border-radius: 6px;
+    text-align: center;
   }
 }
