@@ -25,7 +25,7 @@ const Problem = () => {
 
         {/* RIGHT TEXT */}
         <div className="problem-text">
-          <h2>Is Your Restaurant Struggling?</h2>
+          <h2>You’re Not Losing Revenue — You’re Losing Profit</h2>
           <p>
             Running a restaurant is challenging, and many owners face common issues that make it hard to stay profitable and organized. 
             Are you dealing with any of the following problems?
