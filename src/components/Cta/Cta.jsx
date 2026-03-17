@@ -7,7 +7,7 @@ const Cta = () => {
     <section className="cta-section">
       <div className="cta-container">
         <h2>Ready to Maximize Your Restaurant Profits?</h2>
-        <p>Join hundreds of Asian restaurant owners who have unlocked an average of 15% in hidden margins. Our data-driven approach takes the guesswork out of your kitchen operations..</p>
+        <p>We help restaurant owners identify hidden profit opportunities and improve margins through data-driven insights.</p>
         <a href="#contact" className="btn-primary">Book a Consultation</a>
       </div>
     </section>
