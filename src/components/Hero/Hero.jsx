@@ -30,7 +30,7 @@ const Hero = () => {
           <div className="hero-actions">
 
             <a href="#contact" className="hero-btn primary">
-              Boost Margins
+              Book a Free Profit Review
             </a>
 
             <a href="#services" className="hero-btn secondary">
