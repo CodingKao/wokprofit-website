@@ -13,7 +13,7 @@ const Services = () => {
     {
       icon: <LuCalculator />,
       title: "Profit Visibility",
-      description: "Provide foundational clarity on finances.",
+      description: "Know exactly where your money is going every month.",
       bullets: [
         "Monthly Bookkeeping",
         "Bank & Credit Card Reconciliation",
@@ -27,7 +27,7 @@ const Services = () => {
       icon: <FiPieChart />,
       title: "Profit Optimization",
       description:
-        "Use financial data to improve profitability and operational efficiency.",
+        "Reduce food and labor costs and improve margins.",
       bullets: [
         "Everything in Profit Visibility",
         "Prime Cost Tracking",
@@ -41,7 +41,7 @@ const Services = () => {
     {
       icon: <GiMoneyStack />,
       title: "Profit Advisory",
-      description: "Strategic financial guidance and advanced profit improvement.",
+      description: "Strategic financial guidance to maximize profit and scale.",
       bullets: [
         "Everything in Profit Optimization",
         "Menu Engineering",
@@ -71,9 +71,9 @@ const Services = () => {
   return (
     <section id="services" className="services-section">
       <div className="services-container container">
-        <h2 className="section-title">Take Control of Your Restaurant Finances Today</h2>
+        <h2 className="section-title">Services & Pricing</h2>
         <p className="section-subtitle">
-          Gain complete profit visibility, optimize your menu and operations, and receive expert profit advisory to maximize your restaurant’s growth.
+          Most restaurants identify $2,000–$10,000/month in hidden profit opportunities.
         </p>
 
         {/* MONTHLY / YEARLY TOGGLE */}
