@@ -20,11 +20,11 @@ const Hero = () => {
           </span>
 
           <h1>
-            Financial Clarity for Restaurant Owners
+            Increase Your Restaurant’s Profit — Not Just Your Sales
           </h1>
 
           <p>
-            We help restaurants understand their numbers, control food and labor costs, and improve profitability through clear financial reporting and analysis.
+            We help restaurant owners identify where they’re losing money, control food and labor costs, and increase profitability through clear financial insights.
           </p>
 
           <div className="hero-actions">
