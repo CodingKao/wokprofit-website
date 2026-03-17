@@ -1,0 +1,96 @@
+.problem-section {
+  padding: 80px 5%;
+  background: #f9f9f9;
+}
+
+.problem-container {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Reduced gap for tighter layout */
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* LEFT IMAGE */
+.problem-image {
+  flex: 0 0 40%; /* Image takes 40% of width */
+  display: flex;
+  justify-content: center;
+}
+
+.problem-image img {
+  width: 100%;
+  max-width: 300px; /* Premium-sized image */
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* RIGHT TEXT */
+.problem-text {
+  flex: 1; /* Text takes remaining space */
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.problem-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.problem-text p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.problem-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.problem-text li {
+  display: flex;
+  align-items: flex-start;
+  font-size: 1.05rem;
+  margin-bottom: 15px;
+}
+
+.problem-text .checkmark {
+  color: #c8102e;
+  margin-right: 12px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.problem-text .point-text {
+  line-height: 1.4;
+  color: #333;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .problem-container {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .problem-image {
+    flex: 1 1 100%;
+  }
+
+  .problem-text {
+    flex: 1 1 100%;
+    padding: 25px;
+  }
+
+  .problem-image img {
+    max-width: 250px;
+  }
+}

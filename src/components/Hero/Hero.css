@@ -1,40 +1,49 @@
+/* src/components/Hero/Hero.css */
+
+/* --- Hero Section --- */
 .hero-section {
-  padding: 50px 0;
-  background: #f7f4f5; /* soft warm background that matches red theme */
+  padding: 120px 0 50px 0; /* top padding = navbar height + spacing */
+  background: var(--bg-light);
 }
 
-/* MAIN LAYOUT */
+/* --- Container / Layout --- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--padding-horizontal);
+}
 
 .hero-container {
-  max-width: 1300px;
-  margin: auto;
+  max-width: var(--max-width); /* same as navbar */
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 62% 38%;
   align-items: center;
-  gap: 0px;
-  padding: 0 40px;
+  gap: 0;
+  padding: 0 20px; /* add same left/right padding as Navbar */
 }
 
-/* HERO TEXT */
-
+/* --- Hero Text --- */
 .hero-text h1 {
   font-size: 3.5rem;
   line-height: 1.15;
   margin-bottom: 24px;
+  color: var(--text-dark);
 }
 
 .hero-text p {
   font-size: 1.5rem;
-  color: #555;
+  color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 40px;
   max-width: 560px;
 }
 
+/* --- Badge --- */
 .hero-badge {
   display: inline-block;
-  background: #ffe5ea; /* soft red tint */
-  color: #a80e26; /* darker red than button */
+  background: var(--bg-light-red); /* soft red tint */
+  color: var(--primary-dark);
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 0.9rem;
@@ -42,8 +51,7 @@
   margin-bottom: 20px;
 }
 
-/* CTA BUTTONS */
-
+/* --- CTA Buttons --- */
 .hero-actions {
   display: flex;
   gap: 18px;
@@ -51,40 +59,35 @@
 
 .hero-btn {
   padding: 16px 30px;
-
   border-radius: 10px;
-
   font-weight: 600;
-
   font-size: 1rem;
-
   text-decoration: none;
-
-  transition: 0.25s ease;
+  transition: transform 0.25s ease, background 0.25s ease;
+  text-align: center;
 }
 
 .hero-btn.primary {
-  background: #c8102e;
-  color: white;
+  background: var(--primary);
+  color: var(--text-white);
 }
 
 .hero-btn.primary:hover {
-  background: #a80e26;
+  background: var(--primary-dark);
   transform: translateY(-2px);
 }
 
 .hero-btn.secondary {
-  border: 2px solid #c8102e;
-  color: #c8102e;
+  border: 2px solid var(--primary);
+  color: var(--primary);
 }
 
 .hero-btn.secondary:hover {
-  background: #c8102e;
-  color: white;
+  background: var(--primary);
+  color: var(--text-white);
 }
 
-/* GRAPH AREA */
-
+/* --- Graph/Image Area --- */
 .hero-graph {
   position: relative;
   max-width: 800px;
@@ -95,38 +98,30 @@
   border-radius: 25px;
 }
 
-/* KPI CARDS */
-
+/* --- KPI Cards --- */
 .kpi-card {
   position: absolute;
-
-  background: white;
-
+  background: var(--text-white);
   padding: 18px 22px;
-
   border-radius: 12px;
-
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-
+  box-shadow: var(--shadow-medium);
   display: flex;
   flex-direction: column;
-
   animation: float 4s ease-in-out infinite;
 }
 
 .kpi-label {
   font-size: 0.85rem;
-  color: #777;
+  color: gray;
 }
 
 .kpi-value {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2ca24c;
+  color: green;
 }
 
-/* KPI POSITIONS — NO OVERLAP */
-
+/* --- KPI Positions --- */
 .food {
   bottom: 15px;
   left: 10px;
@@ -142,28 +137,15 @@
   left: -30px;
 }
 
-/* FLOAT ANIMATION */
-
+/* --- Float Animation --- */
 @keyframes float {
-
-  0% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-12px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
-
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
 }
 
-/* MOBILE */
-
+/* --- Mobile --- */
 @media (max-width: 900px) {
-
   .hero-container {
     grid-template-columns: 1fr;
   }
@@ -175,5 +157,4 @@
   .hero-graph {
     margin-top: 40px;
   }
-
 }
