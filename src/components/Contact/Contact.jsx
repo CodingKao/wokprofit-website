@@ -13,23 +13,18 @@ const Contact = () => {
 
         {/* LEFT SIDE */}
         <div className="contact-left">
-          {/* Logo */}
           <div className="contact-logo">
             <img src={logo} alt="Wok Profit Logo" />
           </div>
 
-          {/* Description */}
           <p className="contact-description">
             Wok Profit helps restaurants analyze their financial data to optimize profits, reduce food and labor costs, and improve overall operations. 
             Our tools provide actionable insights on menu performance, contribution margins, labor efficiency, and cost control strategies. 
-            <br></br>
-            <br></br>
-            <p>Partner with us to unlock hidden profit opportunities and make smarter, data-driven business decisions. 
+            <br /><br />
+            Partner with us to unlock hidden profit opportunities and make smarter, data-driven business decisions. 
             Whether you’re a single-location restaurant or a growing chain, Wok Profit’s dashboards and analytics empower restaurant owners to increase margins and operational efficiency.
-            </p>
           </p>
 
-          {/* Social Links */}
           <div className="contact-social-icons">
             <a href="#" target="_blank" rel="noreferrer"><FaFacebookF /></a>
             <a href="#" target="_blank" rel="noreferrer"><FaInstagram /></a>
@@ -38,7 +33,6 @@ const Contact = () => {
             <a href="#" target="_blank" rel="noreferrer"><FaYoutube /></a>
           </div>
 
-          {/* Contact Info */}
           <div className="contact-info">
             <p><strong>Email:</strong> kao@wokprofit.com</p>
           </div>
@@ -47,6 +41,12 @@ const Contact = () => {
         {/* RIGHT SIDE FORM */}
         <div className="contact-right">
           <form className="contact-form">
+
+            {/* Title INSIDE the form so it's perfectly centered */}
+            <h3 className="contact-form-title">
+              Start with a <strong>free Profit Review</strong> – no commitment
+            </h3>
+
             <input type="text" placeholder="Full Name" required />
             <input type="text" placeholder="Business Name" />
             <input type="email" placeholder="Email Address" required />
