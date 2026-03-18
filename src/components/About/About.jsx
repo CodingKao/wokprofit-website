@@ -1,35 +1,60 @@
 // src/components/About/About.jsx
-import React from "react";
+import React, { useState } from "react";
 import "./About.css";
-import profile from "../../assets/images/kao-pic.jpeg"; // Your photo
+import kaopic from "../../assets/images/kao-pic.jpeg";
 
 const About = () => {
+  const [flipped, setFlipped] = useState(false);
+
   return (
     <section id="about" className="about-section">
-      <div className="about-container container">
-        {/* LEFT IMAGE */}
-        <div className="about-image">
-          <img src={profile} alt="Kao - Founder of Wok Profit" />
+      <div className="about-container">
+
+        {/* LEFT - Flip Card */}
+        <div 
+          className={`flip-card ${flipped ? "flipped" : ""}`}
+          onClick={() => setFlipped(!flipped)}
+        >
+          <div className="flip-card-inner">
+
+            {/* FRONT */}
+            <div className="flip-card-front">
+              <img src={kaopic} alt="Founder" />
+              <div className="founder-badge">Founder</div>
+              <h3>Kao Saelor</h3>
+              <p>Controller • Finance • Analytics</p>
+              <span className="flip-hint">Click to learn more</span>
+            </div>
+
+            {/* BACK */}
+            <div className="flip-card-back">
+              <h3>About Me</h3>
+              <p>
+                Controller with 5+ years in accounting and a master’s in finance.
+                I specialize in turning restaurant data into profit-focused decisions.
+              </p>
+              <p>
+                Built Wok Profit to help restaurant owners control costs, improve margins,
+                and scale with clarity—without hiring a full-time CFO.
+              </p>
+            </div>
+
+          </div>
         </div>
 
-        {/* RIGHT TEXT */}
-        <div className="about-text">
-          <h2 className="section-title">About Wok Profit</h2>
-          <p className="section-subtitle">
-          </p>
+        {/* RIGHT - SHORTENED CONTENT */}
+        <div className="about-content">
+          <h2>Why Wok Profit is Different</h2>
 
-          <p>
-            Hi there! My name is Kao. I hold a Master's in Finance and have extensive experience as a Controller, with a strong background in data analytics. I started Wok Profit to help restaurant owners take control of their numbers, understand their margins, and drive profitability.
-          </p>
-
-          <p>
-            At Wok Profit, we focus on profit optimization, financial clarity, and actionable insights. By analyzing menu costs, tracking revenue streams, and identifying hidden profit opportunities, we help restaurants increase margins, reduce waste, and make smarter business decisions.
-          </p>
-
-          <p>
-            Our mission is simple: empower restaurant owners to maximize profits, reduce stress, and grow a sustainable, thriving business. With Wok Profit, you’ll gain the tools and insights needed to confidently manage your finances and unlock your restaurant’s full potential.
-          </p>
+          <ul>
+            <li>Controller-level expertise — beyond bookkeeping</li>
+            <li>Profit-first focus — not just reports</li>
+            <li>Restaurant cost & margin optimization</li>
+            <li>Data-driven decisions with real analytics</li>
+            <li>CFO-level strategy without full-time cost</li>
+          </ul>
         </div>
+
       </div>
     </section>
   );

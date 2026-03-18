@@ -99,7 +99,7 @@ const Navbar = () => {
           {/* CTA BUTTON */}
           <li className="cta-btn">
             <a href="#contact" onClick={() => setMenuOpen(false)}>
-              Get Started
+              Book A Free Profit Review
             </a>
           </li>
         </ul>

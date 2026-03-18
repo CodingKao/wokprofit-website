@@ -2,7 +2,6 @@
 
 import React from "react";
 import "./Hero.css";
-
 import graph from "../../assets/images/graph.jpg";
 
 const Hero = () => {
@@ -30,7 +29,7 @@ const Hero = () => {
           <div className="hero-actions">
 
             <a href="#contact" className="hero-btn primary">
-              Book a Free Profit Review
+              Book A Free Profit Review
             </a>
 
             <a href="#services" className="hero-btn secondary">

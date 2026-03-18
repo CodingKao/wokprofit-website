@@ -70,6 +70,15 @@
   gap: 15px;
 }
 
+/* Title inside the form, perfectly centered */
+.contact-form-title {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #c8102e; /* theme red */
+  margin-bottom: 20px;
+}
+
 .contact-form input,
 .contact-form textarea {
   padding: 14px;
