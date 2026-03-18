@@ -37,8 +37,9 @@
 /* --- Nav Links --- */
 .navbar-right {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   list-style: none;
+  margin-right: 140px; /* same as logo margin-left */
 }
 
 /* Links */
@@ -76,7 +77,7 @@
   background-color: var(--primary);
   color: var(--text-white);
   font-size: 1.1rem;
-  padding: 12px 26px;
+  padding: 12px 20px;
   border-radius: 6px;
   font-weight: 600;
   transition: background 0.3s, transform 0.2s;

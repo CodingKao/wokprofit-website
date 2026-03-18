@@ -70,15 +70,6 @@ const Navbar = () => {
           </li>
           <li>
             <a
-              href="#pricing"
-              className={active === "pricing" ? "active-link" : ""}
-              onClick={() => setMenuOpen(false)}
-            >
-              Pricing
-            </a>
-          </li>
-          <li>
-            <a
               href="#analytics"
               className={active === "analytics" ? "active-link" : ""}
               onClick={() => setMenuOpen(false)}

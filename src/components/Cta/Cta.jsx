@@ -6,9 +6,15 @@ const Cta = () => {
   return (
     <section className="cta-section">
       <div className="cta-container">
-        <h2>Ready to Maximize Your Restaurant Profits?</h2>
-        <p>We help restaurant owners identify hidden profit opportunities and improve margins through data-driven insights.</p>
-        <a href="#contact" className="btn-primary">Book a Consultation</a>
+        <h2 className="cta-title">
+          Ready to <span>Maximize Your Restaurant Profits?</span>
+        </h2>
+        <p className="cta-subtitle">
+          We help restaurant owners uncover hidden profit opportunities and boost margins through precise, data-driven insights.
+        </p>
+        <a href="#contact" className="btn-primary">
+          Book A Free Profit Review
+        </a>
       </div>
     </section>
   );
