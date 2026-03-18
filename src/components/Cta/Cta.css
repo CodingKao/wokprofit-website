@@ -1,39 +1,66 @@
 .cta-section {
-  background-color: #c8102e; /* Theme red */
+  background: linear-gradient(135deg, #c8102e, #a50e25); /* premium gradient red */
   color: white;
   text-align: center;
-  padding: 1rem 1rem;
+  padding: 8px 2px; /* more spacious padding for premium feel */
+  position: relative;
+  overflow: hidden;
 }
 
 .cta-container {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
+  backdrop-filter: blur(2px);
+  z-index: 2;
 }
 
-.cta-section h2 {
-  font-size: 2rem;
+.cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
-.cta-section p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+.cta-title span {
+  display: block;
+  font-weight: 900;
+}
+
+.cta-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  opacity: .9; /* subtle softer text for premium look */
 }
 
 /* Button styling */
 .btn-primary {
-  margin-top: 1.5rem;
-  padding: 0.75rem 2rem;
-  background-color: white; /* white button with red text */
+  padding: 0.85rem 2.25rem;
+  font-size: 1.1rem;
+  font-weight: 700;
   color: #c8102e;
-  font-weight: bold;
-  border-radius: 5px;
+  background: white;
+  border-radius: 50px; /* pill-shaped for premium feel */
   text-decoration: none;
   display: inline-block;
-  transition: transform 0.2s ease, background 0.2s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* subtle depth */
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .btn-primary:hover {
-  transform: scale(1.05);
-  background-color: #ffe5ea; /* subtle hover effect with light red background */
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  background-color: #ffe5ea; /* light hover effect */
+  color: #a50e25;
+}
+
+/* Optional: responsive text */
+@media (max-width: 768px) {
+  .cta-title {
+    font-size: 2rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1.1rem;
+  }
 }
