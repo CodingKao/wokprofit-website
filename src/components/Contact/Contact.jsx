@@ -36,9 +36,9 @@ const Contact = () => {
             <a href="#" target="_blank" rel="noreferrer"><FaFacebookF /></a>
             <a href="#" target="_blank" rel="noreferrer"><FaInstagram /></a>
             <a href="#" target="_blank" rel="noreferrer"><FaTwitter /></a>
-            <a href="#" target="_blank" rel="noreferrer"><FaLinkedinIn /></a>
+            <a href="https://www.linkedin.com/in/kao-saelor/" target="_blank" rel="noreferrer"><FaLinkedinIn /></a>
             <a href="#" target="_blank" rel="noreferrer"><FaYoutube /></a>
-            <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noreferrer"><FaGithub /></a>
+            <a href="https://github.com/CodingKao" target="_blank" rel="noreferrer"><FaGithub /></a>
           </div>
 
           <div className="contact-info">
