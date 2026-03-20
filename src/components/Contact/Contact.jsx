@@ -3,8 +3,15 @@ import React from "react";
 import "./Contact.css";
 import logo from "../../assets/images/logo.png";
 
-// React icons for social links
-import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+// React icons
+import { 
+  FaFacebookF, 
+  FaInstagram, 
+  FaTwitter, 
+  FaLinkedinIn, 
+  FaYoutube,
+  FaGithub 
+} from "react-icons/fa";
 
 const Contact = () => {
   return (
@@ -31,6 +38,7 @@ const Contact = () => {
             <a href="#" target="_blank" rel="noreferrer"><FaTwitter /></a>
             <a href="#" target="_blank" rel="noreferrer"><FaLinkedinIn /></a>
             <a href="#" target="_blank" rel="noreferrer"><FaYoutube /></a>
+            <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noreferrer"><FaGithub /></a>
           </div>
 
           <div className="contact-info">
@@ -40,9 +48,8 @@ const Contact = () => {
 
         {/* RIGHT SIDE FORM */}
         <div className="contact-right">
-          <form className="contact-form">
+          <form id="contact-form" className="contact-form">
 
-            {/* Title INSIDE the form so it's perfectly centered */}
             <h3 className="contact-form-title">
               Start with a <strong>free Profit Review</strong> – no commitment
             </h3>
@@ -52,11 +59,18 @@ const Contact = () => {
             <input type="email" placeholder="Email Address" required />
             <input type="tel" placeholder="Phone Number" />
             <textarea placeholder="How can we help your business?" rows="6"></textarea>
+
             <button type="submit">Send Message</button>
           </form>
         </div>
 
       </div>
+
+      {/* 🔥 Sticky CTA */}
+      <div className="sticky-cta">
+        <a href="#contact-form">Book Free Profit Review</a>
+      </div>
+
     </section>
   );
 };
