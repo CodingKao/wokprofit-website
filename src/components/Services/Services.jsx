@@ -21,7 +21,7 @@ const Services = () => {
         "Expense & Cost Category Analysis (see exactly where your money is going each month)",
         "Monthly Profit Reports (clear, actionable breakdown of performance)",
       ],
-      monthlyPrice: 750,
+      monthlyPrice: 800,
     },
     {
       icon: <FiPieChart />,
@@ -49,7 +49,7 @@ const Services = () => {
         "Actuals vs Budget Analysis 🔥 (track performance vs plan, identify gaps fast)",
         "KPI Financial Dashboard (real-time performance tracking)",
       ],
-      monthlyPrice: 3000,
+      monthlyPrice: 3500,
     },
   ];
 
