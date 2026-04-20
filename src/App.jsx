@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Problem from "./components/Problem/Problem";
 import Services from "./components/Services/Services";
+import Testimonials from "./components/Testimonials/Testimonials";
 import About from "./components/About/About";
 import Analytics from "./components/Analytics/Analytics";
 import Cta from "./components/Cta/Cta";
@@ -19,6 +20,7 @@ function App() {
       <Hero />
       <Problem />
       <Services />
+      {/* <Testimonials /> */}
       <About />
       <Analytics />
       <Cta />

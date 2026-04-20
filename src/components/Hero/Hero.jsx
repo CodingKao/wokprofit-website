@@ -37,7 +37,7 @@ const Hero = () => {
             </a>
 
             <a href="#services" className="hero-btn secondary">
-              View Services
+              See How We Increase Profit
             </a>
 
           </div>
