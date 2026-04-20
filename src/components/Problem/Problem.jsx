@@ -5,30 +5,37 @@ import "./Problem.css";
 
 const Problem = () => {
   const painPoints = [
-    "Difficulty tracking profits and costs accurately",
-    "Limited visibility into menu performance and food cost",
-    "Time-consuming manual bookkeeping",
-    "Lack of actionable insights to improve margins",
-    "Inconsistent financial reporting across locations",
+    "Food costs creeping up with no clear explanation (losing thousands monthly)",
+    "Overstaffing during slow hours eating into your margins",
+    "Menu items that sell well—but barely make you profit",
+    "No clear visibility into daily or weekly profit",
+    "Reports that show numbers—but not what to fix",
   ];
 
   return (
     <section id="problem" className="problem-section">
       <div className="problem-container container">
+        
         {/* LEFT IMAGE */}
         <div className="problem-image">
           <img 
             src={stress} 
-            alt="Stressed chef" 
+            alt="Stressed restaurant owner dealing with rising costs" 
           />
         </div>
 
         {/* RIGHT TEXT */}
         <div className="problem-text">
           <h2>You’re Not Losing Revenue — You’re Losing Profit</h2>
+
+          <p className="problem-subtext">
+            Most restaurant owners don’t have a sales problem.
+            <br />
+            They have a <strong>profit leak problem</strong>.
+          </p>
+
           <p>
-            Running a restaurant is challenging, and many owners face common issues that make it hard to stay profitable and organized. 
-            Are you dealing with any of the following problems?
+            If you’re dealing with any of these, you’re leaving money on the table every month:
           </p>
 
           <ul>
@@ -39,6 +46,15 @@ const Problem = () => {
               </li>
             ))}
           </ul>
+
+          <p className="problem-close">
+            You’re working hard—but your margins aren’t improving.
+          </p>
+
+          {/* CTA */}
+          <a href="#contact" className="problem-cta">
+            Get Your Free Profit Audit
+          </a>
         </div>
       </div>
     </section>
