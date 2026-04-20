@@ -1,33 +1,41 @@
-/* SECTION */
+/* =========================
+   ABOUT SECTION
+========================= */
 .about-section {
-  padding: 80px 8%;
-  background: #0f1115;
+  background: linear-gradient(180deg, #101318 0%, #141922 100%);
   color: #fff;
 }
 
 .about-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 80px;
-  max-width: 1100px;
-  margin: 0 auto;
+  justify-content: space-between;
+  gap: clamp(32px, 6vw, 72px);
   flex-wrap: wrap;
 }
 
-/* FLIP CARD */
+/* =========================
+   FLIP CARD
+========================= */
 .flip-card {
-  width: 300px;
-  height: 360px;
-  perspective: 1000px;
+  width: min(100%, 320px);
+  height: 400px;
+  perspective: 1200px;
   cursor: pointer;
+  flex-shrink: 0;
+  outline: none;
+}
+
+.flip-card:focus-visible {
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.35);
+  border-radius: 18px;
 }
 
 .flip-card-inner {
   width: 100%;
   height: 100%;
   position: relative;
-  transition: transform 0.7s;
+  transition: transform 0.75s ease;
   transform-style: preserve-3d;
 }
 
@@ -39,124 +47,331 @@
 .flip-card-front,
 .flip-card-back {
   position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  border-radius: 16px;
+  border-radius: 18px;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+  padding: 24px;
+  overflow: hidden;
 }
 
-/* FRONT */
+/* =========================
+   FRONT
+========================= */
 .flip-card-front {
-  background: #151821;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(180deg, #171c25 0%, #11161d 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+.flip-card-front::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(250, 204, 21, 0.14), transparent 35%);
+  pointer-events: none;
 }
 
 .flip-card-front img {
-  width: 140px;
-  height: 140px;
+  width: 144px;
+  height: 144px;
   border-radius: 50%;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
   object-fit: cover;
-  border: 3px solid #facc15;
+  border: 4px solid #facc15;
+  box-shadow: 0 10px 24px rgba(250, 204, 21, 0.16);
+  position: relative;
+  z-index: 1;
 }
 
 .flip-card-front h3 {
-  margin: 10px 0 5px;
+  margin: 10px 0 6px;
+  color: #fff;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
 }
 
 .flip-card-front p {
-  font-size: 0.9rem;
-  color: #aaa;
+  color: #b5bcc8;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 .flip-hint {
-  margin-top: 10px;
-  font-size: 0.8rem;
-  color: #908e8e;
+  margin-top: 12px;
+  font-size: 0.82rem;
+  color: #8f98a8;
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 1;
 }
 
 /* BADGE */
 .founder-badge {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 16px;
+  right: 16px;
   background: linear-gradient(135deg, #facc15, #f59e0b);
-  color: #000;
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 6px 10px;
+  color: #111;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 6px 12px;
   border-radius: 999px;
+  box-shadow: 0 10px 20px rgba(245, 158, 11, 0.22);
+  z-index: 2;
 }
 
-/* BACK */
+/* =========================
+   BACK
+========================= */
 .flip-card-back {
-  background: #1c1f2a;
+  background: linear-gradient(180deg, #1a202a 0%, #131923 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   transform: rotateY(180deg);
-  text-align: center;
+  justify-content: center;
+  text-align: left;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
 }
 
 .flip-card-back h3 {
-  margin-bottom: 10px;
+  margin-bottom: 14px;
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1.3;
 }
 
 .flip-card-back p {
-  font-size: 0.9rem;
-  color: #ccc;
-  line-height: 1.5;
-  text-align: left;
+  color: #d0d7e2;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 14px;
 }
 
-/* RIGHT CONTENT */
+.flip-card-back p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================
+   ABOUT CONTENT
+========================= */
 .about-content {
-  max-width: 400px;
+  flex: 1;
+  min-width: 280px;
+  max-width: 620px;
+}
+
+.about-eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(250, 204, 21, 0.12);
+  border: 1px solid rgba(250, 204, 21, 0.18);
+  color: #facc15;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .about-content h2 {
-  margin-bottom: 20px;
-  font-size: 2rem;
+  margin-bottom: 18px;
+  color: #fff;
+  line-height: 1.2;
 }
 
-.about-content ul {
-  list-style: none;
+.about-intro {
+  margin-bottom: 22px;
+  color: #c8d0db;
+  line-height: 1.75;
+  max-width: 58ch;
+}
+
+.about-intro strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* =========================
+   POINTS
+========================= */
+.about-points {
+  margin: 0 0 24px;
   padding: 0;
+  list-style: none;
 }
 
-.about-content li {
-  margin-bottom: 12px;
-  font-size: 1rem;
-  color: #d1d5db;
-  position: relative;
-  padding-left: 20px;
+.about-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 0;
+  margin-bottom: 14px;
+  color: #e5e7eb;
+  line-height: 1.6;
 }
 
-.about-content li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
+.about-points li:last-child {
+  margin-bottom: 0;
+}
+
+.about-points .checkmark {
+  position: static;
+  flex-shrink: 0;
+  margin-top: 2px;
   color: #4ade80;
+  font-weight: 800;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
+/* =========================
+   PROOF BOX
+========================= */
+.about-proof-box {
+  margin-top: 26px;
+  margin-bottom: 26px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.about-proof-box p {
+  color: #d6dde8;
+  line-height: 1.7;
+}
+
+.about-proof-box strong {
+  color: #fff;
+}
+
+/* =========================
+   CTA
+========================= */
+.about-cta {
+  width: auto;
+  min-width: 240px;
+  box-shadow: 0 12px 24px rgba(200, 16, 46, 0.2);
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (max-width: 900px) {
   .about-container {
     flex-direction: column;
-    gap: 40px;
+    align-items: center;
+    text-align: left;
+  }
+
+  .about-content {
+    max-width: 100%;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 768px) {
+  .flip-card {
+    width: 100%;
+    max-width: 340px;
+    height: 390px;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    padding: 20px;
+  }
+
+  .flip-card-front img {
+    width: 124px;
+    height: 124px;
+    margin-bottom: 16px;
+  }
+
+  .flip-card-front h3 {
+    font-size: 1.2rem;
+  }
+
+  .flip-card-front p,
+  .flip-card-back p,
+  .about-intro,
+  .about-points li,
+  .about-proof-box p {
+    font-size: 0.95rem;
   }
 
   .about-content {
     text-align: center;
   }
 
-  .about-content li {
-    padding-left: 0;
+  .about-intro {
+    max-width: 100%;
   }
 
-  .about-content li::before {
-    display: none;
+  .about-points li {
+    text-align: left;
+  }
+
+  .about-proof-box {
+    text-align: left;
+  }
+
+  .about-cta {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+@media (max-width: 480px) {
+  .flip-card {
+    height: 380px;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    border-radius: 16px;
+    padding: 18px;
+  }
+
+  .founder-badge {
+    top: 14px;
+    right: 14px;
+    font-size: 0.68rem;
+    padding: 5px 10px;
+  }
+
+  .flip-card-front img {
+    width: 112px;
+    height: 112px;
+  }
+
+  .flip-card-back h3 {
+    font-size: 1.1rem;
+  }
+
+  .about-eyebrow {
+    font-size: 0.74rem;
+  }
+
+  .about-proof-box {
+    padding: 16px;
+    border-radius: 14px;
   }
 }

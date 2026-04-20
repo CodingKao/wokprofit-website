@@ -1,134 +1,369 @@
+/* =========================
+   ANALYTICS SECTION
+========================= */
 .analytics-section {
-  padding: 4rem 2rem;
-  background: #f9f9f9;
+  background: var(--bg-light);
 }
-
-/* SAME CONTAINER ALIGNMENT AS SERVICES */
 
 .analytics-container {
-  max-width: 1200px;
-  margin: 0 auto;   /* centers entire section */
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
-/* TITLE */
-
-.analytics-title {
-  text-align: center;
-  font-size: 2.5rem;
+/* =========================
+   HEADER
+========================= */
+.analytics-section .analytics-eyebrow {
+  display: inline-block;
+  margin: 0 auto 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(200, 16, 46, 0.08);
+  border: 1px solid rgba(200, 16, 46, 0.14);
+  color: var(--primary);
+  font-size: 0.78rem;
   font-weight: 700;
-}
-
-/* SUBTITLE */
-
-.analytics-subtitle {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   text-align: center;
-  margin-top: 10px;
-  color: #555;
 }
 
-/* WRAPPER */
-
-.carousel-wrapper {
-  max-width: 900px;   /* controls carousel width */
-  margin: 2rem auto;  /* centers it horizontally */
-}
-
-/* TRACK */
-
-.carousel-track {
+.analytics-section .analytics-container {
   display: flex;
-  scroll-behavior: smooth;
-  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* SLIDE */
+.analytics-section .analytics-title {
+  text-align: center;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+  max-width: 760px;
+  line-height: 1.2;
+}
 
-.carousel-slide {
+.analytics-section .analytics-subtitle {
+  text-align: center;
+  color: var(--text-medium);
+  max-width: 760px;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* =========================
+   CAROUSEL WRAPPER
+========================= */
+.analytics-section .carousel-wrapper {
+  width: 100%;
+  max-width: 920px;
+  margin: 2rem auto 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   TRACK
+========================= */
+.analytics-section .carousel-track {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.analytics-section .carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================
+   SLIDE
+========================= */
+.analytics-section .carousel-slide {
   min-width: 100%;
   position: relative;
-  border-radius: 10px;
+  border-radius: 20px;
   overflow: hidden;
+  scroll-snap-align: start;
+  background: #000;
 }
 
-/* IMAGE */
-
-.carousel-slide img {
+/* =========================
+   IMAGE
+========================= */
+.analytics-section .carousel-slide img {
   width: 100%;
-  height: 420px;
+  height: 460px;
   object-fit: cover;
   display: block;
 }
 
-/* OVERLAY */
-
-.carousel-overlay {
+/* =========================
+   OVERLAY
+========================= */
+.analytics-section .carousel-overlay {
   position: absolute;
-  bottom: 0;
   left: 0;
-  width: 100%;
-
+  right: 0;
+  bottom: 0;
   padding: 1.5rem;
-
-  background: rgba(0,0,0,0.55);
-  color: white;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 15, 15, 0) 0%,
+    rgba(15, 15, 15, 0.68) 40%,
+    rgba(15, 15, 15, 0.88) 100%
+  );
+  color: var(--text-white);
 }
 
-/* TEXT */
-
-.carousel-overlay h4 {
-  font-size: 1.4rem;
-  margin-bottom: 5px;
+.analytics-section .slide-label {
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  padding: 0.38rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-/* CONTROLS */
+.analytics-section .carousel-overlay h4 {
+  margin: 0 0 0.45rem;
+  color: #fff;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
 
-.carousel-controls {
+.analytics-section .carousel-overlay p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.65;
+  max-width: 640px;
+}
+
+/* =========================
+   CONTROLS
+========================= */
+.analytics-section .carousel-controls {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.9rem;
   margin-top: 1.5rem;
 }
 
-/* BUTTON */
-
-.carousel-btn {
-  background: #c8102e;
+.analytics-section .carousel-btn {
+  width: 48px;
+  height: 48px;
   border: none;
-  color: white;
-  font-size: 1.4rem;
-  width: 44px;
-  height: 44px;
-  border-radius: 6px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: var(--text-white);
+  font-size: 1.35rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: 0.25s;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(200, 16, 46, 0.16);
 }
 
-.carousel-btn:hover {
-  background: #a50e25;
+.analytics-section .carousel-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
 }
 
-/* DOT INDICATORS */
+.analytics-section .carousel-btn:focus-visible {
+  outline: 2px solid rgba(200, 16, 46, 0.3);
+  outline-offset: 3px;
+}
 
-.carousel-dots {
+/* =========================
+   DOTS
+========================= */
+.analytics-section .carousel-dots {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10px;
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
-/* DOT */
-
-.dot {
-  width: 10px;
-  height: 10px;
+.analytics-section .dot {
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
-  background-color: #ccc;
+  border: none;
+  padding: 0;
+  background: #d3d3d3;
   cursor: pointer;
-  transition: 0.25s;
+  transition: var(--transition);
 }
 
-/* ACTIVE DOT */
+.analytics-section .dot:hover {
+  background: #b8b8b8;
+}
 
-.dot.active {
-  background-color: #c8102e;
+.analytics-section .dot.active {
+  width: 28px;
+  border-radius: 999px;
+  background: var(--primary);
+}
+
+/* =========================
+   PROOF BOX
+========================= */
+.analytics-section .analytics-proof {
+  width: 100%;
+  max-width: 860px;
+  margin: 1.75rem auto 0;
+  padding: 1rem 1.15rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #fff7f8 0%, #fff 100%);
+  border: 1px solid rgba(200, 16, 46, 0.12);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.04);
+}
+
+.analytics-section .analytics-proof p {
+  text-align: center;
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+.analytics-section .analytics-proof strong {
+  color: var(--primary);
+}
+
+/* =========================
+   CTA
+========================= */
+.analytics-section .analytics-cta {
+  margin-top: 1.5rem;
+  min-width: 240px;
+  box-shadow: 0 12px 24px rgba(200, 16, 46, 0.18);
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (max-width: 900px) {
+  .analytics-section .carousel-slide img {
+    height: 380px;
+  }
+
+  .analytics-section .carousel-overlay {
+    padding: 1.25rem;
+  }
+
+  .analytics-section .carousel-overlay h4 {
+    font-size: 1.25rem;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 768px) {
+  .analytics-section .analytics-eyebrow {
+    font-size: 0.72rem;
+    margin-bottom: 10px;
+  }
+
+  .analytics-section .carousel-wrapper {
+    margin-top: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .analytics-section .carousel-slide {
+    border-radius: 16px;
+  }
+
+  .analytics-section .carousel-slide img {
+    height: 320px;
+  }
+
+  .analytics-section .carousel-overlay {
+    padding: 1rem;
+  }
+
+  .analytics-section .slide-label {
+    font-size: 0.68rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .analytics-section .carousel-overlay h4 {
+    font-size: 1.12rem;
+  }
+
+  .analytics-section .carousel-overlay p {
+    font-size: 0.95rem;
+  }
+
+  .analytics-section .carousel-controls {
+    margin-top: 1.2rem;
+    gap: 0.75rem;
+  }
+
+  .analytics-section .carousel-btn {
+    width: 46px;
+    height: 46px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+  }
+
+  .analytics-section .analytics-proof {
+    margin-top: 1.35rem;
+    padding: 0.95rem 1rem;
+    border-radius: 14px;
+  }
+
+  .analytics-section .analytics-proof p {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .analytics-section .analytics-cta {
+    width: 100%;
+    margin-top: 1.25rem;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+@media (max-width: 480px) {
+  .analytics-section .carousel-slide img {
+    height: 260px;
+  }
+
+  .analytics-section .carousel-overlay {
+    padding: 0.9rem;
+  }
+
+  .analytics-section .carousel-overlay h4 {
+    font-size: 1rem;
+  }
+
+  .analytics-section .carousel-overlay p {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .analytics-section .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .analytics-section .dot.active {
+    width: 24px;
+  }
+
+  .analytics-section .analytics-proof p {
+    font-size: 0.92rem;
+  }
 }

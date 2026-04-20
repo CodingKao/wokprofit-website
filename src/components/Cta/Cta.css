@@ -1,66 +1,103 @@
+/* =========================
+   CTA SECTION (PREMIUM HIERARCHY)
+========================= */
 .cta-section {
-  background: linear-gradient(135deg, #c8102e, #a50e25); /* premium gradient red */
-  color: white;
-  text-align: center;
-  padding: 8px 2px; /* more spacious padding for premium feel */
-  position: relative;
-  overflow: hidden;
+  background: var(--bg-white);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .cta-container {
-  max-width: 700px;
+  max-width: 680px;
   margin: 0 auto;
-  backdrop-filter: blur(2px);
-  z-index: 2;
+  text-align: center;
 }
 
-.cta-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+/* =========================
+   EYEBROW (PRIMARY HEADLINE)
+========================= */
+.cta-eyebrow {
+  display: block;
+  margin-bottom: 18px;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
   line-height: 1.2;
+  color: var(--text-dark);
+}
+
+/* =========================
+   TITLE (SECONDARY SUPPORT)
+========================= */
+.cta-title {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-medium);
+  margin-bottom: 1rem;
 }
 
 .cta-title span {
   display: block;
-  font-weight: 900;
-}
-
-.cta-subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
-  opacity: .9; /* subtle softer text for premium look */
-}
-
-/* Button styling */
-.btn-primary {
-  padding: 0.85rem 2.25rem;
-  font-size: 1.1rem;
+  margin-top: 4px;
+  color: var(--primary);
   font-weight: 700;
-  color: #c8102e;
-  background: white;
-  border-radius: 50px; /* pill-shaped for premium feel */
-  text-decoration: none;
+}
+
+/* =========================
+   SUBTITLE (OPTIONAL SUPPORT)
+========================= */
+.cta-subtitle {
+  max-width: 520px;
+  margin: 0 auto 1.75rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* =========================
+   BUTTON
+========================= */
+.cta-button {
   display: inline-block;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* subtle depth */
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  padding: 14px 32px;
+  background: var(--primary);
+  color: var(--text-white);
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition);
+  min-height: 44px;
 }
 
-.btn-primary:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-  background-color: #ffe5ea; /* light hover effect */
-  color: #a50e25;
+.cta-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
 }
 
-/* Optional: responsive text */
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 768px) {
+  .cta-container {
+    max-width: 100%;
+  }
+
+  .cta-eyebrow {
+    font-size: 1.7rem;
+    margin-bottom: 14px;
+  }
+
   .cta-title {
-    font-size: 2rem;
+    font-size: 1rem;
   }
 
   .cta-subtitle {
-    font-size: 1.1rem;
+    font-size: 0.92rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
   }
 }

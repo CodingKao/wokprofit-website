@@ -18,18 +18,22 @@ const Hero = () => {
             Wok Profit Restaurant Profit Optimization
           </span>
 
-          <h1>
-            Increase Your Restaurant’s Profit — Not Just Your Sales
-          </h1>
+          <h2>
+            We Find $2,000–$10,000/Month Hidden in Your Restaurant — Or You Don’t Pay.
+          </h2>
 
           <p>
-            We help restaurant owners identify where they’re losing money, control food and labor costs, and increase profitability through clear financial insights.
+            Fix food cost, labor, and pricing leaks in 30 days.”
+          </p>
+
+          <p>
+            Built for restaurant owners who want more profit—not more stress.
           </p>
 
           <div className="hero-actions">
 
             <a href="#contact" className="hero-btn primary">
-              Book A Free Profit Review
+              Get Your Free Profit Audit
             </a>
 
             <a href="#services" className="hero-btn secondary">

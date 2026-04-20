@@ -1,3 +1,4 @@
+// src/components/Services/Services.jsx
 import React, { useState } from "react";
 import "./Services.css";
 
@@ -7,73 +8,90 @@ import { FiPieChart } from "react-icons/fi";
 import { GiMoneyStack } from "react-icons/gi";
 
 const Services = () => {
-  const [billingCycle, setBillingCycle] = useState("monthly"); // monthly or yearly
+  const [billingCycle, setBillingCycle] = useState("monthly");
 
   const services = [
     {
       icon: <LuCalculator />,
       title: "Profit Visibility",
-      description: "We build and manage a custom financial dashboard that gives you complete visibility into your restaurant’s performance—so you can make smarter, faster decisions.",
+      badge: "Starter",
+      bestFor: "Best for new or smaller restaurants that need clear financial visibility",
+      roi: "Typically uncovers $2K–$4K/month in hidden profit leaks",
+      description:
+        "Get a clear view of where your restaurant is making money, losing money, and what needs attention first.",
       bullets: [
-        "Monthly Bookkeeping (accurate, clean, and investor-ready)",
-        "Food Cost Tracking (identify hidden leaks and control margins)",
-        "Prime Cost Tracking (your most important metric, simplified)",
-        "Expense & Cost Category Analysis (see exactly where your money is going each month)",
-        "Monthly Profit Reports (clear, actionable breakdown of performance)",
+        "Monthly bookkeeping that keeps your numbers clean and decision-ready",
+        "Food cost tracking to uncover hidden leaks and protect margins",
+        "Prime cost tracking so you can control your most important metric",
+        "Expense analysis to see exactly where your cash is going each month",
+        "Monthly profit reporting with clear insights, not just spreadsheets",
       ],
       monthlyPrice: 800,
+      cta: "Start With Visibility",
     },
     {
       icon: <FiPieChart />,
       title: "Profit Optimization",
+      badge: "Most Popular",
+      bestFor: "Best for restaurants doing $30K–$100K/month that want real margin improvement",
+      roi: "Typically identifies $3K–$8K/month in profit opportunities",
       description:
-        "We go beyond tracking and actively optimize your restaurant’s pricing, costs, and operations to increase margins and eliminate inefficiencies.",
+        "This is our core growth service for restaurant owners who want to actively increase profit, not just track performance.",
       bullets: [
         "Everything in Profit Visibility",
-        "Menu Pricing Optimization (price for profit, not guesswork)",
-        "Food Cost Reduction Strategy (cut unnecessary expenses)",
-        "Labor Cost Optimization (align staffing with revenue)",
-        "High-Margin Item Identification (push what makes you money)",
+        "Menu pricing optimization so you stop underpricing profitable items",
+        "Food cost reduction strategy to cut waste and protect margins",
+        "Labor cost optimization to align staffing with revenue",
+        "High-margin item strategy so you can push what actually makes money",
+        "Monthly action plan focused on specific profit improvements",
       ],
       monthlyPrice: 1500,
       featured: true,
+      cta: "Get My Free Profit Audit",
     },
     {
       icon: <GiMoneyStack />,
       title: "Profit Advisory",
-      description: "For restaurant owners serious about scaling profit, reducing inefficiencies, and building a predictable, high-margin operation.",
+      badge: "Advanced",
+      bestFor: "Best for operators serious about scaling with CFO-level strategy",
+      roi: "Designed to build a predictable, high-margin operation",
+      description:
+        "For restaurant owners who want deeper financial strategy, forecasting, and profit systems without hiring a full-time CFO.",
       bullets: [
         "Everything in Profit Optimization",
-        "Advanced Menu Engineering (profit-focused pricing & item performance)",
-        "Budgeting & Forecasting (monthly + quarterly projections)",
-        "Actuals vs Budget Analysis 🔥 (track performance vs plan, identify gaps fast)",
-        "KPI Financial Dashboard (real-time performance tracking)",
+        "Advanced menu engineering focused on profitability and item performance",
+        "Budgeting and forecasting with monthly and quarterly projections",
+        "Actuals vs budget analysis to spot performance gaps quickly",
+        "KPI dashboard for ongoing financial and operational decision-making",
       ],
       monthlyPrice: 3500,
+      cta: "Request Advisory Call",
     },
   ];
 
   const getPriceDisplay = (monthly) => {
     if (billingCycle === "monthly") {
       return <span className="price-main">${monthly.toLocaleString()}/mo</span>;
-    } else {
-      const yearlyPrice = monthly * 12;
-      const discounted = Math.round(yearlyPrice * 0.9);
-      return (
-        <>
-          <span className="price-original">${yearlyPrice.toLocaleString()}/yr</span>
-          <span className="price-discounted">${discounted.toLocaleString()}/yr</span>
-        </>
-      );
     }
+
+    const yearlyPrice = monthly * 12;
+    const discounted = Math.round(yearlyPrice * 0.9);
+
+    return (
+      <>
+        <span className="price-original">${yearlyPrice.toLocaleString()}/yr</span>
+        <span className="price-discounted">${discounted.toLocaleString()}/yr</span>
+      </>
+    );
   };
 
   return (
     <section id="services" className="services-section">
       <div className="services-container container">
-        <h2 className="section-title">Services & Pricing</h2>
+        <h2 className="section-title">Services Built to Increase Profit</h2>
         <p className="section-subtitle">
-          Most restaurants identify $2,000–$10,000/month in hidden profit opportunities.
+          Most restaurants are sitting on $2,000–$10,000/month in hidden profit
+          opportunities. The question is whether you can see them and fix them.
         </p>
 
         {/* MONTHLY / YEARLY TOGGLE */}
@@ -109,25 +127,39 @@ const Services = () => {
               className={`service-card ${service.featured ? "featured" : ""}`}
             >
               {service.featured && (
-                <div className="recommended-tag">Recommended</div>
+                <div className="recommended-tag">{service.badge}</div>
+              )}
+
+              {!service.featured && service.badge && (
+                <div className="service-badge">{service.badge}</div>
               )}
 
               {/* ICON + TITLE */}
               <div className="service-header">
                 <div className="service-icon-box">
-                  {React.cloneElement(service.icon, { size: 40, color: "#c8102e" })}
+                  {React.cloneElement(service.icon, {
+                    size: 40,
+                    color: "#c8102e",
+                  })}
                 </div>
-                <h3>{service.title}</h3>
+                <div className="service-title-wrap">
+                  <h3>{service.title}</h3>
+                  <p className="service-best-for">{service.bestFor}</p>
+                </div>
               </div>
 
               {/* DESCRIPTION */}
               <p className="service-description">{service.description}</p>
 
+              {/* ROI / VALUE */}
+              <div className="service-roi">{service.roi}</div>
+
               {/* BULLETS */}
               <ul>
-                {service.bullets.map((b, i) => (
+                {service.bullets.map((bullet, i) => (
                   <li key={i}>
-                    <span className="checkmark">✔</span> {b}
+                    <span className="checkmark">✔</span>
+                    <span>{bullet}</span>
                   </li>
                 ))}
               </ul>
@@ -136,11 +168,18 @@ const Services = () => {
               <div className="service-price">{getPriceDisplay(service.monthlyPrice)}</div>
 
               {/* CTA BUTTON */}
-              <a href="#pricing" className="btn-primary">
-                Book Now
+              <a href="#contact" className="btn-primary">
+                {service.cta}
               </a>
             </div>
           ))}
+        </div>
+
+        <div className="services-guarantee">
+          <p>
+            <strong>Guarantee:</strong> Increase profits by $1,500 in 30 days —
+            or your first month is free.
+          </p>
         </div>
       </div>
     </section>

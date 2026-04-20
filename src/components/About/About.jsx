@@ -6,55 +6,81 @@ import kaopic from "../../assets/images/kao-pic.jpeg";
 const About = () => {
   const [flipped, setFlipped] = useState(false);
 
+  const credibilityPoints = [
+    "Controller-level financial expertise — beyond basic bookkeeping",
+    "Master’s in Finance with 5+ years in accounting and financial analysis",
+    "Profit-first approach focused on margins, cost control, and cash flow",
+    "Restaurant-focused dashboards and decision-making systems",
+    "CFO-level strategic support without the full-time overhead",
+  ];
+
   return (
     <section id="about" className="about-section">
-      <div className="about-container">
-
-        {/* LEFT - Flip Card */}
-        <div 
+      <div className="about-container container">
+        {/* LEFT - Founder Card */}
+        <div
           className={`flip-card ${flipped ? "flipped" : ""}`}
           onClick={() => setFlipped(!flipped)}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              setFlipped(!flipped);
+            }
+          }}
+          aria-label="Flip founder card to learn more about Kao Saelor"
         >
           <div className="flip-card-inner">
-
             {/* FRONT */}
             <div className="flip-card-front">
-              <img src={kaopic} alt="Founder" />
+              <img src={kaopic} alt="Kao Saelor, Founder of Wok Profit" />
               <div className="founder-badge">Founder</div>
               <h3>Kao Saelor</h3>
               <p>Controller • Finance • Analytics</p>
-              <span className="flip-hint">Click to learn more</span>
+              <span className="flip-hint">Tap to learn more</span>
             </div>
 
             {/* BACK */}
             <div className="flip-card-back">
-              <h3>About Me</h3>
+              <h3>Why Clients Trust Wok Profit</h3>
               <p>
-                Controller with 5+ years in accounting and a master’s in finance.
-                I specialize in turning restaurant data into profit-focused decisions.
+                I built Wok Profit to help restaurant owners stop guessing and
+                start making better profit decisions with clear financial data.
               </p>
               <p>
-                Built Wok Profit to help restaurant owners control costs, improve margins,
-                and scale with clarity—without hiring a full-time CFO.
+                My background combines accounting, finance, and analytics so you
+                get more than reports—you get insight into what is hurting your
+                margins and what to fix first.
+              </p>
+              <p>
+                The goal is simple: help you control costs, improve profit, and
+                grow with confidence without paying for a full-time CFO.
               </p>
             </div>
-
           </div>
         </div>
 
-        {/* RIGHT - SHORTENED CONTENT */}
+        {/* RIGHT - Trust + Conversion Content */}
         <div className="about-content">
-          <h2>Why Wok Profit is Different</h2>
+          <span className="about-eyebrow">Why restaurant owners choose Wok Profit</span>
 
-          <ul>
-            <li>Controller-level expertise — beyond bookkeeping</li>
-            <li>Profit-first focus — not just reports</li>
-            <li>Restaurant cost & margin optimization</li>
-            <li>Data-driven decisions with real analytics</li>
-            <li>CFO-level strategy without full-time cost</li>
+          <h2>Built for Owners Who Want More Than Just Bookkeeping</h2>
+
+          <p className="about-intro">
+            Most accountants tell you what happened.
+            <strong> Wok Profit helps you understand what is hurting your margins,
+            where profit is leaking, and what to do next.</strong>
+          </p>
+
+          <ul className="about-points">
+            {credibilityPoints.map((point, index) => (
+              <li key={index}>
+                <span className="checkmark">✔</span>
+                <span>{point}</span>
+              </li>
+            ))}
           </ul>
         </div>
-
       </div>
     </section>
   );
