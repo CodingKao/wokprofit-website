@@ -12,35 +12,35 @@ const Hero = () => {
 
         {/* LEFT SIDE - TEXT */}
 
-        <div className="hero-text">
+<div className="hero-text">
 
-          <span className="hero-badge">
-            Wok Profit Restaurant Profit Optimization
-          </span>
+  <span className="hero-badge">
+    For Restaurant Owners Who Want Higher Profit
+  </span>
 
-          <h2>
-            We Find $2,000–$10,000/Month Hidden in Your Restaurant — Or You Don’t Pay.
-          </h2>
+  <h2>
+    You’re Losing Profit Every Month—You Just Can’t See It.
+  </h2>
 
-          <p>
-            Fix food cost, labor, and pricing leaks in 30 days.”
-          </p>
+  <p className="hero-sub">
+    Find where you’re losing money in under 5 minutes.
+  </p>
 
-          <p>
-            Built for restaurant owners who want more profit—not more stress.
-          </p>
+  <p>
+    We help you fix those issues and increase your profit within 30 days.
+  </p>
 
-          <div className="hero-actions">
+  <div className="hero-actions">
 
-            <a href="#contact" className="hero-btn primary">
-              Get Your Free Profit Audit
-            </a>
+    <a href="#contact" className="hero-btn primary">
+      Find My Profit Leak
+    </a>
 
-            <a href="#services" className="hero-btn secondary">
-              View Services
-            </a>
+    <a href="#services" className="hero-btn secondary">
+      See How It Works
+    </a>
 
-          </div>
+</div>
 
         </div>
 
