@@ -130,6 +130,11 @@ const ProfitCalculator = () => {
           </div>
         )}
 
+        <p className="calc-microcopy">
+  Your numbers are not stored or shared. This estimate is for guidance only.
+</p>
+
+
       </div>
     </section>
   );
