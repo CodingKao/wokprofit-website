@@ -11,73 +11,60 @@ const Hero = () => {
       <div className="hero-container">
 
         {/* LEFT SIDE - TEXT */}
+        <div className="hero-text">
 
-<div className="hero-text">
+          <span className="hero-badge">
+            Your Restaurant Is Bleeding Profit.
+          </span>
 
-  <span className="hero-badge">
-    For Restaurant Owners Who Want Higher Profit
-  </span>
+          <h1 className="hero-title">
+            We Find Your Profit Leaks in Under 5 Minutes.
+          </h1>
 
-  <h2>
-    You’re Losing Profit Every Month—You Just Can’t See It.
-  </h2>
+          <p className="hero-sub">
+            You’re not losing revenue — you’re losing profit.  
+            We show you exactly where money is leaking and how to fix it within 30 days.
+          </p>
 
-  <p className="hero-sub">
-    Find where you’re losing money in under 5 minutes.
-  </p>
+          <div className="hero-actions">
 
-  <p>
-    We help you fix those issues and increase your profit within 30 days.
-  </p>
+            <a href="#contact" className="hero-btn primary">
+              Get My Free Profit Audit
+            </a>
 
-  <div className="hero-actions">
+            <a href="#services" className="hero-btn secondary">
+              See How It Works
+            </a>
 
-    <a href="#contact" className="hero-btn primary">
-      Find My Profit Leak
-    </a>
+          </div>
 
-    <a href="#services" className="hero-btn secondary">
-      See How It Works
-    </a>
-
-</div>
+          <p className="hero-microcopy">
+            No credit card. Takes 3 minutes. Keep the audit even if you don’t work with us.
+          </p>
 
         </div>
 
         {/* RIGHT SIDE - GRAPH */}
-
         <div className="hero-graph">
 
           <img src={graph} alt="Restaurant analytics dashboard" />
 
           {/* KPI 1 */}
-
           <div className="kpi-card food">
-
             <span className="kpi-label">Food Cost</span>
-
             <span className="kpi-value">28.4%</span>
-
           </div>
 
           {/* KPI 2 */}
-
           <div className="kpi-card profit">
-
             <span className="kpi-label">Weekly Profit</span>
-
             <span className="kpi-value">+$4,250</span>
-
           </div>
 
           {/* KPI 3 */}
-
           <div className="kpi-card labor">
-
             <span className="kpi-label">Labor Cost</span>
-
             <span className="kpi-value">24.1%</span>
-
           </div>
 
         </div>

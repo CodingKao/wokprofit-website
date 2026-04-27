@@ -1,186 +1,125 @@
 // src/components/Services/Services.jsx
-import React, { useState } from "react";
-import "./Services.css";
 
-// React icons
+import React from "react";
+import "./Services.css"; // 👈 use Services.css here
+
 import { LuCalculator } from "react-icons/lu";
 import { FiPieChart } from "react-icons/fi";
 import { GiMoneyStack } from "react-icons/gi";
 
 const Services = () => {
-  const [billingCycle, setBillingCycle] = useState("monthly");
-
-  const services = [
+  const steps = [
     {
+      step: "Step 1",
       icon: <LuCalculator />,
-      title: "Profit Visibility",
-      badge: "Starter",
-      bestFor: "Best for new or smaller restaurants that need clear financial visibility",
-      roi: "Typically uncovers $2K–$4K/month in hidden profit leaks",
+      title: "Profit Audit + Setup",
+      price: "$1,500 one-time",
       description:
-        "Get a clear view of where your restaurant is making money, losing money, and what needs attention first.",
+        "We diagnose your profit leaks, build your baseline, and give you a clear 30‑day plan to increase profit.",
       bullets: [
-        "Monthly bookkeeping that keeps your numbers clean and decision-ready",
-        "Food cost tracking to uncover hidden leaks and protect margins",
-        "Prime cost tracking so you can control your most important metric",
-        "Expense analysis to see exactly where your cash is going each month",
-        "Monthly profit reporting with clear insights, not just spreadsheets",
+        "Full profit leak audit (food cost, labor, rent, operating expenses)",
+        "Benchmarking against target restaurant cost ranges",
+        "Estimated monthly savings + optimized profit potential",
+        "Restaurant‑specific dashboard setup",
+        "Clear 30‑day profit action plan",
       ],
-      monthlyPrice: 800,
-      cta: "Start With Visibility",
     },
     {
+      step: "Step 2",
       icon: <FiPieChart />,
-      title: "Profit Optimization",
-      badge: "Most Popular",
-      bestFor: "Best for restaurants doing $30K–$100K/month that want real margin improvement",
-      roi: "Typically identifies $3K–$8K/month in profit opportunities",
-      description:
-        "This is our core growth service for restaurant owners who want to actively increase profit, not just track performance.",
-      bullets: [
-        "Everything in Profit Visibility",
-        "Menu pricing optimization so you stop underpricing profitable items",
-        "Food cost reduction strategy to cut waste and protect margins",
-        "Labor cost optimization to align staffing with revenue",
-        "High-margin item strategy so you can push what actually makes money",
-        "Monthly action plan focused on specific profit improvements",
-      ],
-      monthlyPrice: 1500,
+      title: "Monthly Profit Optimization",
+      price: "$1,000/month",
       featured: true,
-      cta: "Get My Free Profit Audit",
+      description:
+        "We help you maintain and grow your margins every month with ongoing monitoring and optimization.",
+      bullets: [
+        "Monthly profit review & performance tracking",
+        "Food cost, labor, and expense leak monitoring",
+        "Menu pricing & margin improvement recommendations",
+        "Updated action plans based on your numbers",
+        "Accountability so improvements don’t fade",
+      ],
     },
     {
+      step: "Optional Upgrade",
       icon: <GiMoneyStack />,
-      title: "Profit Advisory",
-      badge: "Advanced",
-      bestFor: "Best for operators serious about scaling with CFO-level strategy",
-      roi: "Designed to build a predictable, high-margin operation",
+      title: "Advanced Advisory",
+      price: "Custom pricing",
       description:
-        "For restaurant owners who want deeper financial strategy, forecasting, and profit systems without hiring a full-time CFO.",
+        "For multi‑location owners or restaurants with growth plans needing deeper financial strategy.",
       bullets: [
-        "Everything in Profit Optimization",
-        "Advanced menu engineering focused on profitability and item performance",
-        "Budgeting and forecasting with monthly and quarterly projections",
-        "Actuals vs budget analysis to spot performance gaps quickly",
-        "KPI dashboard for ongoing financial and operational decision-making",
+        "Budgeting & forecasting",
+        "Actuals vs budget analysis",
+        "Multi‑location KPI dashboards",
+        "Expansion & scaling support",
+        "CFO‑level strategy without the full‑time CFO cost",
       ],
-      monthlyPrice: 3500,
-      cta: "Request Advisory Call",
     },
   ];
 
-  const getPriceDisplay = (monthly) => {
-    if (billingCycle === "monthly") {
-      return <span className="price-main">${monthly.toLocaleString()}/mo</span>;
-    }
-
-    const yearlyPrice = monthly * 12;
-    const discounted = Math.round(yearlyPrice * 0.9);
-
-    return (
-      <>
-        <span className="price-original">${yearlyPrice.toLocaleString()}/yr</span>
-        <span className="price-discounted">${discounted.toLocaleString()}/yr</span>
-      </>
-    );
-  };
-
   return (
-    <section id="services" className="services-section">
-      <div className="services-container container">
-        <h2 className="section-title">Services Built to Increase Profit</h2>
-        <p className="section-subtitle">
-          Most restaurants are sitting on $2,000–$10,000/month in hidden profit
-          opportunities. The question is whether you can see them and fix them.
+    <section id="services" className="services-vertical-section">
+      <div className="services-vertical-container container">
+
+        <span className="sv-eyebrow">The Wok Profit System</span>
+
+        <h2 className="sv-title">A Clear, Guided Profit Optimization Journey</h2>
+
+        <p className="sv-subtitle">
+          Follow a simple, structured path: diagnose your profit leaks, optimize your margins,
+          and scale with confidence.
         </p>
 
-        {/* MONTHLY / YEARLY TOGGLE */}
-        <div className="pricing-toggle">
-          <span
-            className={billingCycle === "monthly" ? "active" : ""}
-            onClick={() => setBillingCycle("monthly")}
-          >
-            Monthly
-          </span>
-
-          <div
-            className={`toggle-switch ${billingCycle === "yearly" ? "active" : ""}`}
-            onClick={() =>
-              setBillingCycle(billingCycle === "monthly" ? "yearly" : "monthly")
-            }
-          >
-            <div className="toggle-circle"></div>
-          </div>
-
-          <span
-            className={billingCycle === "yearly" ? "active" : ""}
-            onClick={() => setBillingCycle("yearly")}
-          >
-            Yearly <span className="discount">10% Off</span>
-          </span>
-        </div>
-
-        <div className="services-grid">
-          {services.map((service) => (
+        <div className="sv-timeline">
+          {steps.map((step, index) => (
             <div
-              key={service.title}
-              className={`service-card ${service.featured ? "featured" : ""}`}
+              key={step.title}
+              className={`sv-step-card ${step.featured ? "featured" : ""}`}
             >
-              {service.featured && (
-                <div className="recommended-tag">{service.badge}</div>
-              )}
-
-              {!service.featured && service.badge && (
-                <div className="service-badge">{service.badge}</div>
-              )}
-
-              {/* ICON + TITLE */}
-              <div className="service-header">
-                <div className="service-icon-box">
-                  {React.cloneElement(service.icon, {
-                    size: 40,
+              <div className="sv-step-header">
+                <div className="sv-step-icon">
+                  {React.cloneElement(step.icon, {
+                    size: 36,
                     color: "#c8102e",
                   })}
                 </div>
-                <div className="service-title-wrap">
-                  <h3>{service.title}</h3>
-                  <p className="service-best-for">{service.bestFor}</p>
+
+                <div className="sv-step-info">
+                  <span className="sv-step-label">{step.step}</span>
+                  <h3>{step.title}</h3>
+                  <p className="sv-step-description">{step.description}</p>
                 </div>
               </div>
 
-              {/* DESCRIPTION */}
-              <p className="service-description">{service.description}</p>
+              <div className="sv-step-price">{step.price}</div>
 
-              {/* ROI / VALUE */}
-              <div className="service-roi">{service.roi}</div>
-
-              {/* BULLETS */}
-              <ul>
-                {service.bullets.map((bullet, i) => (
+              <ul className="sv-step-list">
+                {step.bullets.map((bullet, i) => (
                   <li key={i}>
                     <span className="checkmark">✔</span>
-                    <span>{bullet}</span>
+                    {bullet}
                   </li>
                 ))}
               </ul>
 
-              {/* PRICE */}
-              <div className="service-price">{getPriceDisplay(service.monthlyPrice)}</div>
-
-              {/* CTA BUTTON */}
-              <a href="#contact" className="btn-primary">
-                {service.cta}
-              </a>
+              {index < steps.length - 1 && (
+                <div className="sv-connector">
+                  <div className="sv-line"></div>
+                </div>
+              )}
             </div>
           ))}
         </div>
 
-        <div className="services-guarantee">
-          <p>
-            <strong>Guarantee:</strong> Increase profits by $1,500 in 30 days —
-            or your first month is free.
-          </p>
+        <div className="sv-guarantee">
+          <strong>Profit Guarantee:</strong> Increase profit by $1,500 in the first 30 days —
+          or your first month of ongoing optimization is free.
         </div>
+
+        <a href="#contact" className="sv-cta btn-primary">
+          Get Your Free Profit Audit
+        </a>
+
       </div>
     </section>
   );
