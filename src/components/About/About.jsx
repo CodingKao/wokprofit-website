@@ -1,4 +1,5 @@
 // src/components/About/About.jsx
+
 import React, { useState } from "react";
 import "./About.css";
 import kaopic from "../../assets/images/kao-pic.jpeg";
@@ -17,6 +18,7 @@ const About = () => {
   return (
     <section id="about" className="about-section">
       <div className="about-container container">
+
         {/* LEFT - Founder Card */}
         <div
           className={`flip-card ${flipped ? "flipped" : ""}`}
@@ -31,6 +33,7 @@ const About = () => {
           aria-label="Flip founder card to learn more about Kao Saelor"
         >
           <div className="flip-card-inner">
+
             {/* FRONT */}
             <div className="flip-card-front">
               <img src={kaopic} alt="Kao Saelor, Founder of Wok Profit" />
@@ -43,33 +46,38 @@ const About = () => {
             {/* BACK */}
             <div className="flip-card-back">
               <h3>Why Clients Trust Wok Profit</h3>
+
               <p>
-                I built Wok Profit to help restaurant owners stop guessing and
-                start making better profit decisions with clear financial data.
+                I built Wok Profit after watching too many great restaurants struggle —
+                not because of bad food, but because they didn’t have the financial
+                clarity they deserved.
               </p>
+
               <p>
-                My background combines accounting, finance, and analytics so you
-                get more than reports—you get insight into what is hurting your
-                margins and what to fix first.
+                My background blends accounting, finance, and analytics so you get
+                more than reports — you get insight into what’s hurting your margins
+                and what to fix first.
               </p>
+
               <p>
-                The goal is simple: help you control costs, improve profit, and
-                grow with confidence without paying for a full-time CFO.
+                My mission is simple: help restaurant owners control costs, improve
+                profit, and grow with confidence — without hiring a full-time CFO.
               </p>
             </div>
+
           </div>
         </div>
 
         {/* RIGHT - Trust + Conversion Content */}
         <div className="about-content">
+
           <span className="about-eyebrow">Why restaurant owners choose Wok Profit</span>
 
           <h2>Built for Owners Who Want More Than Just Bookkeeping</h2>
 
           <p className="about-intro">
             Most accountants tell you what happened.
-            <strong> Wok Profit helps you understand what is hurting your margins,
-            where profit is leaking, and what to do next.</strong>
+            <strong> Wok Profit shows you what’s hurting your margins, where profit is leaking, and what to fix next.</strong>
           </p>
 
           <ul className="about-points">
@@ -80,6 +88,7 @@ const About = () => {
               </li>
             ))}
           </ul>
+
         </div>
       </div>
     </section>

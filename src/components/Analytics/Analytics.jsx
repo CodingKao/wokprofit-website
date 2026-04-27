@@ -7,7 +7,7 @@ const slides = [
   {
     title: "Real-Time Profit Visibility",
     img: "https://images.pexels.com/photos/7887816/pexels-photo-7887816.jpeg?auto=compress&cs=tinysrgb&w=1500",
-    text: "See whether your restaurant is actually making money day by day—not just generating sales."
+    text: "See whether your restaurant is actually making money day by day — not just generating sales."
   },
   {
     title: "Menu Performance Insights",
@@ -71,6 +71,7 @@ const Analytics = () => {
   return (
     <section id="analytics" className="analytics-section">
       <div className="analytics-container container">
+
         <span className="analytics-eyebrow">The Wok Profit System</span>
 
         <h2 className="analytics-title">
@@ -78,8 +79,8 @@ const Analytics = () => {
         </h2>
 
         <p className="analytics-subtitle">
-          You do not need more spreadsheets. You need a dashboard that shows
-          where profit is leaking, what is driving margin, and what to fix next.
+          You don’t need more spreadsheets. You need visibility — a dashboard that shows
+          where profit is leaking, what’s driving margin, and what to fix next.
         </p>
 
         <div className="carousel-wrapper">
@@ -137,14 +138,15 @@ const Analytics = () => {
 
         <div className="analytics-proof">
           <p>
-            <strong>What this gives you:</strong> faster decisions, tighter cost
-            control, better pricing visibility, and a clearer path to higher profit.
+            <strong>What this gives you:</strong> faster decisions, tighter cost control,
+            better pricing visibility, and a clearer path to higher profit.
           </p>
         </div>
 
         <a href="#contact" className="analytics-cta btn-primary">
           Get Your Free Profit Audit
         </a>
+
       </div>
     </section>
   );
