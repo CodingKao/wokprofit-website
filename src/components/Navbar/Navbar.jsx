@@ -8,7 +8,15 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const sections = ["hero", "services", "pricing", "analytics", "contact"];
+  // UPDATED SECTIONS
+  const sections = [
+    "hero",
+    "calculator",
+    "services",
+    "testimonials",
+    "about",
+    "contact",
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,7 +25,7 @@ const Navbar = () => {
       let current = "";
       sections.forEach((section) => {
         const el = document.getElementById(section);
-        if (el && window.scrollY >= el.offsetTop - 100) {
+        if (el && window.scrollY >= el.offsetTop - 120) {
           current = section;
         }
       });
@@ -31,6 +39,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
       <div className="navbar-container">
+
         {/* LOGO */}
         <div className="navbar-left">
           <a href="#hero">
@@ -50,6 +59,7 @@ const Navbar = () => {
 
         {/* NAV LINKS */}
         <ul className={`navbar-right ${menuOpen ? "open" : ""}`}>
+
           <li>
             <a
               href="#hero"
@@ -59,6 +69,17 @@ const Navbar = () => {
               Home
             </a>
           </li>
+
+          <li>
+            <a
+              href="#calculator"
+              className={active === "calculator" ? "active-link" : ""}
+              onClick={() => setMenuOpen(false)}
+            >
+              Calculator
+            </a>
+          </li>
+
           <li>
             <a
               href="#services"
@@ -68,15 +89,37 @@ const Navbar = () => {
               Services
             </a>
           </li>
+
           <li>
             <a
-              href="#analytics"
-              className={active === "analytics" ? "active-link" : ""}
+              href="#whyus"
+              className={active === "whyus" ? "active-link" : ""}
               onClick={() => setMenuOpen(false)}
             >
-              Analytics
+              Why Us
             </a>
           </li>
+
+          <li>
+            <a
+              href="#testimonials"
+              className={active === "testimonials" ? "active-link" : ""}
+              onClick={() => setMenuOpen(false)}
+            >
+              Insights
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#about"
+              className={active === "about" ? "active-link" : ""}
+              onClick={() => setMenuOpen(false)}
+            >
+              About
+            </a>
+          </li>
+
           <li>
             <a
               href="#contact"
@@ -93,6 +136,7 @@ const Navbar = () => {
               Get Your Free Profit Audit
             </a>
           </li>
+
         </ul>
       </div>
     </nav>
