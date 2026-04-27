@@ -1,60 +1,56 @@
 // src/components/Testimonials/Testimonials.jsx
+
 import React from "react";
 import "./Testimonials.css";
 
-const testimonials = [
-  {
-    quote:
-      "We discovered over $3,800/month in hidden profit just from pricing and food cost adjustments. I had no idea we were leaking that much.",
-    name: "Jason L.",
-    role: "Restaurant Owner",
-  },
-  {
-    quote:
-      "The dashboard alone changed how we run the business. We finally know what’s making money and what’s not—daily.",
-    name: "Michelle T.",
-    role: "Cafe Owner",
-  },
-  {
-    quote:
-      "We were busy but not profitable. After working with Wok Profit, our margins improved within the first month.",
-    name: "David K.",
-    role: "Restaurant Operator",
-  },
-];
-
 const Testimonials = () => {
+  const testimonials = [
+    {
+      name: "Maria Lopez",
+      role: "Owner, Casa Del Sol",
+      quote:
+        "We thought we had a food cost problem — turns out we had three profit leaks we didn’t even know existed. WokProfit helped us recover over $7,800/month.",
+    },
+    {
+      name: "James Park",
+      role: "Owner, Bento House",
+      quote:
+        "The audit alone was worth more than the entire first month. I finally understand my margins and what to fix first.",
+    },
+    {
+      name: "Sarah Nguyen",
+      role: "GM, Lotus Kitchen",
+      quote:
+        "Our labor cost was killing us. WokProfit showed us exactly where we were overspending and helped us tighten operations without cutting staff.",
+    },
+  ];
+
   return (
-    <section className="testimonials-section" id="testimonials">
+    <section id="testimonials" className="testimonials-section">
       <div className="testimonials-container container">
-        <span className="testimonials-eyebrow">
-          Real Results
-        </span>
+
+        <span className="testimonials-eyebrow">Client Results</span>
 
         <h2 className="testimonials-title">
-          Restaurant Owners Are Finding Hidden Profit
+          What Restaurant Owners Are Saying
         </h2>
-
-        <p className="testimonials-subtitle">
-          Most restaurants are sitting on thousands in missed profit. Here’s what happens when they fix it.
-        </p>
 
         <div className="testimonials-grid">
           {testimonials.map((t, index) => (
-            <div className="testimonial-card" key={index}>
+            <div key={index} className="testimonial-card">
               <p className="testimonial-quote">“{t.quote}”</p>
-
               <div className="testimonial-author">
-                <span className="testimonial-name">{t.name}</span>
-                <span className="testimonial-role">{t.role}</span>
+                <strong>{t.name}</strong>
+                <span>{t.role}</span>
               </div>
             </div>
           ))}
         </div>
 
-        <a href="#contact" className="testimonials-cta">
+        <a href="#contact" className="testimonials-cta btn-primary">
           Get Your Free Profit Audit
         </a>
+
       </div>
     </section>
   );

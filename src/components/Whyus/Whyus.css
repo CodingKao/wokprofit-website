@@ -1,0 +1,97 @@
+/* =========================
+   WHY US SECTION
+========================= */
+
+.whyus-section {
+  background: #ffffff;
+  padding: 4rem 0;
+}
+
+.whyus-container {
+  max-width: var(--max-width);
+  text-align: center;
+}
+
+/* Eyebrow */
+.whyus-eyebrow {
+  display: block;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+/* Title */
+.whyus-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.35;
+  margin-bottom: 2rem;
+}
+
+.whyus-title .highlight {
+  color: var(--text-medium);
+  font-weight: 600;
+}
+
+/* List */
+.whyus-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 2.5rem;
+  max-width: 600px;
+  text-align: left;
+}
+
+.whyus-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+  font-size: 1rem;
+  color: var(--text-dark);
+  line-height: 1.55;
+}
+
+.whyus-list .checkmark {
+  color: var(--primary);
+  font-weight: 700;
+  margin-top: 0.15rem;
+}
+
+/* CTA */
+.whyus-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-weight: 700;
+  box-shadow: 0 12px 24px rgba(200, 16, 46, 0.18);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .whyus-title {
+    font-size: 1.7rem;
+  }
+
+  .whyus-list li {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .whyus-title {
+    font-size: 1.55rem;
+  }
+
+  .whyus-list li {
+    font-size: 0.92rem;
+  }
+}
