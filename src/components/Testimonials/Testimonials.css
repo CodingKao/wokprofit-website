@@ -1,5 +1,5 @@
 /* =========================
-   TESTIMONIALS SECTION
+   TESTIMONIALS / INSIGHTS
 ========================= */
 
 .testimonials-section {
@@ -29,6 +29,7 @@
   font-weight: 800;
   color: var(--text-dark);
   margin-bottom: 2.5rem;
+  line-height: 1.35;
 }
 
 /* Grid */
@@ -59,20 +60,7 @@
   font-size: 1.05rem;
   color: var(--text-dark);
   line-height: 1.7;
-  margin-bottom: 1.25rem;
-}
-
-/* Author */
-.testimonial-author strong {
-  display: block;
-  color: var(--text-dark);
-  font-weight: 700;
-  margin-bottom: 0.15rem;
-}
-
-.testimonial-author span {
-  color: var(--text-medium);
-  font-size: 0.95rem;
+  font-style: italic;
 }
 
 /* CTA */
