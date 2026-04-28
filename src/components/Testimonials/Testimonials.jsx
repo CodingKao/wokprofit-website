@@ -2,6 +2,7 @@
 
 import React from "react";
 import "./Testimonials.css";
+import {AUDIT_LINK} from "../../config/Links";
 
 const Testimonials = () => {
   const insights = [
@@ -30,9 +31,14 @@ const Testimonials = () => {
           ))}
         </div>
 
-        <a href="#contact" className="testimonials-cta btn-primary">
-          Get Your Free Profit Audit
-        </a>
+<a
+  href={AUDIT_LINK}
+  className="btn-primary"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Get My Free Profit Audit
+</a>
 
       </div>
     </section>

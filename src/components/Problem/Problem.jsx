@@ -3,6 +3,7 @@
 import React from "react";
 import stress from "../../assets/images/stress-chef.png";
 import "./Problem.css";
+import AUDIT_LINK from "../../config/Links";
 
 const Problem = () => {
   const painPoints = [

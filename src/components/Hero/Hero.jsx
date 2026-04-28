@@ -3,6 +3,7 @@
 import React from "react";
 import "./Hero.css";
 import graph from "../../assets/images/graph.jpg";
+import {AUDIT_LINK} from "../../config/Links";
 
 const Hero = () => {
   return (
@@ -28,9 +29,14 @@ const Hero = () => {
 
           <div className="hero-actions">
 
-            <a href="#contact" className="hero-btn primary">
-              Get My Free Profit Audit
-            </a>
+<a
+  href={AUDIT_LINK}
+  className="btn-primary"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Get My Free Profit Audit
+</a>
 
             <a href="#services" className="hero-btn secondary">
               See How It Works

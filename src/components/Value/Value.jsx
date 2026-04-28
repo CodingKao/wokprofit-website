@@ -1,5 +1,6 @@
 import React from "react";
 import "./Value.css";
+import {AUDIT_LINK} from "../../config/Links";
 
 const Value = () => {
   return (
@@ -45,9 +46,14 @@ const Value = () => {
           once they implement our system.
         </div>
 
-        <a href="#onboarding" className="value-cta btn-primary">
-          Start Your Profit Audit
-        </a>
+<a
+  href={AUDIT_LINK}
+  className="btn-primary"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Get My Free Profit Audit
+</a>
 
       </div>
     </section>
