@@ -1,51 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
+import kaopic from "../../assets/images/kao-pic.jpeg";
 import "./About.css";
 
 const About = () => {
-  const credibilityPoints = [
-    "Master’s in Finance with 5+ years in accounting and financial analysis",
-    "Experience helping restaurants understand costs and improve margins",
-    "Clear, practical financial guidance — no confusing reports or jargon",
-  ];
+  const [flipped, setFlipped] = useState(false);
 
   return (
     <section id="about" className="about-section">
       <div className="about-container container">
 
+        {/* RIGHT — Founder Story */}
         <div className="about-content">
 
           <span className="about-eyebrow">Meet the Founder</span>
 
-          <h2>
-            I started Wok Profit after seeing too many great restaurants — including some
-            of my favorites — close simply because they never had clear financial visibility.
-          </h2>
+
+          {/* Picture + Flip Card */}
+          <div
+            className={`flip-card ${flipped ? "flipped" : ""}`}
+            onClick={() => setFlipped(!flipped)}
+            >
+            <div className="flip-card-inner">
+
+              {/* FRONT */}
+              <div className="flip-card-front">
+                <img src={kaopic} alt="Founder" />
+                <h3>Kao Saelor</h3>
+                <p>Founder, Wok Profit</p>
+                <p className="flip-hint">Tap to flip and see background </p>
+              </div>
+
+              {/* BACK */}
+              <div className="flip-card-back">
+                <h3>My Background</h3>
+                <p>
+                  Born in Chiang Kham, Thailand, I built my career across finance,
+                  accounting, data analytics, and software development.
+                </p>
+                <p>
+                  I earned my Master’s in Finance and spent 5+ years helping businesses
+                  understand their numbers and improve margins. That mix of finance and
+                  technical experience shaped the foundation of Wok Profit.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          {/* WHY I STARTED WOK PROFIT */}
+            <h2>Why I Started Wok Profit</h2>
 
           <p className="about-intro">
-            Working in accounting and financial analysis, I saw how often owners were
-            handed reports without real explanations. They were working hard, but without
-            the clarity needed to protect their margins or make confident decisions.
+            I started Wok Profit after seeing too many great Asian restaurants — including some
+            of my favorites — struggle simply because they never had clear financial
+            visibility. Owners and staff were putting in long hours, yet still couldn’t see where their money was going. That reality is what pushed me to create Wok Profit.
           </p>
 
           <p className="about-intro">
-            That’s why I built Wok Profit — to give owners a simple, practical way to
-            understand their numbers. My background includes:
+            Wok Profit exists to fix that — giving restaurant owners simple, practical
+            financial clarity they can actually use.
           </p>
 
-          <ul className="about-points">
-            {credibilityPoints.map((point, index) => (
-              <li key={index}>
-                <span className="checkmark">✔</span>
-                <span>{point}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="about-proof-box">
+          <div className="about-proof-box highlight-goal">
             <p>
-              My goal is simple: make profit clear — and help restaurant owners make
-              smarter decisions every month. And that clarity starts with knowing exactly
-              where your money is going.
+              <strong>My goal is simple:</strong> make profit clear — and help restaurant
+              owners make smarter decisions every month.
             </p>
           </div>
 
