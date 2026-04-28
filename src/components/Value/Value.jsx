@@ -13,8 +13,12 @@ const Value = () => {
         </h2>
 
         <p className="value-subtitle">
-          Wok Profit gives you controller‑level financial analysis, restaurant‑specific dashboards,
-          and a profit‑first system that reveals exactly where your money is leaking.
+          Wok Profit gives you a clear, easy-to-understand breakdown of your numbers —
+          showing you exactly where money is slipping away and what’s holding your profit back.
+        </p>
+
+        <p className="value-transition">
+          Here’s what we make clear for you right away:
         </p>
 
         <ul className="value-list">
@@ -32,7 +36,7 @@ const Value = () => {
           </li>
           <li>
             <span className="checkmark">✔</span>
-            How to maintain higher profit every month
+            How to keep profit higher every month
           </li>
         </ul>
 
