@@ -1,0 +1,117 @@
+/* =========================
+   ONBOARDING PAGE STYLES
+   Matches Wok Profit Global Theme
+========================= */
+
+/* Wrapper */
+.onboarding-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--section-padding) var(--padding-horizontal);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Logo */
+.onboarding-logo {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.onboarding-logo img {
+  height: 48px;
+  object-fit: contain;
+  display: inline-block;
+}
+
+/* Title */
+.onboarding-container h1 {
+  text-align: center;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+/* Subtitle */
+.subtext {
+  text-align: center;
+  color: var(--text-medium);
+  margin-bottom: 32px;
+  font-size: var(--text-base);
+}
+
+/* Form */
+.onboarding-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Labels */
+.onboarding-form label {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+/* Inputs + Textareas (inherits global styles) */
+.onboarding-form input,
+.onboarding-form textarea {
+  padding: 14px;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  font-size: 1rem;
+  background: var(--bg-white);
+  transition: var(--transition);
+}
+
+.onboarding-form input:focus,
+.onboarding-form textarea:focus {
+  border-color: var(--primary);
+}
+
+/* Textarea */
+textarea {
+  min-height: 120px;
+}
+
+/* Submit Button */
+.submit-btn {
+  background: var(--primary);
+  color: var(--text-white);
+  padding: 14px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: var(--transition);
+  min-height: 44px;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Success Page */
+.onboarding-success {
+  max-width: 600px;
+  margin: var(--section-padding) auto;
+  text-align: center;
+  padding: 0 var(--padding-horizontal);
+}
+
+.onboarding-success h2 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.onboarding-success p {
+  color: var(--text-medium);
+  font-size: var(--text-base);
+}

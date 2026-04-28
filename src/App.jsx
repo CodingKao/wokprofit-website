@@ -1,5 +1,7 @@
 // src/App.jsx
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Problem from "./components/Problem/Problem";
@@ -14,11 +16,14 @@ import Cta from "./components/Cta/Cta";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
-import "./styles/global.css"; // global styles
+import Onboarding from "./pages/Onboarding";
+import OnboardingSuccess from "./pages/OnboardingSuccess";
 
-function App() {
+import "./styles/global.css";
+
+function Home() {
   return (
-    <div className="App">
+    <>
       <Navbar />
       <Hero />
       <Problem />
@@ -32,7 +37,22 @@ function App() {
       <Cta />
       <Contact />
       <Footer />
-    </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Switch>
+        {/* Homepage */}
+        <Route exact path="/" component={Home} />
+
+        {/* Onboarding Pages */}
+        <Route exact path="/onboarding" component={Onboarding} />
+        <Route exact path="/onboarding/success" component={OnboardingSuccess} />
+      </Switch>
+    </Router>
   );
 }
 
