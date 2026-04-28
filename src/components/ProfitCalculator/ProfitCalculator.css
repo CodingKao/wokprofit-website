@@ -1,14 +1,16 @@
 /* =========================
-   PROFIT CALCULATOR
+   PROFIT CALCULATOR (GLOBAL CONSISTENT)
 ========================= */
 
 .calc-section {
-  background: #ffffff;
-  padding: 4rem 0;
+  background: var(--bg-white);
+  padding: var(--section-padding) 0;
 }
 
 .calc-container {
   max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--padding-horizontal);
   text-align: center;
 }
 
@@ -20,15 +22,16 @@
   margin-bottom: 0.5rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: var(--text-base);
 }
 
 /* Title */
 .calc-title {
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: var(--text-xl);
+  font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 0.75rem;
+  line-height: 1.25;
 }
 
 /* Subtitle */
@@ -36,7 +39,7 @@
   max-width: 680px;
   margin: 0 auto 2rem;
   color: var(--text-medium);
-  font-size: 1.05rem;
+  font-size: var(--text-lg);
   line-height: 1.7;
 }
 
@@ -58,21 +61,22 @@
   margin-bottom: 0.4rem;
   font-weight: 600;
   color: var(--text-dark);
+  font-size: var(--text-base);
 }
 
 .calc-field input {
   width: 100%;
   padding: 12px 14px;
   border-radius: 10px;
-  border: 1px solid rgba(0,0,0,0.12);
-  font-size: 1rem;
-  background: #fafafa;
-  transition: all 0.2s ease;
+  border: 1px solid var(--border-light);
+  font-size: var(--text-base);
+  background: var(--bg-light);
+  transition: var(--transition);
 }
 
 .calc-field input:focus {
   border-color: var(--primary);
-  background: #fff;
+  background: var(--bg-white);
   outline: none;
 }
 
@@ -81,13 +85,14 @@
   padding: 14px 22px;
   border-radius: 12px;
   background: var(--primary);
-  color: #fff;
+  color: var(--text-white);
   font-weight: 700;
   cursor: pointer;
   border: none;
   margin-bottom: 2rem;
   box-shadow: 0 12px 24px rgba(200, 16, 46, 0.18);
-  transition: all 0.25s ease;
+  transition: var(--transition);
+  font-size: var(--text-base);
 }
 
 .calc-btn:hover {
@@ -101,21 +106,22 @@
   margin: 0 auto;
   padding: 1.75rem;
   border-radius: 18px;
-  background: linear-gradient(135deg, #fffdf7 0%, #fff7e6 100%);
-  border: 1px solid rgba(255, 183, 3, 0.35);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-soft);
 }
 
 .calc-result h3 {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #9a6a00;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--primary-dark);
   margin: 0.5rem 0;
 }
 
 .calc-note {
   color: var(--text-medium);
   margin-bottom: 1.5rem;
+  font-size: var(--text-base);
 }
 
 /* CTA */
@@ -124,6 +130,7 @@
   padding: 14px 22px;
   border-radius: 12px;
   font-weight: 700;
+  font-size: var(--text-base);
 }
 
 /* Responsive */
@@ -133,6 +140,6 @@
   }
 
   .calc-title {
-    font-size: 1.7rem;
+    font-size: calc(var(--text-xl) * 0.9);
   }
 }
