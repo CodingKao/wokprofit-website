@@ -1,79 +1,74 @@
-/* src/components/Hero/Hero.css */
+/* =========================
+   HERO SECTION (GLOBAL CONSISTENT)
+========================= */
 
-/* --- Hero Section --- */
 .hero-section {
-  padding: 120px 0 50px 0; /* top padding = navbar height + spacing */
   background: var(--bg-light);
+  padding: calc(var(--section-padding) * 1.5) 0 var(--section-padding) 0;
 }
 
-/* --- Container / Layout --- */
-.container {
+/* Layout */
+.hero-container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--padding-horizontal);
-}
-
-.hero-container {
-  max-width: var(--max-width); /* same as navbar */
-  margin: 0 auto;
   display: grid;
   grid-template-columns: 62% 38%;
   align-items: center;
-  gap: 0;
-  padding: 0 20px; /* add same left/right padding as Navbar */
+  gap: 2rem;
 }
 
-/* --- Hero Text --- */
+/* Text */
 .hero-text h1 {
-  font-size: 3.5rem;
+  font-size: var(--text-hero);
   line-height: 1.15;
-  margin-bottom: 24px;
+  margin-bottom: 1rem;
   color: var(--text-dark);
 }
 
 .hero-text p {
-  font-size: 1.5rem;
-  color: var(--text-secondary);
+  font-size: var(--text-lg);
+  color: var(--text-medium);
   line-height: 1.7;
-  margin-bottom: 40px;
+  margin-bottom: 2rem;
   max-width: 560px;
 }
 
-/* --- Microcopy (small print) --- */
+/* Microcopy */
 .hero-microcopy {
-  font-size: 0.0rem;
+  font-size: var(--text-base);
   color: var(--text-light);
-  margin-top: 10px;
+  margin-top: 0.75rem;
   max-width: 420px;
-  line-height: 1.0;
-  opacity: 0.65;
+  line-height: 1.4;
+  opacity: 0.75;
 }
 
-/* --- Badge --- */
+/* Badge */
 .hero-badge {
   display: inline-block;
-  background: var(--bg-light-red); /* soft red tint */
+  background: rgba(200, 16, 46, 0.08);
   color: var(--primary-dark);
   padding: 8px 16px;
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: var(--text-base);
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
-/* --- CTA Buttons --- */
+/* CTA Buttons */
 .hero-actions {
   display: flex;
-  gap: 18px;
+  gap: 1rem;
 }
 
 .hero-btn {
-  padding: 16px 30px;
+  padding: 14px 24px;
   border-radius: 10px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: var(--text-base);
   text-decoration: none;
-  transition: transform 0.25s ease, background 0.25s ease;
+  transition: var(--transition);
   text-align: center;
 }
 
@@ -97,74 +92,53 @@
   color: var(--text-white);
 }
 
-/* --- Graph/Image Area --- */
-.hero-graph {
-  position: relative;
-  max-width: 800px;
-}
-
+/* Graph */
 .hero-graph img {
   width: 130%;
-  border-radius: 25px;
+  border-radius: 20px;
 }
 
-/* --- KPI Cards --- */
+/* KPI Cards */
 .kpi-card {
   position: absolute;
-  background: var(--text-white);
-  padding: 18px 22px;
+  background: var(--bg-white);
+  padding: 14px 18px;
   border-radius: 12px;
-  box-shadow: var(--shadow-medium);
+  box-shadow: var(--shadow-soft);
   display: flex;
   flex-direction: column;
   animation: float 4s ease-in-out infinite;
 }
 
 .kpi-label {
-  font-size: 0.85rem;
-  color: gray;
+  font-size: var(--text-base);
+  color: var(--text-medium);
 }
 
 .kpi-value {
-  font-size: 1.5rem;
+  font-size: var(--text-lg);
   font-weight: 700;
-  color: green;
+  color: var(--primary-dark);
 }
 
-/* --- KPI Positions --- */
-.food {
-  bottom: 15px;
-  left: 10px;
-}
-
-.profit {
-  top: 10px;
-  right: 10px;
-}
-
-.labor {
-  bottom: 120px;
-  left: -30px;
-}
-
-/* --- Float Animation --- */
+/* Float animation */
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-10px); }
   100% { transform: translateY(0px); }
 }
 
-/* --- Mobile --- */
+/* Mobile */
 @media (max-width: 900px) {
   .hero-container {
     grid-template-columns: 1fr;
   }
 
   .hero-text h1 {
-    font-size: 2.4rem;
+    font-size: calc(var(--text-hero) * 0.8);
   }
 
   .hero-graph {
-    margin-top: 40px;
+    margin-top: 2rem;
   }
 }

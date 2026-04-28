@@ -89,27 +89,7 @@ const Navbar = () => {
               Services
             </a>
           </li>
-
-          <li>
-            <a
-              href="#whyus"
-              className={active === "whyus" ? "active-link" : ""}
-              onClick={() => setMenuOpen(false)}
-            >
-              Why Us
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="#testimonials"
-              className={active === "testimonials" ? "active-link" : ""}
-              onClick={() => setMenuOpen(false)}
-            >
-              Insights
-            </a>
-          </li>
-
+          
           <li>
             <a
               href="#about"
