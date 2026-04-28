@@ -1,46 +1,48 @@
-// src/components/Value/Value.jsx
-
 import React from "react";
 import "./Value.css";
 
 const Value = () => {
-  const valuePoints = [
-    "Where your money is leaking",
-    "What’s hurting your margins",
-    "What to fix first",
-    "How to maintain higher profit every month",
-  ];
-
   return (
-    <section id="value" className="value-section">
-      <div className="value-container container">
+    <section className="value-section">
+      <div className="value-container">
 
-        <span className="value-eyebrow">Why It Works</span>
+        <span className="value-eyebrow">Why Restaurants Choose Us</span>
 
         <h2 className="value-title">
-          We Help You Increase Profit in 30 Days — Guaranteed.
+          We Help You Increase Profit in 30 Days — Guaranteed
         </h2>
 
         <p className="value-subtitle">
-          WokProfit gives you controller‑level financial analysis, restaurant‑specific dashboards,
-          and a profit‑first system that reveals exactly what’s hurting your margins.
+          Wok Profit gives you controller‑level financial analysis, restaurant‑specific dashboards,
+          and a profit‑first system that reveals exactly where your money is leaking.
         </p>
 
         <ul className="value-list">
-          {valuePoints.map((point, index) => (
-            <li key={index}>
-              <span className="checkmark">✔</span>
-              {point}
-            </li>
-          ))}
+          <li>
+            <span className="checkmark">✔</span>
+            Where your money is leaking
+          </li>
+          <li>
+            <span className="checkmark">✔</span>
+            What’s hurting your margins
+          </li>
+          <li>
+            <span className="checkmark">✔</span>
+            What to fix first
+          </li>
+          <li>
+            <span className="checkmark">✔</span>
+            How to maintain higher profit every month
+          </li>
         </ul>
 
         <div className="value-statement">
-          <strong>Most restaurants recover $3,000–$15,000/month</strong> in preventable losses.
+          Most restaurants recover <strong>$3,000–$15,000/month</strong> in preventable losses
+          once they implement our system.
         </div>
 
-        <a href="#contact" className="value-cta btn-primary">
-          Get Your Free Profit Audit
+        <a href="#onboarding" className="value-cta btn-primary">
+          Start Your Profit Audit
         </a>
 
       </div>

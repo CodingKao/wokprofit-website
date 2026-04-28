@@ -1,14 +1,17 @@
 /* =========================
-   VALUE SECTION
+   VALUE SECTION (FIXED)
 ========================= */
 
 .value-section {
-  background: #fafafa;
-  padding: 4rem 0;
+  background: var(--bg-light);
+  padding-top: 40px; /* closes the gap */
+  padding-bottom: var(--section-padding);
 }
 
 .value-container {
   max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--padding-horizontal);
   text-align: center;
 }
 
@@ -20,15 +23,15 @@
   margin-bottom: 0.5rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: var(--text-base);
 }
 
 /* Title */
 .value-title {
-  font-size: 2rem;
-  font-weight: 800;
   color: var(--text-dark);
   margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
 /* Subtitle */
@@ -36,92 +39,64 @@
   max-width: 720px;
   margin: 0 auto 2rem;
   color: var(--text-medium);
-  font-size: 1.05rem;
-  line-height: 1.75;
+  font-size: var(--text-lg);
+  line-height: 1.7;
 }
 
-/* Value List */
+/* =========================
+   VALUE LIST — FIXED ALIGNMENT
+========================= */
+
 .value-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto 2.5rem;
   max-width: 600px;
-  text-align: left;
+  margin: 0 auto 2.5rem;
+  padding: 0;
+  text-align: left !important; /* override center */
 }
 
 .value-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.65rem;
-  margin-bottom: 0.85rem;
-  font-size: 1rem;
+  position: relative;
+  padding-left: 28px; /* space for checkmark */
+  margin-bottom: 0.75rem;
+  font-size: var(--text-base);
   color: var(--text-dark);
   line-height: 1.55;
+  text-align: left; /* override container */
 }
 
 .value-list .checkmark {
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
   color: var(--primary);
   font-weight: 700;
-  margin-top: 0.15rem;
+  font-size: var(--text-base);
 }
 
-/* Statement */
+/* =========================
+   STATEMENT BOX
+========================= */
+
 .value-statement {
   margin: 2rem auto;
   max-width: 600px;
   padding: 1.25rem 1.5rem;
-  background: linear-gradient(135deg, #fffdf7 0%, #fff7e6 100%);
-  border: 1px solid rgba(255, 183, 3, 0.35);
-  border-radius: 16px;
-  font-size: 1.05rem;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  font-size: var(--text-lg);
   line-height: 1.7;
   color: var(--text-dark);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+  box-shadow: var(--shadow-soft);
 }
 
 .value-statement strong {
-  color: #9a6a00;
-  font-weight: 800;
+  color: var(--primary-dark);
+  font-weight: 700;
 }
 
 /* CTA */
 .value-cta {
-  display: inline-block;
   margin-top: 1rem;
-  padding: 14px 22px;
-  border-radius: 12px;
-  font-weight: 700;
-  box-shadow: 0 12px 24px rgba(200, 16, 46, 0.18);
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 768px) {
-  .value-title {
-    font-size: 1.7rem;
-  }
-
-  .value-subtitle {
-    font-size: 1rem;
-  }
-
-  .value-list li {
-    font-size: 0.95rem;
-  }
-
-  .value-statement {
-    font-size: 0.98rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .value-title {
-    font-size: 1.55rem;
-  }
-
-  .value-list li {
-    font-size: 0.92rem;
-  }
+  display: inline-block;
 }

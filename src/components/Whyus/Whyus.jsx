@@ -32,10 +32,6 @@ const Whyus = () => {
           ))}
         </ul>
 
-        <a href="#contact" className="whyus-cta btn-primary">
-          Get Your Free Profit Audit
-        </a>
-
       </div>
     </section>
   );

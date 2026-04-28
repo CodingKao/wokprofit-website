@@ -53,12 +53,6 @@ const Problem = () => {
           <p className="problem-close">
             You’re working hard — but without clear financial visibility, your margins won’t improve.
           </p>
-
-          {/* CTA */}
-          <a href="#contact" className="problem-cta">
-            Get Your Free Profit Audit
-          </a>
-
         </div>
       </div>
     </section>

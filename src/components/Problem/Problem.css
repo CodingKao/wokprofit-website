@@ -30,24 +30,35 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
+/* -------------------------
+   HEADLINE
+------------------------- */
 .problem-section .problem-text h2 {
-  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  font-size: var(--text-xl);
   margin: 0 0 20px;
-  color: #222;
-  line-height: 1.2;
+  color: var(--text-dark);
+  font-weight: 700;
+  line-height: 1.25;
 }
 
+/* -------------------------
+   PARAGRAPHS
+------------------------- */
 .problem-section .problem-text p {
-  font-size: 1.05rem;
-  color: #555;
+  font-size: var(--text-base);
+  color: var(--text-medium);
   margin: 0 0 20px;
   line-height: 1.6;
 }
 
+/* -------------------------
+   SUBTEXT
+------------------------- */
 .problem-section .problem-subtext {
-  font-size: 1.1rem;
-  color: #333;
+  font-size: var(--text-lg);
+  color: var(--text-dark);
   margin: 0 0 14px;
+  line-height: 1.6;
 }
 
 .problem-section .problem-subtext strong {
@@ -55,6 +66,9 @@
   font-weight: 700;
 }
 
+/* -------------------------
+   LIST
+------------------------- */
 .problem-section .problem-text ul {
   list-style: none;
   padding: 0;
@@ -67,50 +81,39 @@
   gap: 12px;
   padding-left: 0;
   margin-bottom: 15px;
-  font-size: 1.02rem;
+  font-size: var(--text-base);
+  color: var(--text-dark);
+  line-height: 1.55;
 }
 
 .problem-section .problem-text .checkmark {
   position: static;
   color: var(--primary);
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: var(--text-base);
   line-height: 1.4;
   flex-shrink: 0;
   margin: 0;
 }
 
 .problem-section .problem-text .point-text {
-  line-height: 1.5;
-  color: #333;
+  line-height: 1.55;
+  color: var(--text-dark);
 }
 
+/* -------------------------
+   CLOSE LINE
+------------------------- */
 .problem-section .problem-close {
   margin: 20px 0 0;
   font-weight: 600;
-  color: #222;
+  color: var(--text-dark);
+  font-size: var(--text-base);
 }
 
-.problem-section .problem-cta {
-  display: inline-block;
-  margin-top: 24px;
-  padding: 14px 22px;
-  background: var(--primary);
-  color: var(--text-white);
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-  text-align: center;
-  transition: var(--transition);
-  box-shadow: 0 8px 18px rgba(200, 16, 46, 0.18);
-}
-
-.problem-section .problem-cta:hover {
-  background: var(--primary-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 10px 22px rgba(200, 16, 46, 0.22);
-}
-
+/* -------------------------
+   RESPONSIVE
+------------------------- */
 @media (max-width: 900px) {
   .problem-section .problem-container {
     flex-direction: column;
