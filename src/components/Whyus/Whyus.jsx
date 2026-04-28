@@ -1,26 +1,24 @@
-// src/components/Whyus/Whyus.jsx
-
 import React from "react";
 import "./Whyus.css";
 
 const Whyus = () => {
   const points = [
-    "Controller‑level financial expertise",
-    "Master’s in Finance + 5+ years in accounting & analysis",
-    "Profit‑first approach focused on margins & cash flow",
-    "Restaurant‑specific dashboards & decision systems",
-    "CFO‑level strategy without the full‑time overhead",
+    "We show you exactly where profit is leaking — in minutes, not months",
+    "Clear, restaurant‑specific dashboards that turn numbers into decisions",
+    "A profit‑first system built to improve margins every single month",
+    "Weekly visibility into food cost, labor, pricing, and operating expenses",
+    "Actionable recommendations — not generic reports or accounting jargon",
   ];
 
   return (
     <section id="whyus" className="whyus-section">
       <div className="whyus-container container">
 
-        <span className="whyus-eyebrow">Why Restaurant Owners Choose WokProfit</span>
+        <span className="whyus-eyebrow">Why Restaurants Choose Wok Profit</span>
 
         <h2 className="whyus-title">
-          Most accountants tell you what happened.<br />
-          <span className="highlight">WokProfit tells you what’s hurting your margins — and what to fix next.</span>
+          You don’t need more reports.<br />
+          <span className="highlight">You need clarity — and a system that shows what to fix next.</span>
         </h2>
 
         <ul className="whyus-list">

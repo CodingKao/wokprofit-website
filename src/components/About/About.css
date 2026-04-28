@@ -1,174 +1,27 @@
 /* =========================
-   ABOUT SECTION
+   ABOUT SECTION (GLOBAL LIGHT THEME)
 ========================= */
+
 .about-section {
-  background: linear-gradient(180deg, #101318 0%, #141922 100%);
-  color: #fff;
+  background: var(--bg-white);
+  padding: var(--section-padding) 0;
+  color: var(--text-dark);
 }
 
 .about-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: clamp(32px, 6vw, 72px);
   flex-wrap: wrap;
 }
 
 /* =========================
-   FLIP CARD
-========================= */
-.flip-card {
-  width: min(100%, 320px);
-  height: 400px;
-  perspective: 1200px;
-  cursor: pointer;
-  flex-shrink: 0;
-  outline: none;
-}
-
-.flip-card:focus-visible {
-  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.35);
-  border-radius: 18px;
-}
-
-.flip-card-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transition: transform 0.75s ease;
-  transform-style: preserve-3d;
-}
-
-.flip-card.flipped .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-/* FRONT + BACK */
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 18px;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  display: flex;
-  flex-direction: column;
-  padding: 24px;
-  overflow: hidden;
-}
-
-/* =========================
-   FRONT
-========================= */
-.flip-card-front {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(180deg, #171c25 0%, #11161d 100%);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
-}
-
-.flip-card-front::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top right, rgba(250, 204, 21, 0.14), transparent 35%);
-  pointer-events: none;
-}
-
-.flip-card-front img {
-  width: 144px;
-  height: 144px;
-  border-radius: 50%;
-  margin-bottom: 18px;
-  object-fit: cover;
-  border: 4px solid #facc15;
-  box-shadow: 0 10px 24px rgba(250, 204, 21, 0.16);
-  position: relative;
-  z-index: 1;
-}
-
-.flip-card-front h3 {
-  margin: 10px 0 6px;
-  color: #fff;
-  font-size: 1.35rem;
-  line-height: 1.2;
-  position: relative;
-  z-index: 1;
-}
-
-.flip-card-front p {
-  color: #b5bcc8;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin-bottom: 10px;
-  position: relative;
-  z-index: 1;
-}
-
-.flip-hint {
-  margin-top: 12px;
-  font-size: 0.82rem;
-  color: #8f98a8;
-  letter-spacing: 0.02em;
-  position: relative;
-  z-index: 1;
-}
-
-/* BADGE */
-.founder-badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: linear-gradient(135deg, #facc15, #f59e0b);
-  color: #111;
-  font-size: 0.72rem;
-  font-weight: 800;
-  padding: 6px 12px;
-  border-radius: 999px;
-  box-shadow: 0 10px 20px rgba(245, 158, 11, 0.22);
-  z-index: 2;
-}
-
-/* =========================
-   BACK
-========================= */
-.flip-card-back {
-  background: linear-gradient(180deg, #1a202a 0%, #131923 100%);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transform: rotateY(180deg);
-  justify-content: center;
-  text-align: left;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
-}
-
-.flip-card-back h3 {
-  margin-bottom: 14px;
-  color: #fff;
-  font-size: 1.25rem;
-  line-height: 1.3;
-}
-
-.flip-card-back p {
-  color: #d0d7e2;
-  font-size: 0.95rem;
-  line-height: 1.65;
-  margin-bottom: 14px;
-}
-
-.flip-card-back p:last-child {
-  margin-bottom: 0;
-}
-
-/* =========================
    ABOUT CONTENT
 ========================= */
+
 .about-content {
   flex: 1;
-  min-width: 280px;
   max-width: 620px;
 }
 
@@ -177,36 +30,32 @@
   margin-bottom: 12px;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(250, 204, 21, 0.12);
-  border: 1px solid rgba(250, 204, 21, 0.18);
-  color: #facc15;
-  font-size: 0.8rem;
+  background: rgba(200, 16, 46, 0.08);
+  border: 1px solid rgba(200, 16, 46, 0.18);
+  color: var(--primary);
+  font-size: var(--text-base);
   font-weight: 700;
-  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .about-content h2 {
   margin-bottom: 18px;
-  color: #fff;
-  line-height: 1.2;
+  font-size: var(--text-xl);
+  color: var(--text-dark);
+  line-height: 1.25;
 }
 
 .about-intro {
-  margin-bottom: 22px;
-  color: #c8d0db;
-  line-height: 1.75;
-  max-width: 58ch;
-}
-
-.about-intro strong {
-  color: #fff;
-  font-weight: 700;
+  margin-bottom: 18px;
+  font-size: var(--text-lg);
+  color: var(--text-medium);
+  line-height: 1.7;
 }
 
 /* =========================
-   POINTS
+   CREDIBILITY POINTS
 ========================= */
+
 .about-points {
   margin: 0 0 24px;
   padding: 0;
@@ -214,164 +63,37 @@
 }
 
 .about-points li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 0;
-  margin-bottom: 14px;
-  color: #e5e7eb;
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  font-size: var(--text-base);
+  color: var(--text-dark);
   line-height: 1.6;
 }
 
-.about-points li:last-child {
-  margin-bottom: 0;
-}
-
 .about-points .checkmark {
-  position: static;
-  flex-shrink: 0;
-  margin-top: 2px;
-  color: #4ade80;
-  font-weight: 800;
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+  color: var(--primary);
+  font-weight: 700;
 }
 
 /* =========================
    PROOF BOX
 ========================= */
+
 .about-proof-box {
-  margin-top: 26px;
-  margin-bottom: 26px;
+  margin: 24px 0;
   padding: 18px 20px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  background: var(--bg-light);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-soft);
 }
 
 .about-proof-box p {
-  color: #d6dde8;
+  font-size: var(--text-base);
+  color: var(--text-medium);
   line-height: 1.7;
-}
-
-.about-proof-box strong {
-  color: #fff;
-}
-
-/* =========================
-   CTA
-========================= */
-.about-cta {
-  width: auto;
-  min-width: 240px;
-  box-shadow: 0 12px 24px rgba(200, 16, 46, 0.2);
-}
-
-/* =========================
-   TABLET
-========================= */
-@media (max-width: 900px) {
-  .about-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: left;
-  }
-
-  .about-content {
-    max-width: 100%;
-  }
-}
-
-/* =========================
-   MOBILE
-========================= */
-@media (max-width: 768px) {
-  .flip-card {
-    width: 100%;
-    max-width: 340px;
-    height: 390px;
-  }
-
-  .flip-card-front,
-  .flip-card-back {
-    padding: 20px;
-  }
-
-  .flip-card-front img {
-    width: 124px;
-    height: 124px;
-    margin-bottom: 16px;
-  }
-
-  .flip-card-front h3 {
-    font-size: 1.2rem;
-  }
-
-  .flip-card-front p,
-  .flip-card-back p,
-  .about-intro,
-  .about-points li,
-  .about-proof-box p {
-    font-size: 0.95rem;
-  }
-
-  .about-content {
-    text-align: center;
-  }
-
-  .about-intro {
-    max-width: 100%;
-  }
-
-  .about-points li {
-    text-align: left;
-  }
-
-  .about-proof-box {
-    text-align: left;
-  }
-
-  .about-cta {
-    width: 100%;
-    min-width: 0;
-  }
-}
-
-/* =========================
-   SMALL MOBILE
-========================= */
-@media (max-width: 480px) {
-  .flip-card {
-    height: 380px;
-  }
-
-  .flip-card-front,
-  .flip-card-back {
-    border-radius: 16px;
-    padding: 18px;
-  }
-
-  .founder-badge {
-    top: 14px;
-    right: 14px;
-    font-size: 0.68rem;
-    padding: 5px 10px;
-  }
-
-  .flip-card-front img {
-    width: 112px;
-    height: 112px;
-  }
-
-  .flip-card-back h3 {
-    font-size: 1.1rem;
-  }
-
-  .about-eyebrow {
-    font-size: 0.74rem;
-  }
-
-  .about-proof-box {
-    padding: 16px;
-    border-radius: 14px;
-  }
 }

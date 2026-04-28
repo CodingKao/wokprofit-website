@@ -31,7 +31,6 @@ function Home() {
       <ProfitCalculator />
       <Services />
       <Analytics />
-      <Whyus />
       <Testimonials />
       <About />
       <Cta />
