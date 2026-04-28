@@ -1,6 +1,7 @@
 // src/components/Cta/Cta.jsx
 import React from "react";
 import "./Cta.css";
+import {AUDIT_LINK} from "../../config/Links";
 
 const Cta = () => {
   return (
@@ -19,9 +20,14 @@ const Cta = () => {
         </p>
 
         <div className="cta-actions">
-          <a href="#contact" className="cta-button">
-            Get Your Free Profit Audit
-          </a>
+<a
+  href={AUDIT_LINK}
+  className="btn-primary"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Get My Free Profit Audit
+</a>
         </div>
       </div>
     </section>

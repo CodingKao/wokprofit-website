@@ -1,7 +1,8 @@
 // src/components/Services/Services.jsx
 
 import React from "react";
-import "./Services.css"; // 👈 use Services.css here
+import "./Services.css"; 
+import {AUDIT_LINK} from "../../config/Links";
 
 import { LuCalculator } from "react-icons/lu";
 import { FiPieChart } from "react-icons/fi";
@@ -116,9 +117,14 @@ const Services = () => {
           or your first month of ongoing optimization is free.
         </div>
 
-        <a href="#contact" className="sv-cta btn-primary">
-          Get Your Free Profit Audit
-        </a>
+<a
+  href={AUDIT_LINK}
+  className="btn-primary"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Get My Free Profit Audit
+</a>
 
       </div>
     </section>

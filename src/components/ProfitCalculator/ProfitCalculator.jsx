@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import "./ProfitCalculator.css";
+import {AUDIT_LINK} from "../../config/Links";
 
 const ProfitCalculator = () => {
   const [inputs, setInputs] = useState({
@@ -157,9 +158,14 @@ const ProfitCalculator = () => {
                 Want the full breakdown?
               </p>
 
-              <a href="#contact" className="calc-cta btn-primary">
-                Get My Free Profit Audit
-              </a>
+<a
+  href={AUDIT_LINK}
+  className="btn-primary"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Get My Free Profit Audit
+</a>
 
               {/* TRUST CUE */}
               <p className="calc-note" style={{ marginTop: "0.75rem", fontSize: "0.9rem", opacity: 0.8 }}>

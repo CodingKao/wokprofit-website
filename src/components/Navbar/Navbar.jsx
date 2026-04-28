@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import logo from "../../assets/images/logo.png";
+import {AUDIT_LINK} from "../../config/Links";
 
 const Navbar = () => {
   const [active, setActive] = useState("hero");
@@ -112,9 +113,14 @@ const Navbar = () => {
 
           {/* CTA BUTTON */}
           <li className="cta-btn">
-            <a href="#contact" onClick={() => setMenuOpen(false)}>
-              Get Your Free Profit Audit
-            </a>
+<a
+  href={AUDIT_LINK}
+  className="btn-primary"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Get My Free Profit Audit
+</a>
           </li>
 
         </ul>

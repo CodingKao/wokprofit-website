@@ -143,10 +143,6 @@ const Analytics = () => {
           </p>
         </div>
 
-        <a href="#contact" className="analytics-cta btn-primary">
-          Get Your Free Profit Audit
-        </a>
-
       </div>
     </section>
   );
