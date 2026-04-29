@@ -31,15 +31,6 @@ const Testimonials = () => {
           ))}
         </div>
 
-<a
-  href={AUDIT_LINK}
-  className="btn-primary"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Get My Free Profit Audit
-</a>
-
       </div>
     </section>
   );
