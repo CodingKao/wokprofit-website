@@ -101,9 +101,9 @@ const Contact = () => {
               <div className="contact-next-box">
                 <strong>What happens next:</strong>
                 <ul>
-                  <li>I review your message personally</li>
-                  <li>I follow up as soon as I’m able</li>
-                  <li>You keep the insights even if we don’t work together</li>
+                  <li>We review your message right away</li>
+                  <li>We reach out with a clear next step</li>
+                  <li>You receive insights you can use immediately</li>
                 </ul>
               </div>
 
