@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import "./Onboarding.css";
 import logo from "../assets/images/logo.png";
-
-// EmailJS + Airtable imports
 import emailjs from "emailjs-com";
-import Airtable from "airtable";
-
-// Airtable configuration
-const base = new Airtable({
-  apiKey: process.env.REACT_APP_AIRTABLE_API_KEY,
-}).base(process.env.REACT_APP_AIRTABLE_BASE_ID);
 
 function Onboarding() {
   const [submitted, setSubmitted] = useState(false);
@@ -19,7 +11,6 @@ function Onboarding() {
 
     const formData = new FormData(e.target);
 
-    // Extract form fields
     const data = {
       restaurant: formData.get("restaurant"),
       owner: formData.get("owner"),
@@ -48,31 +39,21 @@ function Onboarding() {
     }
 
     /* ------------------------------------
-       2. STORE DATA IN AIRTABLE
+       2. SEND DATA TO BACKEND (Vercel API)
     ------------------------------------ */
     try {
-      await base("Clients").create([
-        {
-          fields: {
-            "Restaurant Name": data.restaurant,
-            "Owner Name": data.owner,
-            Phone: data.phone,
-            Email: data.email,
-            "POS System": data.pos,
-            "Food Cost %": Number(data.foodCost) || null,
-            "Labor Cost %": Number(data.laborCost) || null,
-            Hours: data.hours,
-            Employees: Number(data.employees) || null,
-            "Known Issues": data.issues,
-            Status: "New",
-          },
-        },
-      ]);
+      await fetch("https://wokprofit-website.vercel.app/api/onboarding", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
     } catch (err) {
-      console.error("Airtable Error:", err);
+      console.error("Backend Error:", err);
     }
 
-    // Show success screen
+    /* ------------------------------------
+       3. SHOW SUCCESS SCREEN
+    ------------------------------------ */
     setSubmitted(true);
   };
 
@@ -95,12 +76,10 @@ function Onboarding() {
   return (
     <div className="onboarding-container">
 
-      {/* Logo */}
       <div className="onboarding-logo">
         <img src={logo} alt="Wok Profit Logo" />
       </div>
 
-      {/* Title */}
       <h1>Restaurant Onboarding</h1>
       <p className="subtext">
         Please complete the form below so we can begin your full profit audit.
