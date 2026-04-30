@@ -43,7 +43,7 @@ const Navbar = () => {
       <div className="container navbar-inner">
 
         {/* LOGO */}
-        <a href="#hero" className="navbar-logo-wrap" onClick={closeMenu}>
+        <a href="/#hero" className="navbar-logo-wrap" onClick={closeMenu}>
           <img src={logo} alt="Wok Profit Logo" className="navbar-logo" />
         </a>
 
@@ -63,7 +63,7 @@ const Navbar = () => {
           {NAV_SECTIONS.map(({ id, label }) => (
             <li key={id}>
               <a
-                href={`#${id}`}
+                href={`/#${id}`}
                 className={active === id ? "active-link" : ""}
                 onClick={closeMenu}
               >

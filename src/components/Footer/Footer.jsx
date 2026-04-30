@@ -5,10 +5,7 @@ import "./Footer.css";
 
 import { 
   FaFacebookF, 
-  FaInstagram, 
-  FaTwitter, 
   FaLinkedinIn, 
-  FaYoutube,
   FaGithub 
 } from "react-icons/fa";
 
@@ -32,29 +29,45 @@ const Footer = () => {
 
       {/* Social Icons */}
       <div className="footer-social">
-        <a href="#"><FaFacebookF /></a>
-        <a href="#"><FaInstagram /></a>
-        <a href="#"><FaTwitter /></a>
-        <a href="https://www.linkedin.com/in/kao-saelor/" target="_blank" rel="noreferrer">
+        <a 
+          href="https://www.facebook.com/people/Wok-Profit/61589262172260/" 
+          target="_blank" 
+          rel="noreferrer"
+          aria-label="Facebook"
+        >
+          <FaFacebookF />
+        </a>
+
+        <a 
+          href="https://www.linkedin.com/in/kao-saelor/" 
+          target="_blank" 
+          rel="noreferrer"
+          aria-label="LinkedIn"
+        >
           <FaLinkedinIn />
         </a>
-        <a href="#"><FaYoutube /></a>
-        <a href="https://github.com/CodingKao" target="_blank" rel="noreferrer">
+
+        <a 
+          href="https://github.com/CodingKao" 
+          target="_blank" 
+          rel="noreferrer"
+          aria-label="GitHub"
+        >
           <FaGithub />
         </a>
       </div>
 
       {/* Back to Top */}
-      <a href="#top" className="footer-top">Back to Top ↑</a>
+      <a href="#hero" className="footer-top">Back to Top ↑</a>
 
       {/* Tagline */}
       <p className="footer-tagline">
-        Helping Asian restaurant owners take control of their numbers and keep more of their hard‑earned profit.
+        Helping Asian restaurant owners take control of their numbers and keep more of their hard-earned profit.
       </p>
 
       {/* Copyright */}
       <p className="footer-copy">
-        © 2026 Wok Profit. All rights reserved.
+        © {new Date().getFullYear()} Wok Profit. All rights reserved.
       </p>
 
     </footer>

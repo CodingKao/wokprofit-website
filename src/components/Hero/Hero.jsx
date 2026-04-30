@@ -36,7 +36,7 @@ const Hero = () => {
               Get My Free Profit Audit
             </a>
 
-            <a href="#services" className="btn-outline hero-secondary">
+            <a href="/#services" className="btn-outline hero-secondary">
               See How It Works
             </a>
           </div>
