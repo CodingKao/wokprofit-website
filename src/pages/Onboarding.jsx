@@ -25,7 +25,7 @@ function Onboarding() {
     };
 
     /* ------------------------------------
-       SEND EMAIL NOTIFICATION (EmailJS)
+       1. SEND EMAIL NOTIFICATION (EmailJS)
     ------------------------------------ */
     try {
       await emailjs.send(
@@ -39,9 +39,21 @@ function Onboarding() {
     }
 
     /* ------------------------------------
-       AIRTABLE REMOVED — WILL BE MOVED TO BACKEND
+       2. SEND DATA TO BACKEND (Vercel API)
     ------------------------------------ */
+    try {
+      await fetch("https://wokprofit-website.vercel.app/api/onboarding", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+    } catch (err) {
+      console.error("Backend Error:", err);
+    }
 
+    /* ------------------------------------
+       3. SHOW SUCCESS SCREEN
+    ------------------------------------ */
     setSubmitted(true);
   };
 
