@@ -2,7 +2,6 @@
 
 import React from "react";
 import "./Testimonials.css";
-import {AUDIT_LINK} from "../../config/Links";
 
 const Testimonials = () => {
   const insights = [
@@ -15,12 +14,12 @@ const Testimonials = () => {
 
   return (
     <section id="testimonials" className="testimonials-section">
-      <div className="testimonials-container container">
+      <div className="container testimonials-inner">
 
-        <span className="testimonials-eyebrow">What Restaurant Owners Usually Tell Me</span>
+        <span className="testimonials-eyebrow">What Restaurant Owners Usually Say</span>
 
         <h2 className="testimonials-title">
-          Real Reactions From Owners Who See Their Numbers Clearly For the First Time
+          Common Reactions When Owners See Their Numbers Clearly For the First Time
         </h2>
 
         <div className="testimonials-grid">

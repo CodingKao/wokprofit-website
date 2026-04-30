@@ -7,10 +7,7 @@
   padding: var(--section-padding) 0;
 }
 
-.value-container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--padding-horizontal);
+.value-inner {
   text-align: center;
 }
 
@@ -31,6 +28,7 @@
   margin-bottom: 1rem;
   font-weight: 700;
   line-height: 1.25;
+  font-size: var(--text-xl);
 }
 
 /* Subtitle */
@@ -106,4 +104,20 @@
 .value-cta {
   margin-top: 1rem;
   display: inline-block;
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .value-title {
+    font-size: calc(var(--text-xl) * 0.9);
+  }
+
+  .value-subtitle {
+    font-size: var(--text-base);
+  }
 }

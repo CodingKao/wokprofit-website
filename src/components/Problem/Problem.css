@@ -1,139 +1,119 @@
+/* =========================
+   PROBLEM SECTION
+========================= */
+
 .problem-section {
   background: var(--bg-light);
+  padding: var(--section-padding) 0;
 }
 
-.problem-section .problem-container {
+.problem-inner {
   display: flex;
   align-items: center;
-  gap: clamp(24px, 4vw, 40px);
+  gap: 3rem;
   flex-wrap: wrap;
 }
 
-.problem-section .problem-image {
-  flex: 0 0 40%;
+/* IMAGE */
+.problem-image {
+  flex: 0 0 38%;
   display: flex;
   justify-content: center;
 }
 
-.problem-section .problem-image img {
+.problem-image img {
   width: 100%;
-  max-width: 300px;
+  max-width: 280px;
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-soft);
 }
 
-.problem-section .problem-text {
+/* TEXT BOX */
+.problem-text {
   flex: 1;
-  background: var(--bg-white);
-  padding: clamp(24px, 4vw, 40px);
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
-/* -------------------------
-   HEADLINE
-------------------------- */
-.problem-section .problem-text h2 {
+.problem-title {
   font-size: var(--text-xl);
-  margin: 0 0 20px;
-  color: var(--text-dark);
   font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
   line-height: 1.25;
 }
 
-/* -------------------------
-   PARAGRAPHS
-------------------------- */
-.problem-section .problem-text p {
-  font-size: var(--text-base);
-  color: var(--text-medium);
-  margin: 0 0 20px;
-  line-height: 1.6;
-}
-
-/* -------------------------
-   SUBTEXT
-------------------------- */
-.problem-section .problem-subtext {
+.problem-subtext {
   font-size: var(--text-lg);
   color: var(--text-dark);
-  margin: 0 0 14px;
-  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
-.problem-section .problem-subtext strong {
+.problem-subtext strong {
   color: var(--primary);
-  font-weight: 700;
 }
 
-/* -------------------------
-   LIST
-------------------------- */
-.problem-section .problem-text ul {
+.problem-intro {
+  font-size: var(--text-base);
+  color: var(--text-medium);
+  margin-bottom: 1.25rem;
+}
+
+/* LIST */
+.problem-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 1.5rem 0;
 }
 
-.problem-section .problem-text li {
+.problem-list li {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding-left: 0;
-  margin-bottom: 15px;
+  gap: 10px;
+  margin-bottom: 0.75rem;
   font-size: var(--text-base);
   color: var(--text-dark);
   line-height: 1.55;
 }
 
-.problem-section .problem-text .checkmark {
-  position: static;
+.problem-list .bullet {
   color: var(--primary);
-  font-weight: 700;
-  font-size: var(--text-base);
-  line-height: 1.4;
-  flex-shrink: 0;
-  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1;
 }
 
-.problem-section .problem-text .point-text {
-  line-height: 1.55;
-  color: var(--text-dark);
-}
-
-/* -------------------------
-   CLOSE LINE
-------------------------- */
-.problem-section .problem-close {
-  margin: 20px 0 0;
+/* CLOSE LINE */
+.problem-close {
   font-weight: 600;
   color: var(--text-dark);
-  font-size: var(--text-base);
+  margin-bottom: 1.5rem;
 }
 
-/* -------------------------
-   RESPONSIVE
-------------------------- */
+/* CTA */
+.problem-cta {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 14px 24px;
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 900px) {
-  .problem-section .problem-container {
+  .problem-inner {
     flex-direction: column;
-    gap: 25px;
+    gap: 2rem;
   }
 
-  .problem-section .problem-image,
-  .problem-section .problem-text {
-    flex: 1 1 100%;
+  .problem-image img {
+    max-width: 240px;
   }
 
-  .problem-section .problem-image img {
-    max-width: 250px;
+  .problem-text {
+    text-align: left;
   }
 
-  .problem-section .problem-text {
-    padding: 24px;
-  }
-
-  .problem-section .problem-cta {
+  .problem-cta {
     width: 100%;
   }
 }

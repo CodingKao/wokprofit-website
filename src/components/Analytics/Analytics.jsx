@@ -7,18 +7,18 @@ const slides = [
   {
     title: "Real-Time Profit Visibility",
     img: "https://images.pexels.com/photos/7887816/pexels-photo-7887816.jpeg?auto=compress&cs=tinysrgb&w=1500",
-    text: "See whether your restaurant is actually making money day by day — not just generating sales."
+    text: "See whether your restaurant is actually making money day by day — not just generating sales.",
   },
   {
     title: "Menu Performance Insights",
     img: "https://images.pexels.com/photos/5912324/pexels-photo-5912324.jpeg?auto=compress&cs=tinysrgb&w=1500",
-    text: "Identify which menu items drive profit, which ones drain margin, and where pricing needs adjustment."
+    text: "Identify which menu items drive profit, which ones drain margin, and where pricing needs adjustment.",
   },
   {
     title: "Contribution Margin Tracking",
     img: "https://images.pexels.com/photos/7413936/pexels-photo-7413936.jpeg?auto=compress&cs=tinysrgb&w=1500",
-    text: "Track profit per plate so you can optimize food cost, improve pricing, and protect your margins."
-  }
+    text: "Track profit per plate so you can optimize food cost, improve pricing, and protect your margins.",
+  },
 ];
 
 const Analytics = () => {
@@ -29,48 +29,39 @@ const Analytics = () => {
     const track = trackRef.current;
     if (!track) return;
 
-    const slideWidth = track.clientWidth;
+    const width = track.clientWidth;
 
     track.scrollTo({
-      left: slideWidth * index,
-      behavior: "smooth"
+      left: width * index,
+      behavior: "smooth",
     });
 
     setCurrentSlide(index);
   };
 
-  const nextSlide = () => {
-    const next = (currentSlide + 1) % slides.length;
-    scrollToSlide(next);
-  };
-
-  const prevSlide = () => {
-    const prev = (currentSlide - 1 + slides.length) % slides.length;
-    scrollToSlide(prev);
-  };
+  const nextSlide = () => scrollToSlide((currentSlide + 1) % slides.length);
+  const prevSlide = () =>
+    scrollToSlide((currentSlide - 1 + slides.length) % slides.length);
 
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
 
     const handleScroll = () => {
-      const slideWidth = track.clientWidth;
-      if (!slideWidth) return;
+      const width = track.clientWidth;
+      if (!width) return;
 
-      const index = Math.round(track.scrollLeft / slideWidth);
+      const index = Math.round(track.scrollLeft / width);
       setCurrentSlide(index);
     };
 
     track.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      track.removeEventListener("scroll", handleScroll);
-    };
+    return () => track.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <section id="analytics" className="analytics-section">
-      <div className="analytics-container container">
+      <div className="container analytics-inner">
 
         <span className="analytics-eyebrow">The Wok Profit System</span>
 
@@ -83,7 +74,8 @@ const Analytics = () => {
           where profit is leaking, what’s driving margin, and what to fix next.
         </p>
 
-        <div className="carousel-wrapper">
+        {/* CAROUSEL */}
+        <div className="analytics-carousel">
           <div
             className="carousel-track"
             ref={trackRef}
@@ -101,39 +93,40 @@ const Analytics = () => {
               </div>
             ))}
           </div>
-        </div>
 
-        <div className="carousel-controls">
-          <button
-            type="button"
-            onClick={prevSlide}
-            className="carousel-btn"
-            aria-label="Previous slide"
-          >
-            ←
-          </button>
-
-          <button
-            type="button"
-            onClick={nextSlide}
-            className="carousel-btn"
-            aria-label="Next slide"
-          >
-            →
-          </button>
-        </div>
-
-        <div className="carousel-dots" role="tablist" aria-label="Carousel navigation">
-          {slides.map((slide, index) => (
+          {/* CONTROLS */}
+          <div className="carousel-controls">
             <button
-              key={slide.title}
               type="button"
-              className={`dot ${currentSlide === index ? "active" : ""}`}
-              onClick={() => scrollToSlide(index)}
-              aria-label={`Go to ${slide.title}`}
-              aria-pressed={currentSlide === index}
-            />
-          ))}
+              onClick={prevSlide}
+              className="carousel-btn"
+              aria-label="Previous slide"
+            >
+              ←
+            </button>
+
+            <button
+              type="button"
+              onClick={nextSlide}
+              className="carousel-btn"
+              aria-label="Next slide"
+            >
+              →
+            </button>
+          </div>
+
+          {/* DOTS */}
+          <div className="carousel-dots" role="tablist">
+            {slides.map((slide, index) => (
+              <button
+                key={slide.title}
+                type="button"
+                className={`dot ${currentSlide === index ? "active" : ""}`}
+                onClick={() => scrollToSlide(index)}
+                aria-label={`Go to ${slide.title}`}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="analytics-proof">

@@ -11,8 +11,8 @@
   /* Balanced spacing (desktop + mobile) */
   --padding-horizontal: clamp(16px, 4vw, 32px);
 
-  /* Reduced section spacing for cleaner desktop layout */
-  --section-padding: clamp(48px, 6vw, 72px);
+  /* NEW: Tighter section spacing */
+  --section-padding: clamp(24px, 3vw, 40px);
 
   /* Typography */
   --text-base: clamp(14px, 1.4vw, 16px);
@@ -73,7 +73,7 @@ body {
   padding: 0 var(--padding-horizontal);
 }
 
-/* Section spacing (cleaner desktop rhythm) */
+/* Section spacing (tight, premium rhythm) */
 section {
   padding: var(--section-padding) 0;
 }
@@ -229,7 +229,7 @@ img {
 @media (max-width: 768px) {
 
   section {
-    padding: 48px 0;
+    padding: 28px 0; /* tighter mobile spacing */
   }
 
   h1 {

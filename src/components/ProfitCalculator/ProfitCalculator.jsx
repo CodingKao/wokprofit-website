@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import "./ProfitCalculator.css";
-import {AUDIT_LINK} from "../../config/Links";
+import { AUDIT_LINK } from "../../config/Links";
 
 const ProfitCalculator = () => {
   const [inputs, setInputs] = useState({
@@ -32,7 +32,7 @@ const ProfitCalculator = () => {
     if (!revenue) return;
 
     const totalCosts = food + labor + rent + other;
-    const idealCost = revenue * 0.65; // Ideal restaurant cost structure
+    const idealCost = revenue * 0.65;
     const leak = totalCosts - idealCost;
 
     setResult(leak > 0 ? leak : 0);
@@ -43,7 +43,7 @@ const ProfitCalculator = () => {
 
   return (
     <section id="calculator" className="calc-section">
-      <div className="calc-container container">
+      <div className="container calc-inner">
 
         <span className="calc-eyebrow">Profit Leak Calculator</span>
 
@@ -55,9 +55,10 @@ const ProfitCalculator = () => {
           Enter your numbers — we’ll show you how much profit may be slipping away.
         </p>
 
-        <div className="calc-box">
-          <div className="calc-grid">
+        {/* CALCULATOR CARD */}
+        <div className="calc-card">
 
+          <div className="calc-grid">
             <div className="calc-field">
               <label>Monthly Revenue ($)</label>
               <input
@@ -112,7 +113,6 @@ const ProfitCalculator = () => {
                 placeholder="e.g., 1,000"
               />
             </div>
-
           </div>
 
           <button className="calc-btn" onClick={calculateProfitLeak}>
@@ -122,56 +122,44 @@ const ProfitCalculator = () => {
           {result !== null && (
             <div className="calc-result">
 
-              <p><strong>You may be losing around:</strong></p>
+              <p className="calc-result-label">You may be losing around:</p>
 
-              {/* RANGE DISPLAY */}
               {result > 0 ? (
                 <>
                   {(() => {
                     const low = result * 0.9;
                     const high = result * 1.1;
                     return (
-                      <h3>
+                      <h3 className="calc-range">
                         ${formatCurrency(low)} – ${formatCurrency(high)}/month
                       </h3>
                     );
                   })()}
 
-                  {/* CONTEXT LINE */}
-                  <p className="calc-note" style={{ marginTop: "0.75rem" }}>
-                    Based on the numbers you entered:
-                  </p>
-
                   <p className="calc-note">
-                    Your costs may be higher than they should be.
+                    Based on the numbers you entered, your costs may be higher than they should be.
                   </p>
                 </>
               ) : (
-                <h3>$0/month</h3>
+                <h3 className="calc-range">$0/month</h3>
               )}
 
               <p className="calc-note">
                 This is an estimate — your full Profit Audit will show exactly where the money is going and how to fix it.
               </p>
 
-              <p className="calc-note" style={{ marginTop: "0.5rem", fontWeight: 600 }}>
-                Want the full breakdown?
-              </p>
+              <a
+                href={AUDIT_LINK}
+                className="btn-primary calc-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get My Free Profit Audit
+              </a>
 
-<a
-  href={AUDIT_LINK}
-  className="btn-primary"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Get My Free Profit Audit
-</a>
-
-              {/* TRUST CUE */}
-              <p className="calc-note" style={{ marginTop: "0.75rem", fontSize: "0.9rem", opacity: 0.8 }}>
+              <p className="calc-trust">
                 Takes 3 minutes. No pressure. No sales pitch.
               </p>
-
             </div>
           )}
         </div>

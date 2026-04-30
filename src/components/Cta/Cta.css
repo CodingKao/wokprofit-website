@@ -1,38 +1,37 @@
 /* =========================
-   CTA SECTION (PREMIUM HIERARCHY)
+   CTA SECTION
 ========================= */
+
 .cta-section {
   background: var(--bg-white);
+  padding: var(--section-padding) 0;
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
 }
 
-.cta-container {
+.cta-inner {
   max-width: 680px;
   margin: 0 auto;
   text-align: center;
 }
 
-/* =========================
-   EYEBROW (PRIMARY HEADLINE)
-========================= */
+/* Eyebrow (small, strong opener) */
 .cta-eyebrow {
   display: block;
-  margin-bottom: 18px;
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  font-weight: 800;
-  line-height: 1.2;
-  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
-/* =========================
-   TITLE (SECONDARY SUPPORT)
-========================= */
+/* Title (main headline) */
 .cta-title {
-  font-size: clamp(1.1rem, 2vw, 1.3rem);
-  font-weight: 500;
-  line-height: 1.6;
-  color: var(--text-medium);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.3;
   margin-bottom: 1rem;
 }
 
@@ -40,63 +39,43 @@
   display: block;
   margin-top: 4px;
   color: var(--primary);
-  font-weight: 700;
+  font-weight: 800;
 }
 
-/* =========================
-   SUBTITLE (OPTIONAL SUPPORT)
-========================= */
+/* Subtitle */
 .cta-subtitle {
   max-width: 520px;
   margin: 0 auto 1.75rem;
-  color: var(--text-light);
+  color: var(--text-medium);
   line-height: 1.7;
-  font-size: 0.95rem;
+  font-size: var(--text-base);
 }
 
-/* =========================
-   BUTTON
-========================= */
-.cta-button {
+/* Button */
+.cta-btn {
   display: inline-block;
   padding: 14px 32px;
-  background: var(--primary);
-  color: var(--text-white);
-  border-radius: 6px;
+  border-radius: 12px;
   font-weight: 700;
-  text-decoration: none;
-  transition: var(--transition);
+  font-size: var(--text-base);
   min-height: 44px;
-}
-
-.cta-button:hover {
-  background: var(--primary-dark);
-  transform: translateY(-1px);
 }
 
 /* =========================
    MOBILE
 ========================= */
+
 @media (max-width: 768px) {
-  .cta-container {
-    max-width: 100%;
-  }
-
-  .cta-eyebrow {
-    font-size: 1.7rem;
-    margin-bottom: 14px;
-  }
-
   .cta-title {
-    font-size: 1rem;
+    font-size: calc(var(--text-xl) * 0.9);
   }
 
   .cta-subtitle {
-    font-size: 0.92rem;
+    font-size: var(--text-base);
     margin-bottom: 1.5rem;
   }
 
-  .cta-button {
+  .cta-btn {
     width: 100%;
     max-width: 300px;
   }

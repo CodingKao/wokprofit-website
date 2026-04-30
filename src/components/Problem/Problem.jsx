@@ -1,34 +1,25 @@
 // src/components/Problem/Problem.jsx
 
 import React from "react";
-import stress from "../../assets/images/stress-chef.png";
 import "./Problem.css";
-import AUDIT_LINK from "../../config/Links";
+import stress from "../../assets/images/stress-chef.png";
+import { AUDIT_LINK } from "../../config/Links";
+
+const painPoints = [
+  "Food costs creeping up with no clear explanation (losing thousands monthly)",
+  "Overstaffing during slow hours draining your margins",
+  "Menu items that sell well — but barely make you profit",
+  "No visibility into daily or weekly profit",
+  "Reports that show numbers — but not what to fix next",
+];
 
 const Problem = () => {
-  const painPoints = [
-    "Food costs creeping up with no clear explanation (losing thousands monthly)",
-    "Overstaffing during slow hours draining your margins",
-    "Menu items that sell well — but barely make you profit",
-    "No visibility into daily or weekly profit",
-    "Reports that show numbers — but not what to fix next",
-  ];
-
   return (
     <section id="problem" className="problem-section">
-      <div className="problem-container container">
+      <div className="container problem-inner">
 
-        {/* LEFT IMAGE */}
-        <div className="problem-image">
-          <img 
-            src={stress} 
-            alt="Stressed restaurant owner dealing with rising costs" 
-          />
-        </div>
-
-        {/* RIGHT TEXT */}
+        {/* TEXT FIRST */}
         <div className="problem-text">
-
           <h2 className="problem-title">
             You’re Not Losing Revenue — You’re Losing Profit
           </h2>
@@ -45,8 +36,8 @@ const Problem = () => {
           <ul className="problem-list">
             {painPoints.map((point, index) => (
               <li key={index}>
-                <span className="checkmark">✖</span>
-                <span className="point-text">{point}</span>
+                <span className="bullet">•</span>
+                <span>{point}</span>
               </li>
             ))}
           </ul>
@@ -54,7 +45,26 @@ const Problem = () => {
           <p className="problem-close">
             You’re working hard — but without clear financial visibility, your margins won’t improve.
           </p>
+
+        {/* IMAGE */}
+        <div className="problem-image">
+          <img
+            src={stress}
+            alt="Stressed restaurant owner dealing with rising costs"
+          />
         </div>
+
+          <a
+            href={AUDIT_LINK}
+            className="btn-primary problem-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get My Free Profit Audit
+          </a>
+        </div>
+
+
       </div>
     </section>
   );
