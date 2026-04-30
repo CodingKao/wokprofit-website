@@ -18,7 +18,7 @@ const Footer = () => {
 
       {/* Mini Navigation */}
       <nav className="footer-nav">
-        <a href="#home">Home</a>
+        <a href="#hero">Home</a>
         <a href="#services">Services</a>
         <a href="#calculator">Calculator</a>
         <a href="#about">About</a>

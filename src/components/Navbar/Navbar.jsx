@@ -4,7 +4,13 @@ import "./Navbar.css";
 import logo from "../../assets/images/logo.png";
 import { AUDIT_LINK } from "../../config/Links";
 
-const NAV_SECTIONS = ["hero", "calculator", "services", "about", "contact"];
+const NAV_SECTIONS = [
+  { id: "hero", label: "Home" },
+  { id: "calculator", label: "Calculator" },
+  { id: "services", label: "Services" },
+  { id: "about", label: "About" },
+  { id: "contact", label: "Contact" }
+];
 
 const Navbar = () => {
   const [active, setActive] = useState("hero");
@@ -16,7 +22,7 @@ const Navbar = () => {
       setScrolled(window.scrollY > 50);
 
       let current = "hero";
-      NAV_SECTIONS.forEach((id) => {
+      NAV_SECTIONS.forEach(({ id }) => {
         const el = document.getElementById(id);
         if (el && window.scrollY >= el.offsetTop - 140) {
           current = id;
@@ -54,14 +60,14 @@ const Navbar = () => {
 
         {/* NAV LINKS */}
         <ul className={`navbar-links ${menuOpen ? "open" : ""}`}>
-          {NAV_SECTIONS.map((section) => (
-            <li key={section}>
+          {NAV_SECTIONS.map(({ id, label }) => (
+            <li key={id}>
               <a
-                href={`#${section}`}
-                className={active === section ? "active-link" : ""}
+                href={`#${id}`}
+                className={active === id ? "active-link" : ""}
                 onClick={closeMenu}
               >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
+                {label}
               </a>
             </li>
           ))}
