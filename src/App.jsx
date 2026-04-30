@@ -50,6 +50,9 @@ function App() {
         {/* Onboarding Pages */}
         <Route exact path="/onboarding" component={Onboarding} />
         <Route exact path="/onboarding/success" component={OnboardingSuccess} />
+
+        {/* ⭐ CRITICAL FIX: fallback route */}
+        <Route component={Home} />
       </Switch>
     </Router>
   );
