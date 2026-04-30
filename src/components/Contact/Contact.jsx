@@ -1,76 +1,127 @@
 // src/components/Contact/Contact.jsx
-import React from "react";
+
+import React, { useEffect, useRef, useState } from "react";
 import "./Contact.css";
 import logo from "../../assets/images/logo.png";
-
-// React icons
-import { 
-  FaFacebookF, 
-  FaInstagram, 
-  FaTwitter, 
-  FaLinkedinIn, 
-  FaYoutube,
-  FaGithub 
-} from "react-icons/fa";
+import { AUDIT_LINK } from "../../config/Links";
 
 const Contact = () => {
+  const stickyRef = useRef(null);
+  const footerRef = useRef(null);
+
+  const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    const sticky = stickyRef.current;
+    const footer = footerRef.current;
+
+    if (!sticky || !footer) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            sticky.classList.add("hide-cta");
+          } else {
+            sticky.classList.remove("hide-cta");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(footer);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Simulate successful submission
+    setSubmitted(true);
+
+    // Optional: scroll to success message
+    setTimeout(() => {
+      document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+    }, 200);
+  };
+
   return (
-    <section id="contact" className="contact">
-      <div className="contact-container">
+    <section id="contact" className="contact-section">
+      <div className="container contact-inner">
 
         {/* LEFT SIDE */}
         <div className="contact-left">
-          <div className="contact-logo">
-            <img src={logo} alt="Wok Profit Logo" />
-          </div>
+          <img src={logo} alt="Wok Profit Logo" className="contact-logo" />
 
-          <p className="contact-description">
-            Wok Profit helps restaurants analyze their financial data to optimize profits, reduce food and labor costs, and improve overall operations. 
-            Our tools provide actionable insights on menu performance, contribution margins, labor efficiency, and cost control strategies. 
-            <br /><br />
-            Partner with us to unlock hidden profit opportunities and make smarter, data-driven business decisions. 
-            Whether you’re a single-location restaurant or a growing chain, Wok Profit’s dashboards and analytics empower restaurant owners to increase margins and operational efficiency.
+          <p className="contact-text">
+            Wok Profit helps Asian restaurant owners understand their numbers, fix profit leaks,
+            and make smarter financial decisions every month.
           </p>
 
-          <div className="contact-social-icons">
-            <a href="#" target="_blank" rel="noreferrer"><FaFacebookF /></a>
-            <a href="#" target="_blank" rel="noreferrer"><FaInstagram /></a>
-            <a href="#" target="_blank" rel="noreferrer"><FaTwitter /></a>
-            <a href="https://www.linkedin.com/in/kao-saelor/" target="_blank" rel="noreferrer"><FaLinkedinIn /></a>
-            <a href="#" target="_blank" rel="noreferrer"><FaYoutube /></a>
-            <a href="https://github.com/CodingKao" target="_blank" rel="noreferrer"><FaGithub /></a>
-          </div>
-
-          <div className="contact-info">
-            <p><strong>Email:</strong> kao@wokprofit.com</p>
-          </div>
+          <p className="contact-email">
+            Prefer email? Reach me directly: <strong>kao@wokprofit.com</strong>
+          </p>
         </div>
 
-        {/* RIGHT SIDE FORM */}
+        {/* RIGHT SIDE */}
         <div className="contact-right">
-          <form id="contact-form" className="contact-form">
 
-            <h3 className="contact-form-title">
-              Start with a <strong>free Profit Review</strong> – no commitment
-            </h3>
+          {/* SUCCESS MESSAGE */}
+          {submitted ? (
+            <div className="contact-success">
+              <h3>Message Sent Successfully 🎉</h3>
+              <p>
+                Thanks for reaching out — I’ll review your message personally and follow up as soon as I’m able.
+              </p>
+              <p>You’ll keep the insights even if we don’t work together.</p>
+            </div>
+          ) : (
+            <form id="contact-form" className="contact-form" onSubmit={handleSubmit}>
 
-            <input type="text" placeholder="Full Name" required />
-            <input type="text" placeholder="Business Name" />
-            <input type="email" placeholder="Email Address" required />
-            <input type="tel" placeholder="Phone Number" />
-            <textarea placeholder="How can we help your business?" rows="6"></textarea>
+              <h3 className="contact-form-title">
+                Get a clear breakdown of where your profit is going — free.
+              </h3>
 
-            <button type="submit">Send Message</button>
-          </form>
+              <input type="text" placeholder="Full Name" required />
+              <input type="text" placeholder="Business Name" />
+              <input type="email" placeholder="Email Address" required />
+              <input type="tel" placeholder="Phone Number" />
+              <textarea placeholder="How can we help your business?" rows="6"></textarea>
+
+              <button type="submit" className="contact-submit">
+                Send Message
+              </button>
+
+              <p className="contact-reassurance">
+                Your information is never shared. No pressure. No sales pitch.
+              </p>
+
+              <div className="contact-next-box">
+                <strong>What happens next:</strong>
+                <ul>
+                  <li>I review your message personally</li>
+                  <li>I follow up as soon as I’m able</li>
+                  <li>You keep the insights even if we don’t work together</li>
+                </ul>
+              </div>
+
+            </form>
+          )}
+
         </div>
-
       </div>
 
-      {/* 🔥 Sticky CTA */}
-      <div className="sticky-cta">
-        <a href="#contact-form">Book Free Profit Review</a>
+      {/* Sticky CTA */}
+      <div className="sticky-cta" ref={stickyRef}>
+        <a href={AUDIT_LINK} target="_blank" rel="noopener noreferrer">
+          Get My Free Profit Audit
+        </a>
       </div>
 
+      {/* Footer sentinel */}
+      <div ref={footerRef} className="footer-sentinel"></div>
     </section>
   );
 };

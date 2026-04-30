@@ -1,12 +1,14 @@
 // src/components/Cta/Cta.jsx
+
 import React from "react";
 import "./Cta.css";
-import {AUDIT_LINK} from "../../config/Links";
+import { AUDIT_LINK } from "../../config/Links";
 
 const Cta = () => {
   return (
     <section className="cta-section" aria-labelledby="cta-title">
-      <div className="cta-container container">
+      <div className="container cta-inner">
+
         <span className="cta-eyebrow">Ready to increase profit?</span>
 
         <h2 id="cta-title" className="cta-title">
@@ -19,16 +21,15 @@ const Cta = () => {
           margin leaks may be hurting your restaurant.
         </p>
 
-        <div className="cta-actions">
-<a
-  href={AUDIT_LINK}
-  className="btn-primary"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Get My Free Profit Audit
-</a>
-        </div>
+        <a
+          href={AUDIT_LINK}
+          className="btn-primary cta-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get My Free Profit Audit
+        </a>
+
       </div>
     </section>
   );

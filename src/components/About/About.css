@@ -8,17 +8,30 @@
   color: var(--text-dark);
 }
 
-.about-container {
+.about-inner {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: clamp(32px, 6vw, 72px);
-  flex-wrap: wrap;
-  text-align: center; /* mobile-friendly centering */
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(32px, 5vw, 60px);
+  text-align: center;
+}
+
+/* Eyebrow */
+.about-eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(200, 16, 46, 0.08);
+  border: 1px solid rgba(200, 16, 46, 0.18);
+  color: var(--primary);
+  font-size: var(--text-base);
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 /* =========================
-   FLIP CARD (Picture + Background)
+   FLIP CARD
 ========================= */
 
 .flip-card {
@@ -26,7 +39,6 @@
   height: 480px;
   perspective: 1200px;
   cursor: pointer;
-  margin: 0 auto; /* center on mobile */
 }
 
 .flip-card-inner {
@@ -61,7 +73,6 @@
 .flip-card-front {
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
 .flip-card-front img {
@@ -69,27 +80,21 @@
   height: 210px;
   border-radius: 50%;
   object-fit: cover;
-
-  /* Premium gold border */
   border: 6px solid #d4af37;
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
-
   margin-bottom: 18px;
 }
 
 .flip-card-front h3 {
   margin: 10px 0 6px;
   font-size: var(--text-lg);
-  color: var(--text-dark);
 }
 
 .flip-card-front p {
   font-size: var(--text-base);
   color: var(--text-medium);
-  line-height: 1.6;
 }
 
-/* CLICK HINT */
 .flip-hint {
   margin-top: 10px;
   font-size: var(--text-sm);
@@ -107,7 +112,6 @@
 .flip-card-back h3 {
   font-size: var(--text-lg);
   margin-bottom: 12px;
-  color: var(--text-dark);
 }
 
 .flip-card-back p {
@@ -118,55 +122,29 @@
 }
 
 /* =========================
-   ABOUT CONTENT (WHY section)
+   ABOUT CONTENT
 ========================= */
 
 .about-content {
-  flex: 1;
   max-width: 620px;
-  margin: 0 auto; /* center on mobile */
 }
 
-.about-eyebrow {
-  display: inline-block;
-  margin-bottom: 12px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(200, 16, 46, 0.08);
-  border: 1px solid rgba(200, 16, 46, 0.18);
-  color: var(--primary);
-  font-size: var(--text-base);
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.about-content h2 {
+.about-title {
   margin-bottom: 18px;
   font-size: var(--text-xl);
-  color: var(--text-dark);
   line-height: 1.25;
 }
-
-/* =========================
-   INTRO TEXT
-========================= */
 
 .about-intro {
   margin-bottom: 18px;
   font-size: var(--text-base);
   color: var(--text-medium);
   line-height: 1.7;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-/* =========================
-   MISSION HIGHLIGHT BOX
-========================= */
-
+/* Highlight Box */
 .about-proof-box {
-  margin: 24px auto;
+  margin: 24px auto 0;
   padding: 18px 20px;
   border-radius: 16px;
   background: var(--bg-light);
@@ -175,10 +153,9 @@
   max-width: 600px;
 }
 
-/* Clean, readable gold highlight */
 .highlight-goal {
   border-left: 6px solid #d4af37;
-  background: #fffef8; /* softer, readable */
+  background: #fffef8;
 }
 
 .highlight-goal strong {
@@ -187,19 +164,10 @@
 }
 
 /* =========================
-   MOBILE RESPONSIVE
+   MOBILE
 ========================= */
 
 @media (max-width: 768px) {
-  .about-container {
-    text-align: center;
-    justify-content: center;
-  }
-
-  .flip-card {
-    margin-top: 12px;
-  }
-
   .flip-card-back {
     text-align: center;
   }

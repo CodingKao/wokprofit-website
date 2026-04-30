@@ -28,9 +28,9 @@ function Home() {
       <Hero />
       <Problem />
       <Value />
+      <Analytics />
       <ProfitCalculator />
       <Services />
-      <Analytics />
       <Testimonials />
       <About />
       <Cta />

@@ -2,16 +2,15 @@
 
 import React from "react";
 import "./Hero.css";
-import graph from "../../assets/images/graph.jpg";
-import {AUDIT_LINK} from "../../config/Links";
+import auditPreview from "../../assets/images/auditpreview.png";
+import { AUDIT_LINK } from "../../config/Links";
 
 const Hero = () => {
   return (
     <section id="hero" className="hero-section">
+      <div className="container hero-inner">
 
-      <div className="hero-container">
-
-        {/* LEFT SIDE - TEXT */}
+        {/* LEFT TEXT */}
         <div className="hero-text">
 
           <span className="hero-badge">
@@ -28,55 +27,35 @@ const Hero = () => {
           </p>
 
           <div className="hero-actions">
-
-<a
-  href={AUDIT_LINK}
-  className="btn-primary"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Get My Free Profit Audit
-</a>
-
-            <a href="#services" className="hero-btn secondary">
-              See How It Works
+            <a
+              href={AUDIT_LINK}
+              className="btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get My Free Profit Audit
             </a>
 
+            <a href="#services" className="btn-outline hero-secondary">
+              See How It Works
+            </a>
           </div>
 
           <p className="hero-microcopy">
             No credit card. Takes 3 minutes. Keep the audit even if you don’t work with us.
           </p>
-
         </div>
 
-        {/* RIGHT SIDE - GRAPH */}
-        <div className="hero-graph">
-
-          <img src={graph} alt="Restaurant analytics dashboard" />
-
-          {/* KPI 1 */}
-          <div className="kpi-card food">
-            <span className="kpi-label">Food Cost</span>
-            <span className="kpi-value">28.4%</span>
-          </div>
-
-          {/* KPI 2 */}
-          <div className="kpi-card profit">
-            <span className="kpi-label">Weekly Profit</span>
-            <span className="kpi-value">+$4,250</span>
-          </div>
-
-          {/* KPI 3 */}
-          <div className="kpi-card labor">
-            <span className="kpi-label">Labor Cost</span>
-            <span className="kpi-value">24.1%</span>
-          </div>
-
+        {/* RIGHT SIDE — AUDIT PREVIEW */}
+        <div className="hero-preview">
+          <img
+            src={auditPreview}
+            alt="Sample Profit Audit Preview"
+            className="hero-preview-img"
+          />
         </div>
 
       </div>
-
     </section>
   );
 };

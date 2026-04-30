@@ -2,34 +2,27 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import logo from "../../assets/images/logo.png";
-import {AUDIT_LINK} from "../../config/Links";
+import { AUDIT_LINK } from "../../config/Links";
+
+const NAV_SECTIONS = ["hero", "calculator", "services", "about", "contact"];
 
 const Navbar = () => {
   const [active, setActive] = useState("hero");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // UPDATED SECTIONS
-  const sections = [
-    "hero",
-    "calculator",
-    "services",
-    "testimonials",
-    "about",
-    "contact",
-  ];
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      let current = "";
-      sections.forEach((section) => {
-        const el = document.getElementById(section);
-        if (el && window.scrollY >= el.offsetTop - 120) {
-          current = section;
+      let current = "hero";
+      NAV_SECTIONS.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 140) {
+          current = id;
         }
       });
+
       setActive(current);
     };
 
@@ -37,92 +30,54 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
-      <div className="navbar-container">
+      <div className="container navbar-inner">
 
         {/* LOGO */}
-        <div className="navbar-left">
-          <a href="#hero">
-            <img src={logo} alt="Wok Profit Logo" className="navbar-logo" />
-          </a>
-        </div>
+        <a href="#hero" className="navbar-logo-wrap" onClick={closeMenu}>
+          <img src={logo} alt="Wok Profit Logo" className="navbar-logo" />
+        </a>
 
-        {/* HAMBURGER */}
-        <div
-          className={`hamburger ${menuOpen ? "active" : ""}`}
+        {/* MOBILE TOGGLE */}
+        <button
+          className={`navbar-toggle ${menuOpen ? "active" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation menu"
         >
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
 
         {/* NAV LINKS */}
-        <ul className={`navbar-right ${menuOpen ? "open" : ""}`}>
+        <ul className={`navbar-links ${menuOpen ? "open" : ""}`}>
+          {NAV_SECTIONS.map((section) => (
+            <li key={section}>
+              <a
+                href={`#${section}`}
+                className={active === section ? "active-link" : ""}
+                onClick={closeMenu}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </a>
+            </li>
+          ))}
 
-          <li>
+          {/* CTA */}
+          <li className="navbar-cta">
             <a
-              href="#hero"
-              className={active === "hero" ? "active-link" : ""}
-              onClick={() => setMenuOpen(false)}
+              href={AUDIT_LINK}
+              className="btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeMenu}
             >
-              Home
+              Get My Free Profit Audit
             </a>
           </li>
-
-          <li>
-            <a
-              href="#calculator"
-              className={active === "calculator" ? "active-link" : ""}
-              onClick={() => setMenuOpen(false)}
-            >
-              Calculator
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="#services"
-              className={active === "services" ? "active-link" : ""}
-              onClick={() => setMenuOpen(false)}
-            >
-              Services
-            </a>
-          </li>
-          
-          <li>
-            <a
-              href="#about"
-              className={active === "about" ? "active-link" : ""}
-              onClick={() => setMenuOpen(false)}
-            >
-              About
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="#contact"
-              className={active === "contact" ? "active-link" : ""}
-              onClick={() => setMenuOpen(false)}
-            >
-              Contact
-            </a>
-          </li>
-
-          {/* CTA BUTTON */}
-          <li className="cta-btn">
-<a
-  href={AUDIT_LINK}
-  className="btn-primary"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Get My Free Profit Audit
-</a>
-          </li>
-
         </ul>
       </div>
     </nav>

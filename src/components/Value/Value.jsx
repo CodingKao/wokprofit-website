@@ -1,11 +1,13 @@
+// src/components/Value/Value.jsx
+
 import React from "react";
 import "./Value.css";
-import {AUDIT_LINK} from "../../config/Links";
+import { AUDIT_LINK } from "../../config/Links";
 
 const Value = () => {
   return (
-    <section className="value-section">
-      <div className="value-container">
+    <section id="value" className="value-section">
+      <div className="container value-inner">
 
         <span className="value-eyebrow">Why Restaurants Choose Us</span>
 
@@ -46,14 +48,14 @@ const Value = () => {
           once they implement our system.
         </div>
 
-<a
-  href={AUDIT_LINK}
-  className="btn-primary"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Get My Free Profit Audit
-</a>
+        <a
+          href={AUDIT_LINK}
+          className="btn-primary value-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get My Free Profit Audit
+        </a>
 
       </div>
     </section>

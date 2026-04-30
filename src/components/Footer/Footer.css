@@ -1,6 +1,119 @@
-.footer{
-text-align:center;
-padding:30px;
-background:#111;
-color:white;
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  background: #111;
+  padding: 50px 20px;
+  color: white;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* =========================
+   MINI NAVIGATION
+========================= */
+
+.footer-nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.footer-nav a {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.footer-nav a:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   RESOURCES (Wok Profit Tips)
+========================= */
+
+.footer-resources {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.footer-resources a {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.footer-resources a:hover {
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   SOCIAL ICONS
+========================= */
+
+.footer-social {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.footer-social a {
+  color: rgba(255,255,255,0.75);
+  font-size: 1.3rem;
+  transition: 0.25s ease;
+}
+
+.footer-social a:hover {
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+.footer-top {
+  margin-bottom: 18px;
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.footer-top:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================
+   TAGLINE + COPYRIGHT
+========================= */
+
+.footer-tagline {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  max-width: 480px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
 }
