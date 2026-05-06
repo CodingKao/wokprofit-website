@@ -7,85 +7,92 @@
   padding: var(--section-padding) 0;
 }
 
-/* Layout */
 .hero-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   align-items: center;
-  gap: 3rem;
+  justify-content: space-between;
+  gap: clamp(40px, 6vw, 100px);
+  flex-direction: row; /* TEXT LEFT, IMAGE RIGHT */
 }
 
-/* Text */
+.hero-image {
+  flex: 1.2; 
+  display: flex;
+  justify-content: center;
+}
+
+.hero-preview-img {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.hero-text {
+  flex: 1;
+  padding-top: 60px; 
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(200, 16, 46, 0.1);
+  color: var(--primary);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: var(--text-base);
+  margin-bottom: 10px; /* increased spacing */
+}
+
 .hero-title {
   font-size: var(--text-hero);
   line-height: 1.15;
-  margin-bottom: 1rem;
+  margin-bottom: 18px;
   color: var(--text-dark);
 }
 
 .hero-sub {
   font-size: var(--text-lg);
   color: var(--text-medium);
-  line-height: 1.7;
-  margin-bottom: 2rem;
-  max-width: 560px;
+  margin-bottom: 28px;
+  line-height: 1.6;
 }
 
-/* Badge */
-.hero-badge {
-  display: inline-block;
-  background: rgba(200, 16, 46, 0.08);
-  color: var(--primary-dark);
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: var(--text-base);
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-/* CTA Buttons */
 .hero-actions {
   display: flex;
-  gap: 1rem;
+  gap: 16px;
+  margin-bottom: 16px;
 }
 
 .hero-secondary {
-  padding: 14px 24px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: var(--text-base);
+  min-width: 160px;
 }
 
-/* Microcopy */
 .hero-microcopy {
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   color: var(--text-light);
-  margin-top: 0.75rem;
-  max-width: 420px;
-  line-height: 1.4;
-  opacity: 0.75;
+  margin-top: 8px;
 }
 
-/* Audit Preview */
-.hero-preview-img {
-  width: 100%;
-  max-width: 520px;
-  border-radius: 16px;
-  box-shadow: var(--shadow-soft);
-}
+/* =========================
+   MOBILE
+========================= */
 
-/* Mobile */
 @media (max-width: 900px) {
   .hero-inner {
-    grid-template-columns: 1fr;
-    text-align: left;
+    flex-direction: column;
+    text-align: center;
   }
 
-  .hero-title {
-    font-size: calc(var(--text-hero) * 0.85);
+  .hero-preview-img {
+    max-width: 340px; /* still looks good on mobile */
   }
 
-  .hero-preview {
-    margin-top: 2rem;
+  .hero-actions {
+    flex-direction: column;
   }
 }

@@ -1,134 +1,136 @@
-// src/components/Services/Services.jsx
-
 import React from "react";
 import "./Services.css";
 import { AUDIT_LINK } from "../../config/Links";
 
+// Icons
 import { LuCalculator } from "react-icons/lu";
 import { FiPieChart } from "react-icons/fi";
 import { GiMoneyStack } from "react-icons/gi";
 
-const steps = [
-  {
-    step: "Step 1",
-    icon: LuCalculator,
-    title: "Profit Audit + Setup",
-    price: "$1,500 one-time",
-    description:
-      "We diagnose your profit leaks, build your baseline, and give you a clear 30‑day plan to increase profit.",
-    bullets: [
-      "Full profit leak audit (food cost, labor, rent, operating expenses)",
-      "Benchmarking against target restaurant cost ranges",
-      "Estimated monthly savings + optimized profit potential",
-      "Restaurant‑specific dashboard setup",
-      "Clear 30‑day profit action plan",
-    ],
-  },
-  {
-    step: "Step 2",
-    icon: FiPieChart,
-    title: "Monthly Profit Optimization",
-    price: "$1,000/month",
-    featured: true,
-    description:
-      "We help you maintain and grow your margins every month with ongoing monitoring and optimization.",
-    bullets: [
-      "Monthly profit review & performance tracking",
-      "Food cost, labor, and expense leak monitoring",
-      "Menu pricing & margin improvement recommendations",
-      "Updated action plans based on your numbers",
-      "Accountability so improvements don’t fade",
-    ],
-  },
-  {
-    step: "Optional Upgrade",
-    icon: GiMoneyStack,
-    title: "Advanced Advisory",
-    price: "Custom pricing",
-    description:
-      "For multi‑location owners or restaurants with growth plans needing deeper financial strategy.",
-    bullets: [
-      "Budgeting & forecasting",
-      "Actuals vs budget analysis",
-      "Multi‑location KPI dashboards",
-      "Expansion & scaling support",
-      "CFO‑level strategy without the full‑time CFO cost",
-    ],
-  },
-];
-
 const Services = () => {
+  const services = [
+    {
+      tier: "Tier 1",
+      icon: <LuCalculator />,
+      title: "Foundation",
+      description:
+        "Get clean books, accurate financials, and a solid foundation for profit improvement.",
+      bullets: [
+        "Restaurant-Optimized Chart of Accounts (COA)",
+        "Monthly Bookkeeping & Reconciliation",
+        "Monthly P&L + Balance Sheet",
+        "Basic KPI Dashboard (Limited OS Access)",
+        "30-Min Monthly Check-In",
+      ],
+      setupFee: 500,
+      monthlyPrice: 800,
+    },
+    {
+      tier: "Tier 2",
+      icon: <FiPieChart />,
+      title: "Profit System",
+      description:
+        "Full Profit Audit System with monthly diagnostics, insights, and strategic guidance.",
+      bullets: [
+        "Everything in Tier 1",
+        "Full Profit Audit System",
+        "Prime Cost, Food & Labor KPI Tracking",
+        "Monthly Diagnostic Report",
+        "Monthly Strategy Meeting + Full OS Access",
+      ],
+      setupFee: 1500,
+      monthlyPrice: 1500,
+      featured: true,
+    },
+    {
+      tier: "Tier 3",
+      icon: <GiMoneyStack />,
+      title: "Profit OS + Automation",
+      description:
+        "Real-time automation, financial intelligence, and CFO-level support for maximum profitability.",
+      bullets: [
+        "Everything in Tier 2",
+        "Real-Time Opportunity Alerts",
+        "Vendor & Menu Margin Optimization",
+        "Budgeting & Forecasting",
+        "Priority Support + Quarterly Deep-Dive Audit",
+      ],
+      setupFee: 2500,
+      monthlyPrice: 3500,
+    },
+  ];
+
   return (
     <section id="services" className="services-section">
-      <div className="container services-inner">
-
-        <span className="services-eyebrow">The Wok Profit System</span>
-
-        <h2 className="services-title">
-          A Clear, Guided Profit Optimization Journey
-        </h2>
-
-        <p className="services-subtitle">
-          Follow a simple, structured path: diagnose your profit leaks, optimize your margins,
-          and scale with confidence.
+      <div className="services-container container">
+        <h2 className="section-title">Services & Pricing</h2>
+        <p className="section-subtitle">
+          Most restaurants identify $2,000–$10,000/month in hidden profit opportunities.
         </p>
 
-        <div className="services-timeline">
-          {steps.map((step, index) => {
-            const Icon = step.icon;
+        {/* SERVICE CARDS */}
+        <div className="services-grid">
+          {services.map((service) => (
+            <div
+              key={service.title}
+              className={`service-card ${service.featured ? "featured" : ""}`}
+            >
+              {service.featured && (
+                <div className="recommended-tag">Recommended</div>
+              )}
 
-            return (
-              <div
-                key={step.title}
-                className={`services-card ${step.featured ? "featured" : ""}`}
-              >
-                <div className="services-header">
-                  <div className="services-icon">
-                    <Icon size={32} color="#c8102e" />
-                  </div>
+              {/* TIER LABEL */}
+              <div className="tier-label">{service.tier}</div>
 
-                  <div className="services-info">
-                    <span className="services-step">{step.step}</span>
-                    <h3>{step.title}</h3>
-                    <p className="services-description">{step.description}</p>
-                  </div>
+              {/* ICON + TITLE */}
+              <div className="service-header">
+                <div className="service-icon-box">
+                  {React.cloneElement(service.icon, { size: 40, color: "#c8102e" })}
                 </div>
-
-                <div className="services-price">{step.price}</div>
-
-                <ul className="services-list">
-                  {step.bullets.map((bullet, i) => (
-                    <li key={i}>
-                      <span className="checkmark">✔</span>
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-
-                {index < steps.length - 1 && (
-                  <div className="services-connector">
-                    <div className="services-line"></div>
-                  </div>
-                )}
+                <h3>{service.title}</h3>
               </div>
-            );
-          })}
+
+              {/* DESCRIPTION */}
+              <p className="service-description">{service.description}</p>
+
+              {/* BULLETS */}
+              <ul>
+                {service.bullets.map((b, i) => (
+                  <li key={i}>
+                    <span className="checkmark">✔</span> {b}
+                  </li>
+                ))}
+              </ul>
+
+              {/* SETUP FEE */}
+              <div className="setup-fee">
+                <strong>Setup Fee:</strong> ${service.setupFee.toLocaleString()}
+              </div>
+
+              {/* MONTHLY PRICE */}
+              <div className="service-price">
+                <span className="price-main">
+                  ${service.monthlyPrice.toLocaleString()}/mo
+                </span>
+              </div>
+
+              {/* CTA */}
+              <a
+                href={AUDIT_LINK}
+                className="btn-primary calc-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get My Free Profit Audit
+              </a>
+            </div>
+          ))}
         </div>
 
-        <div className="services-guarantee">
-          <strong>Profit Guarantee:</strong> Increase profit by $1,500 in the first 30 days —
-          or your first month of ongoing optimization is free.
-        </div>
-
-        <a
-          href={AUDIT_LINK}
-          className="btn-primary services-cta"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Get My Free Profit Audit
-        </a>
-
+        {/* FOOTNOTE */}
+        <p className="setup-note">
+          Setup fee includes COA setup, bookkeeping cleanup, vendor mapping, delivery platform mapping, and your initial Full Profit Audit.
+        </p>
       </div>
     </section>
   );

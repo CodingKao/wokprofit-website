@@ -4,16 +4,18 @@
 
 .contact-section {
   background: var(--bg-white);
-  padding: var(--section-padding) 0;
+  padding: calc(var(--section-padding) * 0.5) 0;
   position: relative;
 }
 
 .contact-inner {
   display: flex;
-  gap: 60px;
-  max-width: 1200px;
-  margin: 0 auto;
+  justify-content: center;
   align-items: flex-start;
+  gap: clamp(40px, 5vw, 80px);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--padding-horizontal);
   flex-wrap: wrap;
 }
 
@@ -22,8 +24,9 @@
 ========================= */
 
 .contact-left {
-  flex: 1;
-  min-width: 300px;
+  flex: 1.1;
+  min-width: 340px;
+  max-width: 480px;
 }
 
 .contact-logo {
@@ -35,12 +38,53 @@
   color: var(--text-medium);
   line-height: 1.65;
   margin-bottom: 24px;
-  max-width: 420px;
 }
 
 .contact-email {
   font-size: var(--text-base);
   color: var(--text-dark);
+}
+
+/* BENEFITS SECTION */
+.contact-benefits {
+  margin-top: 28px;
+}
+
+.contact-benefits h4 {
+  font-size: var(--text-lg);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.contact-benefits ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.contact-benefits li {
+  margin-bottom: 8px;
+  color: var(--text-medium);
+  line-height: 1.55;
+}
+
+/* VALUE BOX */
+.contact-value-box {
+  margin-top: 24px;
+  padding: 16px 18px;
+  background: var(--bg-light);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+.contact-value-box ul {
+  margin-top: 10px;
+  padding-left: 18px;
+}
+
+.contact-value-box li {
+  margin-bottom: 6px;
+  color: var(--text-medium);
 }
 
 /* =========================
@@ -49,17 +93,16 @@
 
 .contact-right {
   flex: 1;
-  min-width: 320px;
+  min-width: 340px;
+  max-width: 520px;
 }
 
-.contact-form {
+.contact-form,
+.contact-success {
   width: 100%;
   padding: 32px;
   background: var(--bg-white);
-
-  /* DARKER PREMIUM BORDER */
   border: 2px solid rgba(0,0,0,0.22);
-
   border-radius: 16px;
   box-shadow: 0 12px 28px rgba(0,0,0,0.08);
   display: flex;
@@ -109,34 +152,11 @@
   transform: translateY(-2px);
 }
 
-/* Reassurance text */
 .contact-reassurance {
   font-size: var(--text-sm);
   color: var(--text-medium);
   text-align: center;
   margin-top: 4px;
-}
-
-/* What happens next box */
-.contact-next-box {
-  margin-top: 12px;
-  padding: 14px 16px;
-  background: var(--bg-light);
-  border: 1px solid var(--border-light);
-  border-radius: 12px;
-  font-size: var(--text-base);
-  color: var(--text-dark);
-}
-
-.contact-next-box ul {
-  margin: 8px 0 0;
-  padding-left: 18px;
-  text-align: left;
-}
-
-.contact-next-box li {
-  margin-bottom: 6px;
-  color: var(--text-medium);
 }
 
 /* =========================
@@ -169,39 +189,9 @@
   transform: translateX(-50%) translateY(20px);
 }
 
-/* Footer sentinel */
 .footer-sentinel {
   width: 100%;
   height: 120px;
-}
-
-/* SUCCESS MESSAGE */
-.contact-success {
-  padding: 32px;
-  background: var(--bg-white);
-  border: 2px solid rgba(0,0,0,0.22);
-  border-radius: 16px;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
-  text-align: center;
-  animation: fadeIn 0.4s ease;
-}
-
-.contact-success h3 {
-  color: var(--primary);
-  font-size: 1.4rem;
-  margin-bottom: 12px;
-}
-
-.contact-success p {
-  color: var(--text-medium);
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* =========================
@@ -214,12 +204,8 @@
     gap: 40px;
   }
 
-  .sticky-cta {
-    bottom: 16px;
-    padding: 14px 24px;
-    border-radius: 50px;
-    width: auto;
-    left: 50%;
-    transform: translateX(-50%);
+  .contact-left,
+  .contact-right {
+    max-width: 100%;
   }
 }

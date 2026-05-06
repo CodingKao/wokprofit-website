@@ -10,7 +10,7 @@ const Hero = () => {
     <section id="hero" className="hero-section">
       <div className="container hero-inner">
 
-        {/* LEFT TEXT */}
+        {/* LEFT — TEXT */}
         <div className="hero-text">
 
           <span className="hero-badge">
@@ -46,8 +46,8 @@ const Hero = () => {
           </p>
         </div>
 
-        {/* RIGHT SIDE — AUDIT PREVIEW */}
-        <div className="hero-preview">
+        {/* RIGHT — IMAGE */}
+        <div className="hero-image">
           <img
             src={auditPreview}
             alt="Sample Profit Audit Preview"
