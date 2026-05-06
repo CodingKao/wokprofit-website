@@ -22,8 +22,8 @@ const Hero = () => {
           </h1>
 
           <p className="hero-sub">
-            You’re not losing revenue — you’re losing profit.  
-            We show you exactly where money is leaking and how to fix it within 30 days.
+            Get a clear breakdown of your food cost, labor, and profit in one place.
+            It only takes a few minutes — start your free audit below.
           </p>
 
           <div className="hero-actions">

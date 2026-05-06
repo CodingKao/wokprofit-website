@@ -29,12 +29,11 @@ const Problem = () => {
         {/* TEXT SECOND (RIGHT ON DESKTOP) */}
         <div className="problem-text">
           <h2 className="problem-title">
-            You’re Not Losing Revenue — You’re Losing Profit
+            Running a Restaurant Takes Hard Work — But Profit Isn’t Always Clear
           </h2>
 
           <p className="problem-subtext">
-            Most restaurant owners don’t have a sales problem.  
-            They have a <strong>profit leak problem</strong>.
+            It’s difficult to improve margins when you can’t clearly see where money is going.
           </p>
 
           <p className="problem-intro">

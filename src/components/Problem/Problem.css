@@ -42,9 +42,9 @@
 }
 
 .problem-subtext {
-  font-size: var(--text-lg);
+  font-weight: 600;
   color: var(--text-dark);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .problem-subtext strong {
@@ -52,9 +52,9 @@
 }
 
 .problem-intro {
-  font-size: var(--text-base);
-  color: var(--text-medium);
-  margin-bottom: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
 }
 
 /* LIST */
