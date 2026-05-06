@@ -43,10 +43,10 @@
 /* Transition sentence */
 .value-transition {
   max-width: 600px;
-  margin: 0 auto 1.5rem;
-  color: var(--text-dark);
-  font-size: var(--text-base);
-  line-height: 1.6;
+  margin: 0 auto 2rem;
+  padding: 0;
+  list-style: none;
+  text-align: left;
 }
 
 /* =========================

@@ -20,9 +20,9 @@ const Value = () => {
           showing you exactly where money is slipping away and what’s holding your profit back.
         </p>
 
-        <p className="value-transition">
+        <h3 className="value-transition">
           Here’s what we make clear for you right away:
-        </p>
+        </h3>
 
         <ul className="value-list">
           <li>
