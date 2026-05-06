@@ -18,7 +18,15 @@ const Problem = () => {
     <section id="problem" className="problem-section">
       <div className="container problem-inner">
 
-        {/* TEXT FIRST */}
+        {/* IMAGE FIRST (LEFT ON DESKTOP) */}
+        <div className="problem-image">
+          <img
+            src={stress}
+            alt="Stressed restaurant owner dealing with rising costs"
+          />
+        </div>
+
+        {/* TEXT SECOND (RIGHT ON DESKTOP) */}
         <div className="problem-text">
           <h2 className="problem-title">
             You’re Not Losing Revenue — You’re Losing Profit
@@ -46,14 +54,6 @@ const Problem = () => {
             You’re working hard — but without clear financial visibility, your margins won’t improve.
           </p>
 
-        {/* IMAGE */}
-        <div className="problem-image">
-          <img
-            src={stress}
-            alt="Stressed restaurant owner dealing with rising costs"
-          />
-        </div>
-
           <a
             href={AUDIT_LINK}
             className="btn-primary problem-cta"
@@ -63,7 +63,6 @@ const Problem = () => {
             Get My Free Profit Audit
           </a>
         </div>
-
 
       </div>
     </section>

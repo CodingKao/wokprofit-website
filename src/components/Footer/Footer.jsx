@@ -47,14 +47,6 @@ const Footer = () => {
           <FaLinkedinIn />
         </a>
 
-        <a 
-          href="https://github.com/CodingKao" 
-          target="_blank" 
-          rel="noreferrer"
-          aria-label="GitHub"
-        >
-          <FaGithub />
-        </a>
       </div>
 
       {/* Back to Top */}
