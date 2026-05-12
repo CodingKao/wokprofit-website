@@ -9,12 +9,10 @@ const Hero = () => {
   return (
     <section id="hero" className="hero-section">
       <div className="container hero-inner">
-
         {/* LEFT — TEXT */}
         <div className="hero-text">
-
           <span className="hero-badge">
-            Your Restaurant Is Bleeding Profit.
+            Helping Asian Restaurants Keep More Profit.
           </span>
 
           <h1 className="hero-title">
@@ -22,8 +20,8 @@ const Hero = () => {
           </h1>
 
           <p className="hero-sub">
-            Get a clear breakdown of your food cost, labor, and profit in one place.
-            It only takes a few minutes — start your free audit below.
+            Get a clear breakdown of your food cost, labor, and profit in one
+            place. It only takes a few minutes — start your free audit below.
           </p>
 
           <div className="hero-actions">
@@ -42,7 +40,8 @@ const Hero = () => {
           </div>
 
           <p className="hero-microcopy">
-            No credit card. Takes 3 minutes. Keep the audit even if you don’t work with us.
+            No credit card. Takes 3 minutes. Keep the audit even if you don’t
+            work with us.
           </p>
         </div>
 
@@ -54,7 +53,6 @@ const Hero = () => {
             className="hero-preview-img"
           />
         </div>
-
       </div>
     </section>
   );
