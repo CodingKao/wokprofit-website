@@ -1,4 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
 
-Sitemap: https://wokprofit.com/sitemap.xml
+Sitemap: https://www.wokprofit.com/sitemap.xml
