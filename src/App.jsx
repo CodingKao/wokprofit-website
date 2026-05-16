@@ -51,7 +51,7 @@ function App() {
         <Route exact path="/onboarding" component={Onboarding} />
         <Route exact path="/onboarding/success" component={OnboardingSuccess} />
 
-        {/* ⭐ CRITICAL FIX: fallback route */}
+        {/* Fallback Route */}
         <Route component={Home} />
       </Switch>
     </Router>

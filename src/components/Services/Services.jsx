@@ -1,3 +1,4 @@
+// src/components/Services/Services.jsx
 import React from "react";
 import "./Services.css";
 import { AUDIT_LINK } from "../../config/Links";
@@ -12,15 +13,15 @@ const Services = () => {
     {
       tier: "Tier 1",
       icon: <LuCalculator />,
-      title: "Foundation",
+      title: "Profit Visibility",
       description:
         "Get clean books, accurate financials, and a solid foundation for profit improvement.",
       bullets: [
         "Restaurant-Optimized Chart of Accounts (COA)",
         "Monthly Bookkeeping & Reconciliation",
         "Monthly P&L + Balance Sheet",
-        "Basic KPI Dashboard (Limited OS Access)",
-        "30-Min Monthly Check-In",
+        "Basic KPI Dashboard",
+        "Monthly P&L Review",
       ],
       setupFee: 500,
       monthlyPrice: 800,
@@ -28,16 +29,16 @@ const Services = () => {
     {
       tier: "Tier 2",
       icon: <FiPieChart />,
-      title: "Profit System",
+      title: "Profit Optimization",
       description:
-        "Full Profit Audit System with monthly diagnostics, insights, and strategic guidance.",
+        "Profit Optimization System Built to Identify and Fix Margin Leaks",
       bullets: [
         "Everything in Tier 1",
-        "Full Profit Audit System",
-        "Prime Cost, Food & Labor KPI Tracking",
-        "Monthly Diagnostic Report",
-        "Monthly Strategy Meeting + Full OS Access",
+        "Improve Prime Cost Performance & Overall Profit Margins",
+        "Increase Margin on High-Volume Menu Items",
+        "Reduce Labor Waste & Scheduling Inefficiencies",
       ],
+      setupLabel: "Profit Optimization Implementation",
       setupFee: 1500,
       monthlyPrice: 1500,
       featured: true,
@@ -45,9 +46,9 @@ const Services = () => {
     {
       tier: "Tier 3",
       icon: <GiMoneyStack />,
-      title: "Profit OS + Automation",
+      title: "Profit Advisory",
       description:
-        "Real-time automation, financial intelligence, and CFO-level support for maximum profitability.",
+        "A complete restaurant profit advisory system focused on margin growth, operational efficiency, and long-term financial stability.",
       bullets: [
         "Everything in Tier 2",
         "Real-Time Opportunity Alerts",
@@ -55,17 +56,30 @@ const Services = () => {
         "Budgeting & Forecasting",
         "Priority Support + Quarterly Deep-Dive Audit",
       ],
+      setupLabel: "Financial Intelligence Deployment",
       setupFee: 2500,
       monthlyPrice: 3500,
     },
   ];
 
+  const handleAuditClick = (serviceTitle) => {
+    // GA4 Event Tracking
+    if (window.gtag) {
+      window.gtag("event", "profit_audit_cta_click", {
+        event_category: "Lead Generation",
+        event_label: serviceTitle,
+      });
+    }
+  };
+
   return (
     <section id="services" className="services-section">
       <div className="services-container container">
         <h2 className="section-title">Services & Pricing</h2>
+
         <p className="section-subtitle">
-          Most restaurants identify $2,000–$10,000/month in hidden profit opportunities.
+          Most restaurants identify $2,000–$10,000/month in hidden profit
+          opportunities.
         </p>
 
         {/* SERVICE CARDS */}
@@ -85,26 +99,35 @@ const Services = () => {
               {/* ICON + TITLE */}
               <div className="service-header">
                 <div className="service-icon-box">
-                  {React.cloneElement(service.icon, { size: 40, color: "#c8102e" })}
+                  {React.cloneElement(service.icon, {
+                    size: 40,
+                    color: "#c8102e",
+                  })}
                 </div>
+
                 <h3>{service.title}</h3>
               </div>
 
               {/* DESCRIPTION */}
-              <p className="service-description">{service.description}</p>
+              <p className="service-description">
+                {service.description}
+              </p>
 
               {/* BULLETS */}
               <ul>
-                {service.bullets.map((b, i) => (
-                  <li key={i}>
-                    <span className="checkmark">✔</span> {b}
+                {service.bullets.map((bullet, index) => (
+                  <li key={index}>
+                    <span className="checkmark">✔</span> {bullet}
                   </li>
                 ))}
               </ul>
 
               {/* SETUP FEE */}
               <div className="setup-fee">
-                <strong>Setup Fee:</strong> ${service.setupFee.toLocaleString()}
+                <strong>
+                  {service.setupLabel || "Setup Fee"}:
+                </strong>{" "}
+                ${service.setupFee.toLocaleString()}
               </div>
 
               {/* MONTHLY PRICE */}
@@ -120,6 +143,7 @@ const Services = () => {
                 className="btn-primary calc-cta"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => handleAuditClick(service.title)}
               >
                 Get My Free Profit Audit
               </a>
@@ -129,7 +153,9 @@ const Services = () => {
 
         {/* FOOTNOTE */}
         <p className="setup-note">
-          Setup fee includes COA setup, bookkeeping cleanup, vendor mapping, delivery platform mapping, and your initial Full Profit Audit.
+          Setup includes financial onboarding, operational mapping, KPI
+          configuration, reporting infrastructure, and implementation of your
+          restaurant profit system.
         </p>
       </div>
     </section>
