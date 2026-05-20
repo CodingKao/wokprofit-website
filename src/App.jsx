@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Problem from "./components/Problem/Problem";
 import Value from "./components/Value/Value";
+import EcosystemSection from "./components/EcosystemSection/EcosystemSection";
 import ProfitCalculator from "./components/ProfitCalculator/ProfitCalculator";
 import Services from "./components/Services/Services";
 import Analytics from "./components/Analytics/Analytics";
@@ -28,6 +29,7 @@ function Home() {
       <Hero />
       <Problem />
       <Value />
+      <EcosystemSection />
       <Analytics />
       <ProfitCalculator />
       <Services />
