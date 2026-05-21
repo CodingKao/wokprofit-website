@@ -19,6 +19,7 @@ import Footer from "./components/Footer/Footer";
 
 import Onboarding from "./pages/Onboarding";
 import OnboardingSuccess from "./pages/OnboardingSuccess";
+import RevenueEngine from "./pages/RevenueEngine";
 
 import "./styles/global.css";
 
@@ -52,6 +53,7 @@ function App() {
         {/* Onboarding Pages */}
         <Route exact path="/onboarding" component={Onboarding} />
         <Route exact path="/onboarding/success" component={OnboardingSuccess} />
+        <Route exact path="/revenue-engine" component={RevenueEngine} />
 
         {/* Fallback Route */}
         <Route component={Home} />

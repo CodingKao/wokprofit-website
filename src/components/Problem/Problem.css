@@ -8,29 +8,8 @@
 }
 
 .problem-inner {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-
-/* IMAGE */
-.problem-image {
-  flex: 0 0 38%;
-  display: flex;
-  justify-content: center;
-}
-
-.problem-image img {
-  width: 100%;
-  max-width: 280px;
-  border-radius: 12px;
-  box-shadow: var(--shadow-soft);
-}
-
-/* TEXT BOX */
-.problem-text {
-  flex: 1;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .problem-title {
@@ -39,6 +18,30 @@
   color: var(--text-dark);
   margin-bottom: 1rem;
   line-height: 1.25;
+}
+
+/* MOBILE: title → image → content (stacked) */
+.problem-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.problem-image {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.problem-image img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+.problem-content {
+  flex: 1;
 }
 
 .problem-subtext {
@@ -57,7 +60,6 @@
   margin-bottom: 1.5rem;
 }
 
-/* LIST */
 .problem-list {
   list-style: none;
   padding: 0;
@@ -79,14 +81,12 @@
   line-height: 1;
 }
 
-/* CLOSE LINE */
 .problem-close {
   font-weight: 600;
   color: var(--text-dark);
   margin-bottom: 1.5rem;
 }
 
-/* CTA */
 .problem-cta {
   display: inline-block;
   margin-top: 0.5rem;
@@ -96,21 +96,53 @@
 }
 
 /* =========================
-   MOBILE
+   DESKTOP
 ========================= */
 
-@media (max-width: 900px) {
+@media (min-width: 901px) {
   .problem-inner {
-    flex-direction: column;
-    gap: 2rem;
+    max-width: var(--max-width);
+  }
+
+  .problem-title {
+    text-align: center;
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  .problem-layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 340px) 1fr;
+    gap: clamp(2rem, 4vw, 3rem);
+    align-items: start;
+  }
+
+  .problem-image {
+    margin: 0;
+    justify-content: flex-start;
   }
 
   .problem-image img {
-    max-width: 240px;
+    max-width: 100%;
+    width: 100%;
   }
 
-  .problem-text {
-    text-align: left;
+  .problem-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+/* =========================
+   MOBILE (unchanged)
+========================= */
+
+@media (max-width: 900px) {
+  .problem-image img {
+    max-width: 240px;
   }
 
   .problem-cta {
