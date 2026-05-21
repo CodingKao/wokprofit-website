@@ -1,69 +1,71 @@
 // src/components/Services/Services.jsx
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Services.css";
-import { AUDIT_LINK } from "../../config/Links";
+import { AUDIT_LINK, REVENUE_ENGINE_PATH } from "../../config/Links";
 
-// Icons
 import { LuCalculator } from "react-icons/lu";
 import { FiPieChart } from "react-icons/fi";
 import { GiMoneyStack } from "react-icons/gi";
 
-const Services = () => {
-  const services = [
-    {
-      tier: "Tier 1",
-      icon: <LuCalculator />,
-      title: "Profit Visibility",
-      description:
-        "Get clean books, accurate financials, and a solid foundation for profit improvement.",
-      bullets: [
-        "Restaurant-Optimized Chart of Accounts (COA)",
-        "Monthly Bookkeeping & Reconciliation",
-        "Monthly P&L + Balance Sheet",
-        "Basic KPI Dashboard",
-        "Monthly P&L Review",
-      ],
-      setupFee: 500,
-      monthlyPrice: 800,
-    },
-    {
-      tier: "Tier 2",
-      icon: <FiPieChart />,
-      title: "Profit Optimization",
-      description:
-        "Profit Optimization System Built to Identify and Fix Margin Leaks",
-      bullets: [
-        "Everything in Tier 1",
-        "Improve Prime Cost Performance & Overall Profit Margins",
-        "Increase Margin on High-Volume Menu Items",
-        "Reduce Labor Waste & Scheduling Inefficiencies",
-      ],
-      setupLabel: "Profit Optimization Implementation",
-      setupFee: 1500,
-      monthlyPrice: 1500,
-      featured: true,
-    },
-    {
-      tier: "Tier 3",
-      icon: <GiMoneyStack />,
-      title: "Profit Advisory",
-      description:
-        "A complete restaurant profit advisory system focused on margin growth, operational efficiency, and long-term financial stability.",
-      bullets: [
-        "Everything in Tier 2",
-        "Real-Time Opportunity Alerts",
-        "Vendor & Menu Margin Optimization",
-        "Budgeting & Forecasting",
-        "Priority Support + Quarterly Deep-Dive Audit",
-      ],
-      setupLabel: "Financial Intelligence Deployment",
-      setupFee: 2500,
-      monthlyPrice: 3500,
-    },
-  ];
+const coreServices = [
+  {
+    tier: "Tier 1",
+    icon: <LuCalculator />,
+    title: "Profit Visibility",
+    bullets: [
+      "Restaurant-optimized chart of accounts",
+      "Monthly bookkeeping & reconciliation",
+      "Monthly P&L + balance sheet",
+      "Food cost, labor cost, and prime cost tracking",
+      "Basic KPI dashboard",
+      "Monthly P&L review",
+    ],
+    setupLabel: "Setup Fee",
+    setupFee: 500,
+    monthlyPrice: 800,
+  },
+  {
+    tier: "Tier 2",
+    icon: <FiPieChart />,
+    title: "Profit Optimization",
+    bullets: [
+      "Everything in Tier 1",
+      "Prime cost improvement",
+      "Menu margin optimization",
+      "High-volume item pricing strategy",
+      "Labor scheduling efficiency",
+      "Vendor cost review",
+      "Waste reduction",
+      "Profit improvement roadmap",
+    ],
+    setupLabel: "Implementation Fee",
+    setupFee: 1500,
+    monthlyPrice: 1500,
+    featured: true,
+  },
+  {
+    tier: "Tier 3",
+    icon: <GiMoneyStack />,
+    title: "Profit Advisory",
+    bullets: [
+      "Everything in Tier 2",
+      "Forecasting",
+      "Budgeting",
+      "Actual vs. budget tracking",
+      "Vendor negotiation strategy",
+      "Quarterly deep-dive audits",
+      "Real-time opportunity alerts",
+      "Priority support",
+    ],
+    setupLabel: "Deployment Fee",
+    setupFee: 2500,
+    monthlyPrice: 3500,
+  },
+];
 
+const Services = () => {
   const handleAuditClick = (serviceTitle) => {
-    // GA4 Event Tracking
     if (window.gtag) {
       window.gtag("event", "profit_audit_cta_click", {
         event_category: "Lead Generation",
@@ -82,9 +84,9 @@ const Services = () => {
           opportunities.
         </p>
 
-        {/* SERVICE CARDS */}
+
         <div className="services-grid">
-          {services.map((service) => (
+          {coreServices.map((service) => (
             <div
               key={service.title}
               className={`service-card ${service.featured ? "featured" : ""}`}
@@ -93,10 +95,8 @@ const Services = () => {
                 <div className="recommended-tag">Recommended</div>
               )}
 
-              {/* TIER LABEL */}
               <div className="tier-label">{service.tier}</div>
 
-              {/* ICON + TITLE */}
               <div className="service-header">
                 <div className="service-icon-box">
                   {React.cloneElement(service.icon, {
@@ -108,12 +108,6 @@ const Services = () => {
                 <h3>{service.title}</h3>
               </div>
 
-              {/* DESCRIPTION */}
-              <p className="service-description">
-                {service.description}
-              </p>
-
-              {/* BULLETS */}
               <ul>
                 {service.bullets.map((bullet, index) => (
                   <li key={index}>
@@ -122,25 +116,21 @@ const Services = () => {
                 ))}
               </ul>
 
-              {/* SETUP FEE */}
               <div className="setup-fee">
-                <strong>
-                  {service.setupLabel || "Setup Fee"}:
-                </strong>{" "}
-                ${service.setupFee.toLocaleString()}
+                <strong>{service.setupLabel}:</strong> $
+                {service.setupFee.toLocaleString()}
               </div>
 
-              {/* MONTHLY PRICE */}
               <div className="service-price">
+                <span className="price-label">Monthly:</span>{" "}
                 <span className="price-main">
-                  ${service.monthlyPrice.toLocaleString()}/mo
+                  ${service.monthlyPrice.toLocaleString()}
                 </span>
               </div>
 
-              {/* CTA */}
               <a
                 href={AUDIT_LINK}
-                className="btn-primary calc-cta"
+                className="btn-primary service-card-cta"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => handleAuditClick(service.title)}
@@ -151,12 +141,13 @@ const Services = () => {
           ))}
         </div>
 
-        {/* FOOTNOTE */}
-        <p className="setup-note">
-          Setup includes financial onboarding, operational mapping, KPI
-          configuration, reporting infrastructure, and implementation of your
-          restaurant profit system.
-        </p>
+        <div className="services-divider" aria-hidden="true" />
+
+        <div className="revenue-engine-cta-wrap">
+          <Link to={REVENUE_ENGINE_PATH} className="btn-outline revenue-engine-link">
+            Explore more services
+          </Link>
+        </div>
       </div>
     </section>
   );

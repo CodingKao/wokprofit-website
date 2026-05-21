@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./EcosystemSection.css";
 import { HiOutlineDeviceMobile } from "react-icons/hi";
 import { LuCalculator } from "react-icons/lu";
 import { FiPieChart } from "react-icons/fi";
 import { GiMoneyStack } from "react-icons/gi";
 import { FiArrowRight } from "react-icons/fi";
-import { AUDIT_LINK } from "../../config/Links";
+import { AUDIT_LINK, REVENUE_ENGINE_PATH } from "../../config/Links";
 
 const stages = [
   {
@@ -13,6 +14,7 @@ const stages = [
     badge: "Optional Add-On",
     icon: HiOutlineDeviceMobile,
     title: "Revenue Engine",
+    learnMoreHref: REVENUE_ENGINE_PATH,
     description: "Modern tools that increase sales and reduce labor.",
     features: [
       "Mobile Ordering Website",
@@ -120,10 +122,20 @@ const EcosystemSection = () => {
                     </ul>
                   </div>
 
-                  <a href="#services" className="ecosystem-learn-more">
-                    Learn More
-                    <FiArrowRight size={16} aria-hidden="true" />
-                  </a>
+                  {stage.learnMoreHref ? (
+                    <Link
+                      to={stage.learnMoreHref}
+                      className="ecosystem-learn-more"
+                    >
+                      Learn More
+                      <FiArrowRight size={16} aria-hidden="true" />
+                    </Link>
+                  ) : (
+                    <a href="/#services" className="ecosystem-learn-more">
+                      Learn More
+                      <FiArrowRight size={16} aria-hidden="true" />
+                    </a>
+                  )}
                 </article>
               );
             })}
