@@ -140,14 +140,6 @@ const Services = () => {
             </div>
           ))}
         </div>
-
-        <div className="services-divider" aria-hidden="true" />
-
-        <div className="revenue-engine-cta-wrap">
-          <Link to={REVENUE_ENGINE_PATH} className="btn-outline revenue-engine-link">
-            Explore more services
-          </Link>
-        </div>
       </div>
     </section>
   );

@@ -29,11 +29,11 @@ function Home() {
       <Navbar />
       <Hero />
       <Problem />
-      <Value />
-      <EcosystemSection />
-      <Analytics />
       <ProfitCalculator />
+      <Value />
+      {/* <EcosystemSection /> */}
       <Services />
+      <Analytics />
       <Testimonials />
       <About />
       <Cta />
