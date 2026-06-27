@@ -2,7 +2,6 @@
 
 import React from "react";
 import "./Problem.css";
-import stressChef from "../../assets/images/stress-chef.png";
 import { AUDIT_LINK } from "../../config/Links";
 
 const painPoints = [
@@ -24,12 +23,6 @@ const Problem = () => {
           </h2>
 
           <div className="problem-layout">
-            <div className="problem-image">
-              <img
-                src={stressChef}
-                alt="Stressed restaurant owner dealing with rising costs"
-              />
-            </div>
 
             <div className="problem-content">
               <p className="problem-subtext">
