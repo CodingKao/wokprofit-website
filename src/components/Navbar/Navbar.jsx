@@ -1,8 +1,8 @@
 // src/components/Navbar/Navbar.jsx
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/images/logo.png";
-import { AUDIT_LINK } from "../../config/Links";
 
 const NAV_SECTIONS = [
   { id: "hero", label: "Home" },
@@ -72,17 +72,15 @@ const Navbar = () => {
             </li>
           ))}
 
-          {/* CTA */}
+          {/* Sign In → client dashboard */}
           <li className="navbar-cta">
-            <a
-              href={AUDIT_LINK}
+            <Link
+              to="/signin"
               className="btn-primary"
-              target="_blank"
-              rel="noopener noreferrer"
               onClick={closeMenu}
             >
-              Get My Free Profit Audit
-            </a>
+              Sign In
+            </Link>
           </li>
         </ul>
       </div>

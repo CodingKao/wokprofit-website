@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .dashboard-root {
+    @apply font-sans antialiased text-slate-900 bg-slate-50;
+  }
+
+  .dashboard-root.dark {
+    @apply text-slate-100 bg-slate-950;
+  }
+}
+
+@layer components {
+  .dash-card {
+    @apply rounded-xl border border-slate-200/80 bg-white shadow-soft transition-all duration-300
+      dark:border-slate-800 dark:bg-slate-900;
+  }
+
+  .dash-card:hover {
+    @apply shadow-card;
+  }
+}
