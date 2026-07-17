@@ -22,6 +22,37 @@ const ProfitCalculator = () => {
     });
   };
 
+  const formatCurrency = (value) =>
+    value.toLocaleString(undefined, { maximumFractionDigits: 0 });
+
+  const GAUGE_SEGMENTS = [
+    { color: "#2d9d4f" },
+    { color: "#7cb342" },
+    { color: "#e8a317" },
+    { color: "#e65100" },
+    { color: "#c8102e" },
+  ];
+
+  const getStatusMetrics = (revenue, totalCosts, leak) => {
+    const costRatio = totalCosts / revenue;
+    const score = Math.min(
+      100,
+      Math.max(0, ((costRatio - 0.6) / 0.25) * 100)
+    );
+
+    const level = Math.min(5, Math.max(1, Math.ceil(score / 20) || 1));
+
+    let status = "healthy";
+    if (level >= 5) status = "danger";
+    else if (level >= 3) status = "warning";
+
+    const adjustedLeak = Math.max(0, leak);
+    const low = adjustedLeak * 0.9;
+    const high = adjustedLeak * 1.1;
+
+    return { status, score, level, low, high, adjustedLeak, costRatio };
+  };
+
   const calculateProfitLeak = () => {
     const revenue = Number(inputs.monthlyRevenue);
     const food = Number(inputs.foodCost);
@@ -35,11 +66,72 @@ const ProfitCalculator = () => {
     const idealCost = revenue * 0.65;
     const leak = totalCosts - idealCost;
 
-    setResult(leak > 0 ? leak : 0);
+    setResult(getStatusMetrics(revenue, totalCosts, leak));
   };
 
-  const formatCurrency = (value) =>
-    value.toLocaleString(undefined, { maximumFractionDigits: 0 });
+  const renderGauge = (score) => {
+    const cx = 100;
+    const cy = 100;
+    const r = 72;
+    const gap = 2.5;
+    const segmentSpan =
+      (180 - gap * (GAUGE_SEGMENTS.length - 1)) / GAUGE_SEGMENTS.length;
+    // Left = 180° (green), right = 0° (red)
+    const needleAngle = 180 - (score / 100) * 180;
+
+    const polar = (angleDeg) => {
+      const rad = (angleDeg * Math.PI) / 180;
+      return {
+        x: cx + r * Math.cos(rad),
+        y: cy - r * Math.sin(rad),
+      };
+    };
+
+    const arc = (start, end) => {
+      const s = polar(start);
+      const e = polar(end);
+      return `M ${s.x} ${s.y} A ${r} ${r} 0 0 1 ${e.x} ${e.y}`;
+    };
+
+    const needleRad = (needleAngle * Math.PI) / 180;
+    const needleX = cx + 58 * Math.cos(needleRad);
+    const needleY = cy - 58 * Math.sin(needleRad);
+
+    // Draw left → right: green at 180° (left) → red at 0° (right)
+    let angle = 180;
+
+    return (
+      <div className="calc-gauge" aria-hidden="true">
+        <svg viewBox="0 0 200 118" className="calc-gauge-svg">
+          {GAUGE_SEGMENTS.map((segment, index) => {
+            const end = angle - segmentSpan;
+            const path = (
+              <path
+                key={index}
+                d={arc(angle, end)}
+                fill="none"
+                stroke={segment.color}
+                strokeWidth="16"
+                strokeLinecap="butt"
+              />
+            );
+            angle = end - gap;
+            return path;
+          })}
+          <circle cx={cx} cy={cy} r="7" fill="#111" />
+          <line
+            x1={cx}
+            y1={cy}
+            x2={needleX}
+            y2={needleY}
+            stroke="#111"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+        </svg>
+      </div>
+    );
+  };
 
   return (
     <section id="calculator" className="calc-section">
@@ -121,31 +213,51 @@ const ProfitCalculator = () => {
 
           {result !== null && (
             <div className="calc-result">
-
               <p className="calc-result-label">You may be losing around:</p>
 
-              {result > 0 ? (
-                <>
-                  {(() => {
-                    const low = result * 0.9;
-                    const high = result * 1.1;
-                    return (
-                      <h3 className="calc-range">
-                        ${formatCurrency(low)} – ${formatCurrency(high)}/month
-                      </h3>
-                    );
-                  })()}
-
-                  <p className="calc-note">
-                    Based on the numbers you entered, your costs may be higher than they should be.
-                  </p>
-                </>
+              {result.adjustedLeak > 0 ? (
+                <h3 className={`calc-range calc-range--${result.status}`}>
+                  ${formatCurrency(result.low)} – ${formatCurrency(result.high)}
+                  /month
+                </h3>
               ) : (
-                <h3 className="calc-range">$0/month</h3>
+                <h3 className="calc-range calc-range--healthy">$0/month</h3>
               )}
 
-              <p className="calc-note">
-                This is an estimate — your full Profit Audit will show exactly where the money is going and how to fix it.
+              <div className="calc-status-visual">
+                <div className="calc-status-left">
+                  <div className="calc-status-bar">
+                    <div
+                      className={`calc-status-marker calc-status-marker--level-${result.level}`}
+                      style={{ left: `${result.score}%` }}
+                    />
+                  </div>
+                  <div className="calc-status-labels">
+                    <span className="calc-status-label calc-status-label--healthy">
+                      Healthy
+                    </span>
+                    <span className="calc-status-label calc-status-label--warning">
+                      Warning
+                    </span>
+                    <span className="calc-status-label calc-status-label--danger">
+                      Danger
+                    </span>
+                  </div>
+                </div>
+
+                {renderGauge(result.score)}
+              </div>
+
+              {result.adjustedLeak > 0 && (
+                <p className="calc-note">
+                  Based on the numbers you entered, your costs may be higher than
+                  they should be.
+                </p>
+              )}
+
+              <p className="calc-disclaimer">
+                These numbers are based on estimates — your full Profit Audit
+                will show exactly where the money is going and how to fix it.
               </p>
 
               <a

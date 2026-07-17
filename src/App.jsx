@@ -1,6 +1,11 @@
 // src/App.jsx
 import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
@@ -20,6 +25,9 @@ import Footer from "./components/Footer/Footer";
 import Onboarding from "./pages/Onboarding";
 import OnboardingSuccess from "./pages/OnboardingSuccess";
 import RevenueEngine from "./pages/RevenueEngine";
+import SignIn from "./pages/SignIn";
+import DashboardApp from "./dashboard/components/layout/DashboardApp";
+import { hasDemoSession } from "./auth/demoAuth";
 
 import "./styles/global.css";
 
@@ -54,6 +62,15 @@ function App() {
         <Route exact path="/onboarding" component={Onboarding} />
         <Route exact path="/onboarding/success" component={OnboardingSuccess} />
         <Route exact path="/revenue-engine" component={RevenueEngine} />
+        <Route exact path="/signin" component={SignIn} />
+
+        {/* Client Dashboard (Profit OS) */}
+        <Route
+          path="/app"
+          render={() =>
+            hasDemoSession() ? <DashboardApp /> : <Redirect to="/signin" />
+          }
+        />
 
         {/* Fallback Route */}
         <Route component={Home} />
