@@ -40,7 +40,7 @@ const coreServices = [
       "Profit improvement roadmap",
     ],
     setupLabel: "Implementation Fee",
-    setupFee: 1500,
+    setupFee: 1000,
     monthlyPrice: 1500,
     featured: true,
   },
@@ -59,7 +59,7 @@ const coreServices = [
       "Priority support",
     ],
     setupLabel: "Deployment Fee",
-    setupFee: 2500,
+    setupFee: 1500,
     monthlyPrice: 3500,
   },
 ];
