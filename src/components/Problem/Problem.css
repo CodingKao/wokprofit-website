@@ -3,96 +3,108 @@
 ========================= */
 
 .problem-section {
-  background: var(--bg-light);
-  padding: var(--section-padding) 0;
+  background: linear-gradient(
+    180deg,
+    var(--bg-white) 0%,
+    var(--bg-light) 100%
+  );
+  padding: clamp(40px, 5vw, 64px) 0;
 }
 
 .problem-inner {
   max-width: 720px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .problem-title {
   font-size: var(--text-xl);
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text-dark);
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
   line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
-/* MOBILE: title → image → content (stacked) */
-.problem-layout {
-  display: flex;
-  flex-direction: column;
-}
-
-.problem-image {
-  display: flex;
-  justify-content: center;
+.problem-divider {
+  width: 72px;
+  height: 3px;
   margin: 0 auto 1.5rem;
-}
-
-.problem-image img {
-  width: 100%;
-  max-width: 280px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: var(--shadow-soft);
-}
-
-.problem-content {
-  flex: 1;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--accent) 35%,
+    #d4a017 50%,
+    var(--accent) 65%,
+    transparent 100%
+  );
+  box-shadow: 0 1px 8px rgba(255, 183, 3, 0.35);
 }
 
 .problem-subtext {
-  font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 1.5rem;
-}
-
-.problem-subtext strong {
-  color: var(--primary);
+  max-width: 580px;
+  margin: 0 auto 1.25rem;
+  font-size: var(--text-lg);
+  font-weight: 500;
+  color: var(--text-medium);
+  line-height: 1.7;
 }
 
 .problem-intro {
+  max-width: 540px;
+  margin: 0 auto 1.5rem;
   font-weight: 600;
   color: var(--text-dark);
-  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
 
 .problem-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 1.5rem 0;
+  margin: 0 auto 1.75rem;
+  max-width: 560px;
+  text-align: left;
 }
 
 .problem-list li {
   display: flex;
+  align-items: flex-start;
   gap: 10px;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
   font-size: var(--text-base);
   color: var(--text-dark);
   line-height: 1.55;
+  transition: var(--transition);
 }
 
-.problem-list .bullet {
+.problem-list li:hover {
+  border-color: rgba(200, 16, 46, 0.2);
+  transform: translateY(-1px);
+}
+
+.problem-list li:last-child {
+  margin-bottom: 0;
+}
+
+.problem-list .checkmark {
   color: var(--primary);
-  font-size: 1.4rem;
-  line-height: 1;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
 }
 
 .problem-close {
+  max-width: 520px;
+  margin: 0 auto;
   font-weight: 600;
   color: var(--text-dark);
-  margin-bottom: 1.5rem;
-}
-
-.problem-cta {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 14px 24px;
-  font-size: var(--text-base);
-  font-weight: 600;
+  line-height: 1.7;
 }
 
 /* =========================
@@ -100,52 +112,23 @@
 ========================= */
 
 @media (min-width: 901px) {
-  .problem-inner {
-    max-width: var(--max-width);
-  }
-
   .problem-title {
-    text-align: center;
-    max-width: 880px;
+    max-width: 780px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1.5rem;
   }
 
-  .problem-layout {
-    display: grid;
-    grid-template-columns: minmax(280px, 340px) 1fr;
-    gap: clamp(2rem, 4vw, 3rem);
-    align-items: start;
-  }
-
-  .problem-image {
-    margin: 0;
-    justify-content: flex-start;
-  }
-
-  .problem-image img {
-    max-width: 100%;
-    width: 100%;
-  }
-
-  .problem-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  .problem-list li {
+    padding: 1rem 1.25rem;
   }
 }
 
 /* =========================
-   MOBILE (unchanged)
+   MOBILE
 ========================= */
 
 @media (max-width: 900px) {
-  .problem-image img {
-    max-width: 240px;
-  }
-
-  .problem-cta {
-    width: 100%;
+  .problem-subtext {
+    font-size: var(--text-base);
   }
 }
