@@ -1,17 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.7be8d5a0.css",
-    "main.js": "/static/js/main.f374d245.js",
-    "static/media/stress-chef.png": "/static/media/stress-chef.485c12f9ebdedfc4074c.png",
+    "main.css": "/static/css/main.4bbafc5d.css",
+    "main.js": "/static/js/main.d4ad741c.js",
     "static/media/logo.png": "/static/media/logo.5fc992a87a86609e36c1.png",
     "static/media/auditpreview.png": "/static/media/auditpreview.3d865cbe785856dcba3b.png",
     "static/media/kao-pic.jpeg": "/static/media/kao-pic.fe4fe748f887765f8031.jpeg",
     "index.html": "/index.html",
-    "main.7be8d5a0.css.map": "/static/css/main.7be8d5a0.css.map",
-    "main.f374d245.js.map": "/static/js/main.f374d245.js.map"
+    "main.4bbafc5d.css.map": "/static/css/main.4bbafc5d.css.map",
+    "main.d4ad741c.js.map": "/static/js/main.d4ad741c.js.map"
   },
   "entrypoints": [
-    "static/css/main.7be8d5a0.css",
-    "static/js/main.f374d245.js"
+    "static/css/main.4bbafc5d.css",
+    "static/js/main.d4ad741c.js"
   ]
 }
