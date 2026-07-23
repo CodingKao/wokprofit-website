@@ -84,7 +84,7 @@ export function SettingsPage() {
               <CardDescription>POS and accounting connections</CardDescription>
             </CardHeader>
             <div className="space-y-3 text-sm">
-              {["Clover POS", "QuickBooks Online", "Toast (coming soon)"].map((name) => (
+              {["Square POS", "Clover POS", "QuickBooks Online", "Toast (coming soon)"].map((name) => (
                 <div key={name} className="flex items-center justify-between rounded-xl border border-slate-100 p-3 dark:border-slate-800">
                   <span className="font-medium">{name}</span>
                   <Button variant="secondary" size="sm">
