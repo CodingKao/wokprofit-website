@@ -3,38 +3,42 @@
 ========================= */
 
 .hero-section {
-  background: var(--bg-light);
-  padding: var(--section-padding) 0;
+  background: var(--bg-warm);
+  padding: calc(72px + var(--section-padding)) 0 var(--section-padding);
 }
 
 .hero-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(40px, 6vw, 100px);
-  flex-direction: row; /* TEXT LEFT, IMAGE RIGHT */
+  gap: clamp(32px, 5vw, 72px);
+  flex-direction: row;
 }
 
 .hero-image {
-  flex: 1.2; 
-  display: flex;
-  justify-content: center;
+  flex: 1.1;
+  min-width: 0;
 }
 
 .hero-preview-img {
   width: 100%;
-  max-width: 900px;
+  max-width: 560px;
+  height: 420px;
+  object-fit: cover;
+  object-position: center;
   border-radius: 16px;
-  box-shadow: var(--shadow-soft);
 }
 
-/* =========================
-   TEXT
-========================= */
+.hero-image-caption {
+  margin: 0.75rem 0 0;
+  font-size: var(--text-sm);
+  color: var(--text-medium);
+}
 
 .hero-text {
   flex: 1;
-  padding-top: 60px; 
+  min-width: 0;
+  text-align: left;
 }
 
 .hero-badge {
@@ -44,28 +48,30 @@
   padding: 8px 16px;
   border-radius: 999px;
   font-weight: 700;
-  font-size: var(--text-base);
-  margin-bottom: 10px; /* increased spacing */
+  font-size: var(--text-sm);
+  margin-bottom: 12px;
 }
 
 .hero-title {
   font-size: var(--text-hero);
   line-height: 1.15;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   color: var(--text-dark);
 }
 
 .hero-sub {
   font-size: var(--text-lg);
   color: var(--text-medium);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   line-height: 1.6;
+  max-width: 34rem;
 }
 
 .hero-actions {
   display: flex;
+  align-items: center;
   gap: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .hero-secondary {
@@ -75,24 +81,39 @@
 .hero-microcopy {
   font-size: var(--text-sm);
   color: var(--text-light);
-  margin-top: 8px;
+  margin: 0;
 }
 
-/* =========================
-   MOBILE
-========================= */
-
 @media (max-width: 900px) {
+  .hero-section {
+    padding-top: calc(64px + var(--section-padding));
+  }
+
   .hero-inner {
     flex-direction: column;
-    text-align: center;
+    align-items: flex-start;
+  }
+
+  .hero-text,
+  .hero-image {
+    width: 100%;
+    max-width: 100%;
   }
 
   .hero-preview-img {
-    max-width: 340px; /* still looks good on mobile */
+    height: 260px;
+    max-width: 100%;
   }
 
   .hero-actions {
     flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .hero-actions a {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
   }
 }

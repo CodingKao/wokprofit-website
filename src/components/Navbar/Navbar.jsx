@@ -1,19 +1,19 @@
 // src/components/Navbar/Navbar.jsx
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/images/logo.png";
+import { AUDIT_LINK } from "../../config/Links";
 
 const NAV_SECTIONS = [
-  { id: "hero", label: "Home" },
   { id: "calculator", label: "Calculator" },
+  { id: "how-it-works", label: "How it works" },
   { id: "services", label: "Services" },
   { id: "about", label: "About" },
-  { id: "contact", label: "Contact" }
+  { id: "contact", label: "Contact" },
 ];
 
 const Navbar = () => {
-  const [active, setActive] = useState("hero");
+  const [active, setActive] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -21,7 +21,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      let current = "hero";
+      let current = "";
       NAV_SECTIONS.forEach(({ id }) => {
         const el = document.getElementById(id);
         if (el && window.scrollY >= el.offsetTop - 140) {
@@ -41,13 +41,10 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
       <div className="container navbar-inner">
-
-        {/* LOGO */}
         <a href="/#hero" className="navbar-logo-wrap" onClick={closeMenu}>
           <img src={logo} alt="Wok Profit Logo" className="navbar-logo" />
         </a>
 
-        {/* MOBILE TOGGLE */}
         <button
           className={`navbar-toggle ${menuOpen ? "active" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
@@ -58,7 +55,6 @@ const Navbar = () => {
           <span></span>
         </button>
 
-        {/* NAV LINKS */}
         <ul className={`navbar-links ${menuOpen ? "open" : ""}`}>
           {NAV_SECTIONS.map(({ id, label }) => (
             <li key={id}>
@@ -72,15 +68,16 @@ const Navbar = () => {
             </li>
           ))}
 
-          {/* Sign In → client dashboard */}
           <li className="navbar-cta">
-            <Link
-              to="/signin"
+            <a
+              href={AUDIT_LINK}
               className="btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={closeMenu}
             >
-              Sign In
-            </Link>
+              Free audit
+            </a>
           </li>
         </ul>
       </div>

@@ -2,34 +2,55 @@
 
 import React from "react";
 import "./Testimonials.css";
+import kitchenPhoto from "../../assets/images/dumpling.jpg";
+
+const findings = [
+  {
+    title: "Food cost drifted",
+    text: "Shrimp and oil were up, but plate prices hadn’t moved. Two popular dishes were selling well and making almost nothing.",
+  },
+  {
+    title: "Labor didn’t match the rush",
+    text: "Lunch was overstaffed midweek. Friday night was short. Same payroll, worse service, worse tickets.",
+  },
+  {
+    title: "What we did first",
+    text: "Repriced the two high-volume plates, tightened the Tuesday–Thursday lunch roster, and flagged the vendor increase to renegotiate.",
+  },
+];
 
 const Testimonials = () => {
-  const insights = [
-    "“I’ve never had this level of clarity before.”",
-    "“No accountant has ever explained my margins like this.”",
-    "“I finally understand where my money is going.”",
-    "“I didn’t realize how much profit I was losing until I saw the breakdown.”",
-    "“This is the first time I know exactly what to fix next.”",
-  ];
-
   return (
-    <section id="testimonials" className="testimonials-section">
+    <section id="review-example" className="testimonials-section">
       <div className="container testimonials-inner">
-
-        <span className="testimonials-eyebrow">What Restaurant Owners Usually Say</span>
+        <span className="testimonials-eyebrow">What a first review looks like</span>
 
         <h2 className="testimonials-title">
-          Common Reactions When Owners See Their Numbers Clearly For the First Time
+          A typical month we walk through with an owner
         </h2>
 
-        <div className="testimonials-grid">
-          {insights.map((quote, index) => (
-            <div key={index} className="testimonial-card">
-              <p className="testimonial-quote">{quote}</p>
-            </div>
-          ))}
-        </div>
+        <p className="testimonials-lead">
+          I don’t publish client names yet. This is the pattern I see most
+          often in independent Asian restaurants — and the first things we
+          usually fix.
+        </p>
 
+        <div className="case-layout">
+          <img
+            src={kitchenPhoto}
+            alt="Dumplings being prepared in a restaurant kitchen"
+            className="case-photo"
+          />
+
+          <div className="case-findings">
+            {findings.map((item) => (
+              <article key={item.title} className="case-card">
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

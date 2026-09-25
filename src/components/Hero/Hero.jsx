@@ -2,26 +2,23 @@
 
 import React from "react";
 import "./Hero.css";
-import auditPreview from "../../assets/images/auditpreview.png";
+import kitchenPhoto from "../../assets/images/wok5.jpg";
 import { AUDIT_LINK } from "../../config/Links";
 
 const Hero = () => {
   return (
     <section id="hero" className="hero-section">
       <div className="container hero-inner">
-        {/* LEFT — TEXT */}
         <div className="hero-text">
-          <span className="hero-badge">
-            Helping Asian Restaurants Keep More Profit.
-          </span>
+          <span className="hero-badge">For Asian restaurants</span>
 
           <h1 className="hero-title">
-            We Find Your Profit Leaks in Under 5 Minutes.
+            See where your restaurant is leaking profit.
           </h1>
 
           <p className="hero-sub">
-            Get a clear breakdown of your food cost, labor, and profit in one
-            place. It only takes a few minutes — start your free audit below.
+            A clear look at food cost, labor, and menu — from someone who
+            understands the kitchen.
           </p>
 
           <div className="hero-actions">
@@ -31,27 +28,27 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Get My Free Profit Audit
+              Get a free profit audit
             </a>
 
-            <a href="/#services" className="btn-outline hero-secondary">
-              See How It Works
+            <a href="/#how-it-works" className="btn-outline hero-secondary">
+              See how it works
             </a>
           </div>
 
           <p className="hero-microcopy">
-            No credit card. Takes 3 minutes. Keep the audit even if you don’t
-            work with us.
+            About 3 minutes. No credit card. Keep the notes even if we don’t
+            work together.
           </p>
         </div>
 
-        {/* RIGHT — IMAGE */}
         <div className="hero-image">
           <img
-            src={auditPreview}
-            alt="Sample Profit Audit Preview"
+            src={kitchenPhoto}
+            alt="Wok cooking in a restaurant kitchen"
             className="hero-preview-img"
           />
+          <p className="hero-image-caption">Built for the line — not a login.</p>
         </div>
       </div>
     </section>

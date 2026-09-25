@@ -1,33 +1,21 @@
 // src/App.jsx
 import React from "react";
-import {
-  HashRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Problem from "./components/Problem/Problem";
-import Value from "./components/Value/Value";
-import EcosystemSection from "./components/EcosystemSection/EcosystemSection";
 import ProfitCalculator from "./components/ProfitCalculator/ProfitCalculator";
-import Services from "./components/Services/Services";
 import Analytics from "./components/Analytics/Analytics";
-import Whyus from "./components/Whyus/Whyus";
-import Testimonials from "./components/Testimonials/Testimonials";
 import About from "./components/About/About";
+import Services from "./components/Services/Services";
+import Testimonials from "./components/Testimonials/Testimonials";
 import Cta from "./components/Cta/Cta";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
 import Onboarding from "./pages/Onboarding";
 import OnboardingSuccess from "./pages/OnboardingSuccess";
-import RevenueEngine from "./pages/RevenueEngine";
-import SignIn from "./pages/SignIn";
-import DashboardApp from "./dashboard/components/layout/DashboardApp";
-import { hasDemoSession } from "./auth/demoAuth";
 
 import "./styles/global.css";
 
@@ -38,12 +26,10 @@ function Home() {
       <Hero />
       <Problem />
       <ProfitCalculator />
-      <Value />
-      {/* <EcosystemSection /> */}
-      <Services />
       <Analytics />
-      <Testimonials />
       <About />
+      <Services />
+      <Testimonials />
       <Cta />
       <Contact />
       <Footer />
@@ -55,24 +41,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        {/* Homepage */}
         <Route exact path="/" component={Home} />
-
-        {/* Onboarding Pages */}
         <Route exact path="/onboarding" component={Onboarding} />
         <Route exact path="/onboarding/success" component={OnboardingSuccess} />
-        <Route exact path="/revenue-engine" component={RevenueEngine} />
-        <Route exact path="/signin" component={SignIn} />
-
-        {/* Client Dashboard (Profit OS) */}
-        <Route
-          path="/app"
-          render={() =>
-            hasDemoSession() ? <DashboardApp /> : <Redirect to="/signin" />
-          }
-        />
-
-        {/* Fallback Route */}
         <Route component={Home} />
       </Switch>
     </Router>

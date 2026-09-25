@@ -11,13 +11,13 @@ const Value = () => {
         <span className="value-eyebrow">Why Restaurants Choose Us</span>
 
         <h2 className="value-title">
-          We Guarantee at Least $3,000 in Profit Opportunities in 30 Days
+          See Exactly Where Your Profit Is Leaking
         </h2>
 
         <p className="value-subtitle">
-          Wok Profit gives you a clear, easy‑to‑understand breakdown of your
-          numbers — revealing exactly where money is leaking across food cost,
-          labor, menu pricing, and vendors, and what’s holding your profit back.
+          Wok Profit gives you a clear, easy-to-understand breakdown of your
+          numbers — food cost, labor, menu pricing, and vendors — so you know
+          what’s hurting margin and what to fix first.
         </p>
 
         <h3 className="value-transition">
@@ -44,8 +44,8 @@ const Value = () => {
         </ul>
 
         <div className="value-statement">
-          Most restaurants recover <strong>$3,000–$15,000/month</strong> in
-          preventable losses once they implement our system.
+          Most owners leave the first review knowing which costs to attack
+          first — food, labor, menu, or vendors.
         </div>
 
         <a

@@ -1,141 +1,53 @@
 // src/components/Analytics/Analytics.jsx
 
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import "./Analytics.css";
 
-const slides = [
+const steps = [
   {
-    title: "Real-Time Profit Visibility",
-    img: "https://images.pexels.com/photos/7887816/pexels-photo-7887816.jpeg?auto=compress&cs=tinysrgb&w=1500",
-    text: "See whether your restaurant is actually making money day by day — not just generating sales.",
+    step: "1",
+    title: "Free look at your numbers",
+    text: "Share a few figures. We point to food cost, labor, and menu items that may be costing you.",
   },
   {
-    title: "Menu Performance Insights",
-    img: "https://images.pexels.com/photos/5912324/pexels-photo-5912324.jpeg?auto=compress&cs=tinysrgb&w=1500",
-    text: "Identify which menu items drive profit, which ones drain margin, and where pricing needs adjustment.",
+    step: "2",
+    title: "Books that match a restaurant",
+    text: "We organize the accounts the way a kitchen actually runs — not a generic shop template.",
   },
   {
-    title: "Contribution Margin Tracking",
-    img: "https://images.pexels.com/photos/7413936/pexels-photo-7413936.jpeg?auto=compress&cs=tinysrgb&w=1500",
-    text: "Track profit per plate so you can optimize food cost, improve pricing, and protect your margins.",
+    step: "3",
+    title: "A monthly sit-down",
+    text: "Each month: what came in, what food and labor took, and a short list of what to change.",
+  },
+  {
+    step: "4",
+    title: "Fix the expensive problems first",
+    text: "Menu, schedule, vendors, waste — we start with the items that move profit this month.",
   },
 ];
 
 const Analytics = () => {
-  const trackRef = useRef(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const scrollToSlide = (index) => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const width = track.clientWidth;
-
-    track.scrollTo({
-      left: width * index,
-      behavior: "smooth",
-    });
-
-    setCurrentSlide(index);
-  };
-
-  const nextSlide = () => scrollToSlide((currentSlide + 1) % slides.length);
-  const prevSlide = () =>
-    scrollToSlide((currentSlide - 1 + slides.length) % slides.length);
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const handleScroll = () => {
-      const width = track.clientWidth;
-      if (!width) return;
-
-      const index = Math.round(track.scrollLeft / width);
-      setCurrentSlide(index);
-    };
-
-    track.addEventListener("scroll", handleScroll, { passive: true });
-    return () => track.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <section id="analytics" className="analytics-section">
+    <section id="how-it-works" className="analytics-section">
       <div className="container analytics-inner">
+        <span className="analytics-eyebrow">How it works</span>
 
-        <span className="analytics-eyebrow">The Wok Profit System</span>
-
-        <h2 className="analytics-title">
-          Turn Restaurant Data Into Clear Profit Decisions
-        </h2>
+        <h2 className="analytics-title">Four steps. No new software.</h2>
 
         <p className="analytics-subtitle">
-          You don’t need more spreadsheets. You need visibility — a dashboard that shows
-          where profit is leaking, what’s driving margin, and what to fix next.
+          You already have a POS and a stack of invoices. I read them with you
+          and tell you what to fix next.
         </p>
 
-        {/* CAROUSEL */}
-        <div className="analytics-carousel">
-          <div
-            className="carousel-track"
-            ref={trackRef}
-            aria-label="Wok Profit dashboard highlights"
-          >
-            {slides.map((slide) => (
-              <div className="carousel-slide" key={slide.title}>
-                <img src={slide.img} alt={slide.title} />
-
-                <div className="carousel-overlay">
-                  <span className="slide-label">Dashboard Insight</span>
-                  <h4>{slide.title}</h4>
-                  <p>{slide.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* CONTROLS */}
-          <div className="carousel-controls">
-            <button
-              type="button"
-              onClick={prevSlide}
-              className="carousel-btn"
-              aria-label="Previous slide"
-            >
-              ←
-            </button>
-
-            <button
-              type="button"
-              onClick={nextSlide}
-              className="carousel-btn"
-              aria-label="Next slide"
-            >
-              →
-            </button>
-          </div>
-
-          {/* DOTS */}
-          <div className="carousel-dots" role="tablist">
-            {slides.map((slide, index) => (
-              <button
-                key={slide.title}
-                type="button"
-                className={`dot ${currentSlide === index ? "active" : ""}`}
-                onClick={() => scrollToSlide(index)}
-                aria-label={`Go to ${slide.title}`}
-              />
-            ))}
-          </div>
+        <div className="how-steps">
+          {steps.map((item) => (
+            <article key={item.step} className="how-step">
+              <span className="how-step-number">{item.step}</span>
+              <h3 className="how-step-title">{item.title}</h3>
+              <p className="how-step-text">{item.text}</p>
+            </article>
+          ))}
         </div>
-
-        <div className="analytics-proof">
-          <p>
-            <strong>What this gives you:</strong> faster decisions, tighter cost control,
-            better pricing visibility, and a clearer path to higher profit.
-          </p>
-        </div>
-
       </div>
     </section>
   );

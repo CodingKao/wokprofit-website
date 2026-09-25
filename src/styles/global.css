@@ -15,6 +15,7 @@
   --section-padding: clamp(24px, 3vw, 40px);
 
   /* Typography */
+  --text-sm: 0.875rem;
   --text-base: clamp(14px, 1.4vw, 16px);
   --text-lg: clamp(16px, 1.8vw, 20px);
   --text-xl: clamp(22px, 3vw, 32px);
@@ -30,8 +31,9 @@
   --text-light: #777;
   --text-white: #fff;
 
-  --bg-white: #fff;
-  --bg-light: #f9f9f9;
+  --bg-white: #fffdf9;
+  --bg-light: #f7f1ea;
+  --bg-warm: #f3ebe3;
   --bg-dark: #0f0f0f;
 
   --border-light: #e5e5e5;
