@@ -4,11 +4,10 @@ import React from "react";
 import "./Problem.css";
 
 const painPoints = [
-  "Food costs creeping up with no clear explanation (losing thousands monthly)",
-  "Overstaffing during slow hours draining your margins",
-  "Menu items that sell well — but barely make you profit",
-  "No visibility into daily or weekly profit",
-  "Reports that show numbers — but not what to fix next",
+  "Shrimp or oil jumped in price and nobody caught it for three weeks",
+  "Tuesday lunch is overstaffed while Friday night is slammed",
+  "Pad thai sells out — and barely covers the plate",
+  "The accountant sends a report. It doesn’t say what to do next",
 ];
 
 const Problem = () => {
@@ -16,33 +15,23 @@ const Problem = () => {
     <section id="problem" className="problem-section">
       <div className="container problem-inner">
         <h2 className="problem-title">
-          Running a Restaurant Takes Hard Work — But Profit Isn’t Always Clear
+          The kitchen is busy. The profit is not.
         </h2>
-        <div className="problem-divider" aria-hidden="true" />
 
         <p className="problem-subtext">
-          It’s difficult to improve margins when you can’t clearly see where
-          money is going.
-        </p>
-
-        <p className="problem-intro">
-          If any of these sound familiar, you’re leaving money on the table
-          every single month:
+          Most owners I talk to already work 70-hour weeks. The gap is
+          visibility — which dishes, shifts, and vendors are quietly taking
+          the month’s profit.
         </p>
 
         <ul className="problem-list">
-          {painPoints.map((point, index) => (
-            <li key={index}>
+          {painPoints.map((point) => (
+            <li key={point}>
               <span className="checkmark">✔</span>
               <span>{point}</span>
             </li>
           ))}
         </ul>
-
-        <p className="problem-close">
-          You’re working hard — but without clear financial visibility, your
-          margins won’t improve.
-        </p>
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 /* =========================
-   ANALYTICS SECTION
+   HOW IT WORKS
 ========================= */
 
 .analytics-section {
@@ -8,10 +8,9 @@
 }
 
 .analytics-inner {
-  text-align: center;
+  text-align: left;
 }
 
-/* Eyebrow */
 .analytics-eyebrow {
   display: block;
   color: var(--primary);
@@ -21,7 +20,6 @@
   text-transform: uppercase;
 }
 
-/* Title */
 .analytics-title {
   font-size: var(--text-xl);
   font-weight: 800;
@@ -29,144 +27,69 @@
   margin-bottom: 1rem;
 }
 
-/* Subtitle */
 .analytics-subtitle {
-  max-width: 720px;
-  margin: 0 auto 2.5rem;
+  max-width: 40rem;
+  margin: 0 0 2rem;
   color: var(--text-medium);
   font-size: var(--text-base);
   line-height: 1.7;
 }
 
-/* =========================
-   CAROUSEL
-========================= */
-
-.analytics-carousel {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.carousel-track {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-}
-
-.carousel-track::-webkit-scrollbar {
-  display: none;
-}
-
-.carousel-slide {
-  min-width: 100%;
-  scroll-snap-align: center;
-  position: relative;
-}
-
-.carousel-slide img {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  border-radius: 18px;
-  box-shadow: var(--shadow-soft);
-}
-
-/* Overlay */
-.carousel-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1.25rem 1.5rem;
-  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 100%);
-  border-radius: 0 0 18px 18px;
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
   text-align: left;
 }
 
-.slide-label {
-  display: block;
-  font-size: 0.85rem;
-  color: var(--text-white);
-  opacity: 0.85;
-  margin-bottom: 0.25rem;
-}
-
-.carousel-overlay h4 {
-  color: var(--text-white);
-  font-size: 1.25rem;
-  margin-bottom: 0.35rem;
-}
-
-.carousel-overlay p {
-  color: var(--text-white);
-  opacity: 0.9;
-  font-size: 0.95rem;
-  line-height: 1.55;
-}
-
-/* Controls */
-.carousel-controls {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 1.25rem 0;
-}
-
-.carousel-btn {
+.how-step {
   background: var(--bg-white);
   border: 1px solid var(--border-light);
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: var(--transition);
+  border-radius: 12px;
+  padding: 1.5rem 1.25rem;
+  min-width: 0;
 }
 
-.carousel-btn:hover {
+.how-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.85rem;
+  border-radius: 999px;
   background: var(--primary);
   color: var(--text-white);
+  font-weight: 700;
+  font-size: 0.9rem;
 }
 
-/* Dots */
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  background: var(--border-light);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.dot.active {
-  background: var(--primary);
-}
-
-/* Proof */
-.analytics-proof {
-  max-width: 680px;
-  margin: 2rem auto 0;
+.how-step-title {
   font-size: var(--text-base);
+  font-weight: 700;
   color: var(--text-dark);
-  line-height: 1.7;
+  margin: 0 0 0.5rem;
 }
 
-/* =========================
-   MOBILE
-========================= */
+.how-step-text {
+  margin: 0;
+  color: var(--text-medium);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .how-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 
 @media (max-width: 768px) {
-  .carousel-slide img {
-    height: 320px;
-  }
-
   .analytics-title {
     font-size: calc(var(--text-xl) * 0.9);
+  }
+
+  .how-steps {
+    grid-template-columns: 1fr;
   }
 }

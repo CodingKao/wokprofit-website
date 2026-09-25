@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import "./ProfitCalculator.css";
 import { AUDIT_LINK } from "../../config/Links";
+import { calculateProfitLeak } from "../../utils/profitCalc";
 
 const ProfitCalculator = () => {
   const [inputs, setInputs] = useState({
@@ -14,16 +15,26 @@ const ProfitCalculator = () => {
   });
 
   const [result, setResult] = useState(null);
+  const [error, setError] = useState("");
+
+  const digitsOnly = (value) => value.replace(/[^\d]/g, "");
+
+  const formatThousands = (digits) => {
+    if (!digits) return "";
+    return Number(digits).toLocaleString("en-US");
+  };
 
   const handleChange = (e) => {
     setInputs({
       ...inputs,
-      [e.target.name]: e.target.value,
+      [e.target.name]: digitsOnly(e.target.value),
     });
   };
 
   const formatCurrency = (value) =>
     value.toLocaleString(undefined, { maximumFractionDigits: 0 });
+
+  const formatPct = (value) => `${(value * 100).toFixed(1)}%`;
 
   const GAUGE_SEGMENTS = [
     { color: "#2d9d4f" },
@@ -33,40 +44,15 @@ const ProfitCalculator = () => {
     { color: "#c8102e" },
   ];
 
-  const getStatusMetrics = (revenue, totalCosts, leak) => {
-    const costRatio = totalCosts / revenue;
-    const score = Math.min(
-      100,
-      Math.max(0, ((costRatio - 0.6) / 0.25) * 100)
-    );
-
-    const level = Math.min(5, Math.max(1, Math.ceil(score / 20) || 1));
-
-    let status = "healthy";
-    if (level >= 5) status = "danger";
-    else if (level >= 3) status = "warning";
-
-    const adjustedLeak = Math.max(0, leak);
-    const low = adjustedLeak * 0.9;
-    const high = adjustedLeak * 1.1;
-
-    return { status, score, level, low, high, adjustedLeak, costRatio };
-  };
-
-  const calculateProfitLeak = () => {
-    const revenue = Number(inputs.monthlyRevenue);
-    const food = Number(inputs.foodCost);
-    const labor = Number(inputs.laborCost);
-    const rent = Number(inputs.rent);
-    const other = Number(inputs.otherExpenses);
-
-    if (!revenue) return;
-
-    const totalCosts = food + labor + rent + other;
-    const idealCost = revenue * 0.65;
-    const leak = totalCosts - idealCost;
-
-    setResult(getStatusMetrics(revenue, totalCosts, leak));
+  const runCalculation = () => {
+    const next = calculateProfitLeak(inputs);
+    if (next.error) {
+      setResult(null);
+      setError(next.error);
+      return;
+    }
+    setError("");
+    setResult(next);
   };
 
   const renderGauge = (score) => {
@@ -76,7 +62,6 @@ const ProfitCalculator = () => {
     const gap = 2.5;
     const segmentSpan =
       (180 - gap * (GAUGE_SEGMENTS.length - 1)) / GAUGE_SEGMENTS.length;
-    // Left = 180° (green), right = 0° (red)
     const needleAngle = 180 - (score / 100) * 180;
 
     const polar = (angleDeg) => {
@@ -97,7 +82,6 @@ const ProfitCalculator = () => {
     const needleX = cx + 58 * Math.cos(needleRad);
     const needleY = cy - 58 * Math.sin(needleRad);
 
-    // Draw left → right: green at 180° (left) → red at 0° (right)
     let angle = 180;
 
     return (
@@ -136,80 +120,85 @@ const ProfitCalculator = () => {
   return (
     <section id="calculator" className="calc-section">
       <div className="container calc-inner">
-
         <span className="calc-eyebrow">Profit Leak Calculator</span>
 
         <h2 className="calc-title">
-          Estimate How Much Profit You’re Losing Each Month
+          Try it with this month’s sales and costs
         </h2>
 
         <p className="calc-subtitle">
-          Enter your numbers — we’ll show you how much profit may be slipping away.
+          Enter your monthly sales, food cost, and labor. We’ll estimate how
+          much profit may be slipping away.
         </p>
 
-        {/* CALCULATOR CARD */}
         <div className="calc-card">
-
           <div className="calc-grid">
-            <div className="calc-field">
+            <div className="calc-field calc-field--wide">
               <label>Monthly Revenue ($)</label>
               <input
-                type="number"
+                type="text"
+                inputMode="numeric"
                 name="monthlyRevenue"
-                value={inputs.monthlyRevenue}
+                value={formatThousands(inputs.monthlyRevenue)}
                 onChange={handleChange}
-                placeholder="e.g., 30,000"
+                placeholder="e.g., 40,000"
               />
             </div>
 
             <div className="calc-field">
               <label>Food Cost ($)</label>
               <input
-                type="number"
+                type="text"
+                inputMode="numeric"
                 name="foodCost"
-                value={inputs.foodCost}
+                value={formatThousands(inputs.foodCost)}
                 onChange={handleChange}
-                placeholder="e.g., 10,000"
+                placeholder="e.g., 12,000"
               />
             </div>
 
             <div className="calc-field">
               <label>Labor Cost ($)</label>
               <input
-                type="number"
+                type="text"
+                inputMode="numeric"
                 name="laborCost"
-                value={inputs.laborCost}
+                value={formatThousands(inputs.laborCost)}
                 onChange={handleChange}
-                placeholder="e.g., 9,000"
+                placeholder="e.g., 12,000"
               />
             </div>
 
             <div className="calc-field">
               <label>Rent ($)</label>
               <input
-                type="number"
+                type="text"
+                inputMode="numeric"
                 name="rent"
-                value={inputs.rent}
+                value={formatThousands(inputs.rent)}
                 onChange={handleChange}
-                placeholder="e.g., 2,500"
+                placeholder="Optional"
               />
             </div>
 
             <div className="calc-field">
               <label>Other Expenses ($)</label>
               <input
-                type="number"
+                type="text"
+                inputMode="numeric"
                 name="otherExpenses"
-                value={inputs.otherExpenses}
+                value={formatThousands(inputs.otherExpenses)}
                 onChange={handleChange}
-                placeholder="e.g., 1,000"
+                placeholder="Optional"
               />
             </div>
           </div>
 
-          <button className="calc-btn" onClick={calculateProfitLeak}>
+          <button className="calc-btn" type="button" onClick={runCalculation}>
             Calculate My Profit Leak
           </button>
+
+          {error && <p className="calc-error">{error}</p>}
 
           {result !== null && (
             <div className="calc-result">
@@ -223,6 +212,30 @@ const ProfitCalculator = () => {
               ) : (
                 <h3 className="calc-range calc-range--healthy">$0/month</h3>
               )}
+
+              <div className="calc-metrics">
+                <div>
+                  <span>Food cost</span>
+                  <strong>{formatPct(result.foodPct)}</strong>
+                </div>
+                <div>
+                  <span>Labor cost</span>
+                  <strong>{formatPct(result.laborPct)}</strong>
+                </div>
+                <div>
+                  <span>Prime cost</span>
+                  <strong>{formatPct(result.primeRatio)}</strong>
+                </div>
+                {result.hasOverhead && (
+                  <div>
+                    <span>Left after costs</span>
+                    <strong>
+                      {result.profit >= 0 ? "" : "−"}$
+                      {formatCurrency(Math.abs(result.profit))}
+                    </strong>
+                  </div>
+                )}
+              </div>
 
               <div className="calc-status-visual">
                 <div className="calc-status-left">
@@ -250,14 +263,21 @@ const ProfitCalculator = () => {
 
               {result.adjustedLeak > 0 && (
                 <p className="calc-note">
-                  Based on the numbers you entered, your costs may be higher than
-                  they should be.
+                  Based on the numbers you entered, food and labor costs may be
+                  higher than they should be.
+                </p>
+              )}
+
+              {result.adjustedLeak === 0 && (
+                <p className="calc-note">
+                  Food and labor look in a healthy range. Rent and other costs
+                  still matter — a full audit checks those too.
                 </p>
               )}
 
               <p className="calc-disclaimer">
-                These numbers are based on estimates — your full Profit Audit
-                will show exactly where the money is going and how to fix it.
+                These numbers are an estimate. A full profit audit uses your
+                actual menu, invoices, and schedule.
               </p>
 
               <a
@@ -277,9 +297,9 @@ const ProfitCalculator = () => {
         </div>
 
         <p className="calc-microcopy">
-          Your numbers are not stored or shared. This estimate is for guidance only.
+          Your numbers are not stored or shared. This estimate is for guidance
+          only.
         </p>
-
       </div>
     </section>
   );

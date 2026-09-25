@@ -13,9 +13,6 @@
   justify-content: center;
   align-items: flex-start;
   gap: clamp(40px, 5vw, 80px);
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--padding-horizontal);
   flex-wrap: wrap;
 }
 
@@ -25,7 +22,8 @@
 
 .contact-left {
   flex: 1.1;
-  min-width: 340px;
+  min-width: 0;
+  width: 100%;
   max-width: 480px;
 }
 
@@ -93,7 +91,8 @@
 
 .contact-right {
   flex: 1;
-  min-width: 340px;
+  min-width: 0;
+  width: 100%;
   max-width: 520px;
 }
 
@@ -159,6 +158,19 @@
   margin-top: 4px;
 }
 
+.contact-error {
+  margin: 0;
+  color: var(--primary-dark);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+.contact-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
 /* =========================
    STICKY CTA
 ========================= */
@@ -211,11 +223,17 @@
 @media (max-width: 900px) {
   .contact-inner {
     flex-direction: column;
+    align-items: center;
     gap: 40px;
   }
 
   .contact-left,
   .contact-right {
     max-width: 100%;
+  }
+
+  .contact-form,
+  .contact-success {
+    padding: 24px 18px;
   }
 }

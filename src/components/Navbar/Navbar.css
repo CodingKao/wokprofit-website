@@ -111,7 +111,7 @@
 }
 
 /* Mobile dropdown */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .navbar-inner {
     height: 64px;
   }

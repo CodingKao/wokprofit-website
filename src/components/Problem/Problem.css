@@ -3,18 +3,14 @@
 ========================= */
 
 .problem-section {
-  background: linear-gradient(
-    180deg,
-    var(--bg-white) 0%,
-    var(--bg-light) 100%
-  );
-  padding: clamp(40px, 5vw, 64px) 0;
+  background: var(--bg-white);
+  padding: var(--section-padding) 0;
 }
 
 .problem-inner {
-  max-width: 720px;
+  max-width: 680px;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
 }
 
 .problem-title {
@@ -23,47 +19,19 @@
   color: var(--text-dark);
   margin: 0 0 1rem;
   line-height: 1.25;
-  letter-spacing: -0.02em;
-}
-
-.problem-divider {
-  width: 72px;
-  height: 3px;
-  margin: 0 auto 1.5rem;
-  border-radius: 999px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--accent) 35%,
-    #d4a017 50%,
-    var(--accent) 65%,
-    transparent 100%
-  );
-  box-shadow: 0 1px 8px rgba(255, 183, 3, 0.35);
 }
 
 .problem-subtext {
-  max-width: 580px;
-  margin: 0 auto 1.25rem;
-  font-size: var(--text-lg);
-  font-weight: 500;
+  margin: 0 0 1.5rem;
+  font-size: var(--text-base);
   color: var(--text-medium);
   line-height: 1.7;
-}
-
-.problem-intro {
-  max-width: 540px;
-  margin: 0 auto 1.5rem;
-  font-weight: 600;
-  color: var(--text-dark);
-  line-height: 1.6;
 }
 
 .problem-list {
   list-style: none;
   padding: 0;
-  margin: 0 auto 1.75rem;
-  max-width: 560px;
+  margin: 0;
   text-align: left;
 }
 
@@ -71,21 +39,14 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.7rem;
   padding: 0.85rem 1rem;
-  background: var(--bg-white);
+  background: var(--bg-warm);
   border: 1px solid var(--border-light);
   border-radius: 12px;
-  box-shadow: var(--shadow-soft);
   font-size: var(--text-base);
   color: var(--text-dark);
   line-height: 1.55;
-  transition: var(--transition);
-}
-
-.problem-list li:hover {
-  border-color: rgba(200, 16, 46, 0.2);
-  transform: translateY(-1px);
 }
 
 .problem-list li:last-child {
@@ -97,38 +58,4 @@
   font-weight: 700;
   flex-shrink: 0;
   margin-top: 0.1rem;
-}
-
-.problem-close {
-  max-width: 520px;
-  margin: 0 auto;
-  font-weight: 600;
-  color: var(--text-dark);
-  line-height: 1.7;
-}
-
-/* =========================
-   DESKTOP
-========================= */
-
-@media (min-width: 901px) {
-  .problem-title {
-    max-width: 780px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .problem-list li {
-    padding: 1rem 1.25rem;
-  }
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 900px) {
-  .problem-subtext {
-    font-size: var(--text-base);
-  }
 }

@@ -6,19 +6,18 @@
 }
 
 .services-container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--padding-horizontal);
+  width: 100%;
 }
 
 .section-title {
-  text-align: center;
+  text-align: left;
   font-size: var(--text-xl);
   margin-bottom: 0.5rem;
 }
 
 .section-subtitle {
-  text-align: center;
+  text-align: left;
+  max-width: 36rem;
   color: var(--text-medium);
   margin-bottom: 2.5rem;
   font-size: var(--text-base);
@@ -60,7 +59,7 @@
 
 .service-card.featured {
   border: 2px solid var(--primary);
-  transform: scale(1.02);
+  background: #fff8f6;
 }
 
 /* ========================= RECOMMENDED TAG ========================= */
@@ -72,11 +71,12 @@
   transform: translateX(-50%);
   background: var(--primary);
   color: var(--text-white);
-  padding: 6px 18px;
+  padding: 6px 14px;
   border-radius: 20px;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   z-index: 3;
+  white-space: nowrap;
 }
 
 /* ========================= TIER LABEL ========================= */
@@ -125,6 +125,7 @@
   list-style: none;
   padding: 0;
   margin: 0 0 1.5rem 0;
+  flex: 1;
 }
 
 .service-card li {
@@ -158,6 +159,7 @@
 .service-card-cta {
   margin-top: auto;
   display: block;
+  width: 100%;
   text-align: center;
 }
 

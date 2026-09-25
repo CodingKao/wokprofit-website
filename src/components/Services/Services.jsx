@@ -1,8 +1,6 @@
 // src/components/Services/Services.jsx
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Services.css";
-import { AUDIT_LINK, REVENUE_ENGINE_PATH } from "../../config/Links";
 
 import { LuCalculator } from "react-icons/lu";
 import { FiPieChart } from "react-icons/fi";
@@ -12,34 +10,28 @@ const coreServices = [
   {
     tier: "Tier 1",
     icon: <LuCalculator />,
-    title: "Profit Visibility",
+    title: "See the numbers",
     bullets: [
-      "Restaurant-optimized chart of accounts",
-      "Monthly bookkeeping & reconciliation",
-      "Monthly P&L + balance sheet",
-      "Food cost, labor cost, and prime cost tracking",
-      "Basic KPI dashboard",
-      "Monthly P&L review",
+      "Monthly books that match a restaurant",
+      "Food, labor, and leftover profit — in one page",
+      "A short call to walk the month",
+      "What changed vs. last month",
     ],
-    setupLabel: "Setup Fee",
-    setupFee: 500,
+    setupLabel: "Setup",
+    setupFee: 1000,
     monthlyPrice: 800,
   },
   {
     tier: "Tier 2",
     icon: <FiPieChart />,
-    title: "Profit Optimization",
+    title: "Fix the leaks",
     bullets: [
-      "Everything in Tier 1",
-      "Prime cost improvement",
-      "Menu margin optimization",
-      "High-volume item pricing strategy",
-      "Labor scheduling efficiency",
-      "Vendor cost review",
-      "Waste reduction",
-      "Profit improvement roadmap",
+      "Everything in See the numbers",
+      "Which dishes make money — and which don’t",
+      "Schedule and vendor cost review",
+      "A written list of what to change this month",
     ],
-    setupLabel: "Implementation Fee",
+    setupLabel: "Setup",
     setupFee: 1000,
     monthlyPrice: 1500,
     featured: true,
@@ -47,43 +39,29 @@ const coreServices = [
   {
     tier: "Tier 3",
     icon: <GiMoneyStack />,
-    title: "Profit Advisory",
+    title: "Plan ahead",
     bullets: [
-      "Everything in Tier 2",
-      "Forecasting",
-      "Budgeting",
-      "Actual vs. budget tracking",
-      "Vendor negotiation strategy",
-      "Quarterly deep-dive audits",
-      "Real-time opportunity alerts",
-      "Priority support",
+      "Everything in Fix the leaks",
+      "Budget and forecast for the next quarter",
+      "Help negotiating vendors",
+      "Priority support when something breaks",
     ],
-    setupLabel: "Deployment Fee",
-    setupFee: 1500,
+    setupLabel: "Setup",
+    setupFee: 1000,
     monthlyPrice: 3500,
   },
 ];
 
 const Services = () => {
-  const handleAuditClick = (serviceTitle) => {
-    if (window.gtag) {
-      window.gtag("event", "profit_audit_cta_click", {
-        event_category: "Lead Generation",
-        event_label: serviceTitle,
-      });
-    }
-  };
-
   return (
     <section id="services" className="services-section">
       <div className="services-container container">
-        <h2 className="section-title">Services & Pricing</h2>
+        <h2 className="section-title">Services & pricing</h2>
 
         <p className="section-subtitle">
-          Most restaurants identify $2,000–$10,000/month in hidden profit
-          opportunities.
+          $1,000 setup on every plan. Most owners start with Fix the leaks.
+          We can scale up or down after the first 90 days.
         </p>
-
 
         <div className="services-grid">
           {coreServices.map((service) => (
@@ -92,7 +70,7 @@ const Services = () => {
               className={`service-card ${service.featured ? "featured" : ""}`}
             >
               {service.featured && (
-                <div className="recommended-tag">Recommended</div>
+                <div className="recommended-tag">Most owners start here</div>
               )}
 
               <div className="tier-label">{service.tier}</div>
@@ -100,7 +78,7 @@ const Services = () => {
               <div className="service-header">
                 <div className="service-icon-box">
                   {React.cloneElement(service.icon, {
-                    size: 40,
+                    size: 36,
                     color: "#c8102e",
                   })}
                 </div>
@@ -109,8 +87,8 @@ const Services = () => {
               </div>
 
               <ul>
-                {service.bullets.map((bullet, index) => (
-                  <li key={index}>
+                {service.bullets.map((bullet) => (
+                  <li key={bullet}>
                     <span className="checkmark">✔</span> {bullet}
                   </li>
                 ))}
@@ -128,14 +106,8 @@ const Services = () => {
                 </span>
               </div>
 
-              <a
-                href={AUDIT_LINK}
-                className="btn-primary service-card-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => handleAuditClick(service.title)}
-              >
-                Get My Free Profit Audit
+              <a href="/#contact" className="btn-outline service-card-cta">
+                Ask about this plan
               </a>
             </div>
           ))}

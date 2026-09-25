@@ -74,19 +74,33 @@
 
 .footer-social {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   margin-bottom: 18px;
 }
 
 .footer-social a {
-  color: rgba(255,255,255,0.75);
-  font-size: 1.3rem;
-  transition: 0.25s ease;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.15rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .footer-social a:hover {
-  color: var(--primary);
   transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.footer-social a.social-facebook {
+  background: #1877f2;
+}
+
+.footer-social a.social-instagram {
+  background: linear-gradient(45deg, #f58529, #dd2a7b 50%, #8134af);
 }
 
 /* =========================
