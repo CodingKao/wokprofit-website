@@ -17,7 +17,6 @@ const coreServices = [
       "A short call to walk the month",
       "What changed vs. last month",
     ],
-    setupLabel: "Setup",
     setupFee: 1000,
     monthlyPrice: 800,
   },
@@ -31,7 +30,6 @@ const coreServices = [
       "Schedule and vendor cost review",
       "A written list of what to change this month",
     ],
-    setupLabel: "Setup",
     setupFee: 1000,
     monthlyPrice: 1500,
     featured: true,
@@ -46,7 +44,6 @@ const coreServices = [
       "Help negotiating vendors",
       "Priority support when something breaks",
     ],
-    setupLabel: "Setup",
     setupFee: 1000,
     monthlyPrice: 3500,
   },
@@ -59,8 +56,9 @@ const Services = () => {
         <h2 className="section-title">Services & pricing</h2>
 
         <p className="section-subtitle">
-          $1,000 setup on every plan. Most owners start with Fix the leaks.
-          We can scale up or down after the first 90 days.
+          First month: we clean the books and do the first review — $1,000 on
+          every plan. Most owners start with Fix the leaks. We can scale up or
+          down after the first 90 days.
         </p>
 
         <div className="services-grid">
@@ -95,7 +93,7 @@ const Services = () => {
               </ul>
 
               <div className="setup-fee">
-                <strong>{service.setupLabel}:</strong> $
+                First month: we clean the books and do the first review — $
                 {service.setupFee.toLocaleString()}
               </div>
 

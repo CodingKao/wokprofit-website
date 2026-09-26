@@ -41,7 +41,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
       <div className="container navbar-inner">
-        <a href="/#hero" className="navbar-logo-wrap" onClick={closeMenu}>
+        <a href="/" className="navbar-logo-wrap" onClick={closeMenu}>
           <img src={logo} alt="Wok Profit Logo" className="navbar-logo" />
         </a>
 
