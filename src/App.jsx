@@ -1,6 +1,6 @@
 // src/App.jsx
 import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
@@ -9,6 +9,7 @@ import ProfitCalculator from "./components/ProfitCalculator/ProfitCalculator";
 import Analytics from "./components/Analytics/Analytics";
 import About from "./components/About/About";
 import Services from "./components/Services/Services";
+import Faq from "./components/Faq/Faq";
 import Testimonials from "./components/Testimonials/Testimonials";
 import Cta from "./components/Cta/Cta";
 import Contact from "./components/Contact/Contact";
@@ -18,6 +19,23 @@ import Onboarding from "./pages/Onboarding";
 import OnboardingSuccess from "./pages/OnboardingSuccess";
 
 import "./styles/global.css";
+
+function restoreLegacyHashRoute() {
+  const { hash, pathname } = window.location;
+  if (!hash.startsWith("#/")) return;
+
+  const [hashPath, hashSearch] = hash.slice(1).split("?");
+  const search = hashSearch ? `?${hashSearch}` : window.location.search;
+  const next = `${hashPath || "/"}${search}`;
+
+  if (next !== `${pathname}${window.location.search}`) {
+    window.history.replaceState(null, "", next);
+  }
+}
+
+if (typeof window !== "undefined") {
+  restoreLegacyHashRoute();
+}
 
 function Home() {
   return (
@@ -29,6 +47,7 @@ function Home() {
       <Analytics />
       <About />
       <Services />
+      <Faq />
       <Testimonials />
       <Cta />
       <Contact />

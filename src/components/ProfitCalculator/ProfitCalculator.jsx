@@ -1,6 +1,7 @@
 // src/components/Calculator/ProfitCalculator.jsx
 
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
 import "./ProfitCalculator.css";
 import { AUDIT_LINK } from "../../config/Links";
 import { calculateProfitLeak } from "../../utils/profitCalc";
@@ -16,6 +17,10 @@ const ProfitCalculator = () => {
 
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
+  const [lead, setLead] = useState({ email: "", phone: "" });
+  const [leadSent, setLeadSent] = useState(false);
+  const [leadSending, setLeadSending] = useState(false);
+  const [leadError, setLeadError] = useState("");
 
   const digitsOnly = (value) => value.replace(/[^\d]/g, "");
 
@@ -52,7 +57,59 @@ const ProfitCalculator = () => {
       return;
     }
     setError("");
+    setLeadSent(false);
+    setLeadError("");
     setResult(next);
+  };
+
+  const formatThousandsForMessage = (digits) =>
+    digits ? Number(digits).toLocaleString("en-US") : "—";
+
+  const handleLeadSubmit = async (e) => {
+    e.preventDefault();
+    if (!result) return;
+
+    setLeadError("");
+    setLeadSending(true);
+
+    const leakText =
+      result.adjustedLeak > 0
+        ? `$${formatCurrency(result.low)} – $${formatCurrency(result.high)}/month`
+        : "$0/month";
+
+    const data = {
+      email: lead.email.trim(),
+      phone: lead.phone.trim(),
+      name: lead.email.trim(),
+      owner: lead.email.trim(),
+      restaurant: "Calculator lead",
+      message: `Calculator estimate: ${leakText}. Food ${(result.foodPct * 100).toFixed(1)}%, labor ${(result.laborPct * 100).toFixed(1)}%.`,
+      issues: [
+        `Revenue: $${formatThousandsForMessage(inputs.monthlyRevenue)}`,
+        `Food: $${formatThousandsForMessage(inputs.foodCost)}`,
+        `Labor: $${formatThousandsForMessage(inputs.laborCost)}`,
+        `Rent: $${formatThousandsForMessage(inputs.rent)}`,
+        `Other: $${formatThousandsForMessage(inputs.otherExpenses)}`,
+        `Estimate: ${leakText}`,
+      ].join(" | "),
+    };
+
+    try {
+      await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        data,
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      );
+      setLeadSent(true);
+    } catch (err) {
+      console.error("EmailJS Error:", err);
+      setLeadError(
+        "We couldn’t send that. Email kao@wokprofit.com or try again."
+      );
+    } finally {
+      setLeadSending(false);
+    }
   };
 
   const renderGauge = (score) => {
@@ -280,18 +337,64 @@ const ProfitCalculator = () => {
                 actual menu, invoices, and schedule.
               </p>
 
+              {leadSent ? (
+                <div className="calc-lead-success">
+                  <p>
+                    Got it. I’ll send this estimate and three things to check
+                    this week.
+                  </p>
+                </div>
+              ) : (
+                <form className="calc-lead" onSubmit={handleLeadSubmit}>
+                  <p className="calc-lead-label">
+                    Send this estimate + 3 things to check this week
+                  </p>
+                  <div className="calc-lead-grid">
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      autoComplete="email"
+                      placeholder="Email"
+                      value={lead.email}
+                      onChange={(e) =>
+                        setLead({ ...lead, email: e.target.value })
+                      }
+                    />
+                    <input
+                      type="tel"
+                      name="phone"
+                      required
+                      autoComplete="tel"
+                      placeholder="Phone"
+                      value={lead.phone}
+                      onChange={(e) =>
+                        setLead({ ...lead, phone: e.target.value })
+                      }
+                    />
+                  </div>
+                  {leadError && <p className="calc-error">{leadError}</p>}
+                  <button
+                    className="calc-btn calc-lead-btn"
+                    type="submit"
+                    disabled={leadSending}
+                  >
+                    {leadSending ? "Sending…" : "Send my estimate"}
+                  </button>
+                  <p className="calc-trust">
+                    No spam. I’ll follow up about your numbers, not a pitch.
+                  </p>
+                </form>
+              )}
+
               <a
                 href={AUDIT_LINK}
-                className="btn-primary calc-cta"
+                className="calc-audit-link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Get My Free Profit Audit
+                Or start the full profit audit
               </a>
-
-              <p className="calc-trust">
-                Takes 3 minutes. No pressure. No sales pitch.
-              </p>
             </div>
           )}
         </div>
