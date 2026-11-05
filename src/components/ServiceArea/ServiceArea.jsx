@@ -1,5 +1,6 @@
 import React from "react";
 import "./ServiceArea.css";
+import { AUDIT_LINK } from "../../config/Links";
 
 const areas = [
   "Portland",
@@ -33,8 +34,11 @@ const ServiceArea = () => {
         </ul>
         <p className="service-area-note">
           Looking for a restaurant profit consultant or bookkeeping partner in
-          Portland? Start with the free profit leak calculator, then tell me
-          about your restaurant.
+          Portland? Start with{" "}
+          <a href={AUDIT_LINK} target="_blank" rel="noopener noreferrer">
+            See My Profit Leak
+          </a>
+          , then tell me about your restaurant.
         </p>
       </div>
     </section>

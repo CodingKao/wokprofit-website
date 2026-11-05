@@ -172,31 +172,38 @@
 }
 
 /* =========================
-   STICKY CTA — always visible
+   STICKY CTA — mobile only
 ========================= */
 
 .sticky-cta {
-  position: fixed;
-  bottom: max(12px, env(safe-area-inset-bottom));
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--primary);
-  padding: 12px 20px;
-  border-radius: 50px;
-  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.15);
-  z-index: 2000;
-  width: calc(100% - 32px);
-  max-width: 320px;
-  text-align: center;
+  display: none;
 }
 
-.sticky-cta a {
-  color: var(--text-white);
-  font-weight: 700;
-  font-size: 0.95rem;
-  text-decoration: none;
-  display: block;
-  min-height: 24px;
+@media (max-width: 900px) {
+  .sticky-cta {
+    display: block;
+    position: fixed;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.15);
+    z-index: 2000;
+    width: calc(100% - 32px);
+    max-width: 320px;
+    text-align: center;
+  }
+
+  .sticky-cta a {
+    color: var(--text-white);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: block;
+    min-height: 24px;
+  }
 }
 
 /* =========================

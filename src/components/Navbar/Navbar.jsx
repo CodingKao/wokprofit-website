@@ -91,7 +91,7 @@ const Navbar = () => {
               rel="noopener noreferrer"
               onClick={closeMenu}
             >
-              Free calculator
+              See My Profit Leak
             </a>
           </li>
         </ul>

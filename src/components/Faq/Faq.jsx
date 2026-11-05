@@ -15,8 +15,8 @@ const questions = [
     a: "Yes. Stay month to month after the first 90 days. If it’s not useful, we stop. You keep the work we already did.",
   },
   {
-    q: "What do I get in the free audit?",
-    a: "A first pass at food cost, labor, and leftover profit, plus two or three things to check this week — dishes, shifts, or a vendor. About 3 minutes. No credit card.",
+    q: "What’s the difference between the on-page estimate and See My Profit Leak?",
+    a: "The on-page tool is a quick rough pass on food and labor. See My Profit Leak is the full calculator — clearer detail and the next step if you want help. Both are free. No credit card.",
   },
   {
     q: "Do I need to change my POS?",

@@ -34,6 +34,11 @@ const Testimonials = () => {
           and the first things we usually fix.
         </p>
 
+        <p className="testimonials-outcome">
+          Typical first win: stop the dishes that sell well and lose money,
+          then fix the midweek schedule — often inside the first 30–60 days.
+        </p>
+
         <div className="case-layout">
           <img
             src={kitchenPhoto}

@@ -57,3 +57,10 @@
   line-height: 1.7;
   font-size: var(--text-base);
 }
+
+.service-area-note a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
