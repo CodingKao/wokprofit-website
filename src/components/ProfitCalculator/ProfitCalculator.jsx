@@ -83,7 +83,7 @@ const ProfitCalculator = () => {
       name: lead.email.trim(),
       owner: lead.email.trim(),
       restaurant: "Calculator lead",
-      message: `Calculator estimate: ${leakText}. Food ${(result.foodPct * 100).toFixed(1)}%, labor ${(result.laborPct * 100).toFixed(1)}%.`,
+      message: `Calculator estimate: ${leakText}. Food ${(result.foodPct * 100).toFixed(1)}%, labor ${(result.laborPct * 100).toFixed(1)}%, prime ${(result.primeRatio * 100).toFixed(1)}%.`,
       issues: [
         `Revenue: $${formatThousandsForMessage(inputs.monthlyRevenue)}`,
         `Food: $${formatThousandsForMessage(inputs.foodCost)}`,
@@ -259,15 +259,41 @@ const ProfitCalculator = () => {
 
           {result !== null && (
             <div className="calc-result">
-              <p className="calc-result-label">You may be losing around:</p>
-
               {result.adjustedLeak > 0 ? (
-                <h3 className={`calc-range calc-range--${result.status}`}>
-                  ${formatCurrency(result.low)} – ${formatCurrency(result.high)}
-                  /month
-                </h3>
+                <>
+                  <p className="calc-result-label">You may be losing around:</p>
+                  <h3 className={`calc-range calc-range--${result.status}`}>
+                    ${formatCurrency(result.low)} – $
+                    {formatCurrency(result.high)}
+                    /month
+                  </h3>
+                </>
+              ) : result.hasOverhead ? (
+                <>
+                  <p className="calc-result-label">
+                    Food + labor look on track. Left after all costs:
+                  </p>
+                  <h3
+                    className={`calc-range ${
+                      result.profit >= 0
+                        ? "calc-range--healthy"
+                        : "calc-range--danger"
+                    }`}
+                  >
+                    {result.profit >= 0 ? "" : "−"}$
+                    {formatCurrency(Math.abs(result.profit))}
+                    /month
+                  </h3>
+                </>
               ) : (
-                <h3 className="calc-range calc-range--healthy">$0/month</h3>
+                <>
+                  <p className="calc-result-label">
+                    Food + labor look on track
+                  </p>
+                  <h3 className="calc-range calc-range--healthy">
+                    No prime-cost leak spotted
+                  </h3>
+                </>
               )}
 
               <div className="calc-metrics">
@@ -283,7 +309,7 @@ const ProfitCalculator = () => {
                   <span>Prime cost</span>
                   <strong>{formatPct(result.primeRatio)}</strong>
                 </div>
-                {result.hasOverhead && (
+                {result.hasOverhead && result.adjustedLeak > 0 && (
                   <div>
                     <span>Left after costs</span>
                     <strong>
@@ -327,8 +353,9 @@ const ProfitCalculator = () => {
 
               {result.adjustedLeak === 0 && (
                 <p className="calc-note">
-                  Food and labor look in a healthy range. Rent and other costs
-                  still matter — a full audit checks those too.
+                  {result.hasOverhead
+                    ? "Prime cost isn’t the main leak here. Rent, utilities, and other costs still shape what’s left — a full audit checks those too."
+                    : "Food and labor look in a healthy range. Add rent and other costs to see what’s left each month."}
                 </p>
               )}
 

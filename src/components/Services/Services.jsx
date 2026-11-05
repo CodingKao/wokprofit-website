@@ -104,7 +104,7 @@ const Services = () => {
                 </span>
               </div>
 
-              <a href="/#contact" className="btn-outline service-card-cta">
+              <a href="#contact" className="btn-outline service-card-cta">
                 Ask about this plan
               </a>
             </div>

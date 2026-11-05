@@ -39,18 +39,21 @@
 
 .case-layout {
   display: grid;
-  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 520px) minmax(0, 1fr);
   gap: 2rem;
   align-items: center;
 }
 
 .case-photo {
   width: 100%;
-  aspect-ratio: 1;
+  max-width: 520px;
+  max-height: 560px;
   height: auto;
-  object-fit: cover;
-  object-position: center;
+  display: block;
+  margin: 0 auto;
   border-radius: 16px;
+  object-fit: contain;
+  object-position: center;
 }
 
 .case-findings {
@@ -85,7 +88,7 @@
   }
 
   .case-photo {
-    aspect-ratio: 16 / 10;
-    max-height: 220px;
+    max-width: 440px;
+    max-height: 480px;
   }
 }

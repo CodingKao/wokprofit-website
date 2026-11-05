@@ -1,5 +1,5 @@
 /* =========================
-   ABOUT SECTION
+   ABOUT — centered photo + bio
 ========================= */
 
 .about-section {
@@ -8,12 +8,15 @@
 }
 
 .about-inner {
-  text-align: left;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .about-eyebrow {
   display: inline-block;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   padding: 6px 12px;
   border-radius: 999px;
   background: rgba(200, 16, 46, 0.08);
@@ -25,39 +28,46 @@
 
 .about-grid {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: clamp(28px, 4vw, 56px);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 640px;
 }
 
 .about-photo-wrap {
-  flex-shrink: 0;
-  width: min(100%, 220px);
-  text-align: left;
+  width: 100%;
+  max-width: 240px;
+  text-align: center;
 }
 
 .about-photo-wrap img {
-  width: 220px;
-  height: 220px;
+  width: 100%;
+  aspect-ratio: 1;
+  height: auto;
   border-radius: 16px;
   object-fit: cover;
+  object-position: center top;
+  margin: 0 auto;
 }
 
 .about-photo-name {
   margin: 12px 0 0;
   font-weight: 700;
   color: var(--text-dark);
+  font-size: var(--text-base);
 }
 
 .about-photo-role {
   margin: 4px 0 0;
   font-size: var(--text-sm);
   color: var(--text-medium);
+  line-height: 1.45;
 }
 
 .about-content {
-  max-width: 620px;
-  text-align: left;
+  width: 100%;
+  text-align: center;
 }
 
 .about-title {
@@ -67,29 +77,19 @@
 }
 
 .about-intro {
-  margin-bottom: 14px;
+  margin: 0 auto 14px;
   font-size: var(--text-base);
   color: var(--text-medium);
   line-height: 1.7;
+  max-width: 36rem;
 }
 
 .about-intro:last-child {
   margin-bottom: 0;
 }
 
-@media (max-width: 900px) {
-  .about-grid {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .about-photo-wrap,
-  .about-photo-wrap img {
-    width: 180px;
-    height: auto;
-  }
-
-  .about-photo-wrap img {
-    height: 180px;
+@media (min-width: 768px) {
+  .about-photo-wrap {
+    max-width: 280px;
   }
 }

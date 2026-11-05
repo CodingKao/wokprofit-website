@@ -10,15 +10,15 @@ const Hero = () => {
     <section id="hero" className="hero-section">
       <div className="container hero-inner">
         <div className="hero-text">
-          <span className="hero-badge">For Asian restaurants</span>
+          <span className="hero-badge">Portland, OR · Asian restaurants</span>
 
           <h1 className="hero-title">
             See where your restaurant is leaking profit.
           </h1>
 
           <p className="hero-sub">
-            A clear look at food cost, labor, and menu — from someone who
-            understands the kitchen.
+            Food cost, labor, and menu clarity for Asian restaurants in
+            Portland and the metro — from someone who understands the kitchen.
           </p>
 
           <div className="hero-actions">
@@ -28,27 +28,31 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Get a free profit audit
+              See my profit leak
             </a>
 
-            <a href="/#how-it-works" className="btn-outline hero-secondary">
+            <a href="#how-it-works" className="btn-outline hero-secondary">
               See how it works
             </a>
           </div>
 
           <p className="hero-microcopy">
-            About 3 minutes. No credit card. Keep the notes even if we don’t
-            work together.
+            Free calculator. About 3 minutes. No credit card.
           </p>
         </div>
 
         <div className="hero-image">
           <img
             src={kitchenPhoto}
-            alt="Wok cooking in a restaurant kitchen"
+            alt="Wok cooking in an Asian restaurant kitchen in Portland"
             className="hero-preview-img"
+            width="560"
+            height="420"
+            loading="eager"
           />
-          <p className="hero-image-caption">Built for the line — not a login.</p>
+          <p className="hero-image-caption">
+            Serving Portland restaurants — not another software login.
+          </p>
         </div>
       </div>
     </section>

@@ -36,7 +36,8 @@ export function calculateProfitLeak(inputs) {
   const foodPct = food / revenue;
   const laborPct = labor / revenue;
   const profit = revenue - totalCosts;
-  const hasOverhead = toAmount(inputs.rent) != null || toAmount(inputs.otherExpenses) != null;
+  const hasOverhead =
+    toAmount(inputs.rent) != null || toAmount(inputs.otherExpenses) != null;
 
   const score = Math.min(
     100,

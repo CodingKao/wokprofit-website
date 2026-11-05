@@ -28,7 +28,7 @@ const questions = [
   },
   {
     q: "Who is this for?",
-    a: "Independent Asian restaurants that want clearer food, labor, and menu numbers. If you have multiple locations or want a forecast, we can talk about Plan ahead.",
+    a: "Independent Asian restaurants in Portland, Oregon and the metro that want clearer food, labor, and menu numbers. If you have multiple locations or want a forecast, we can talk about Plan ahead.",
   },
   {
     q: "How soon can we start?",

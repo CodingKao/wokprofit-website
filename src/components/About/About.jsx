@@ -14,7 +14,9 @@ const About = () => {
           <div className="about-photo-wrap">
             <img src={kaopic} alt="Kao Saelor, founder of Wok Profit" />
             <p className="about-photo-name">Kao Saelor</p>
-            <p className="about-photo-role">Founder · Chiang Kham, Thailand</p>
+            <p className="about-photo-role">
+              Founder · from Chiang Kham, Thailand
+            </p>
           </div>
 
           <div className="about-content">
@@ -23,14 +25,14 @@ const About = () => {
             <p className="about-intro">
               Too many great Asian restaurants — including places I love — work
               all week and still can’t see where the money went. Long hours.
-              Thin months. An accountant who files the year and never walks the
-              menu.
+              Thin months. Numbers that don’t connect back to the menu.
             </p>
 
             <p className="about-intro">
               I have a master’s in finance and spent 5+ years in accounting and
               analytics. Wok Profit is the simple version of that: monthly
-              numbers you can use, in language that matches the kitchen.
+              numbers restaurant owners can use, in language that matches the
+              kitchen.
             </p>
           </div>
         </div>

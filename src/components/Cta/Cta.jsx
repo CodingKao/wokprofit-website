@@ -14,7 +14,7 @@ const Cta = () => {
 
         <p className="cta-subtitle">
           About 3 minutes. You’ll see a first pass at food cost, labor, and
-          what to ask next.
+          what to ask next — built for Portland restaurants.
         </p>
 
         <a
@@ -23,7 +23,7 @@ const Cta = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Get a free profit audit
+          See my profit leak
         </a>
       </div>
     </section>

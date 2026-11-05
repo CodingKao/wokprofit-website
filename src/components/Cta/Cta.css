@@ -53,12 +53,14 @@
 
 /* Button */
 .cta-btn {
-  display: inline-block;
+  display: inline-flex;
   padding: 14px 32px;
   border-radius: 12px;
   font-weight: 700;
   font-size: var(--text-base);
   min-height: 44px;
+  width: 100%;
+  max-width: 320px;
 }
 
 /* =========================

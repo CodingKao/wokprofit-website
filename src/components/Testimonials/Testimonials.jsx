@@ -2,7 +2,7 @@
 
 import React from "react";
 import "./Testimonials.css";
-import kitchenPhoto from "../../assets/images/dumpling.jpg";
+import kitchenPhoto from "../../assets/images/wok2.jpg";
 
 const findings = [
   {
@@ -30,15 +30,14 @@ const Testimonials = () => {
         </h2>
 
         <p className="testimonials-lead">
-          I don’t publish client names yet. This is the pattern I see most
-          often in independent Asian restaurants — and the first things we
-          usually fix.
+          Here’s the pattern I see most often in independent Asian restaurants —
+          and the first things we usually fix.
         </p>
 
         <div className="case-layout">
           <img
             src={kitchenPhoto}
-            alt="Dumplings being prepared in a restaurant kitchen"
+            alt="Wok cooking over a gas flame in a restaurant kitchen"
             className="case-photo"
           />
 
