@@ -37,9 +37,23 @@
 
 .how-steps {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
   text-align: left;
+}
+
+@media (min-width: 640px) {
+  .how-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .how-steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
 }
 
 .how-step {
@@ -78,18 +92,3 @@
   line-height: 1.6;
 }
 
-@media (max-width: 900px) {
-  .how-steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .analytics-title {
-    font-size: calc(var(--text-xl) * 0.9);
-  }
-
-  .how-steps {
-    grid-template-columns: 1fr;
-  }
-}

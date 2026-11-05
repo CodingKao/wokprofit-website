@@ -1,27 +1,19 @@
 /* =========================
-   WOK PROFIT GLOBAL CSS (IMPROVED)
+   WOK PROFIT GLOBAL CSS — mobile first
 ========================= */
 
-/* -------------------------
-   COLOR + SPACING SYSTEM
-------------------------- */
 :root {
   --max-width: 1200px;
+  --padding-horizontal: 16px;
+  --section-padding: 28px;
+  --nav-height: 64px;
 
-  /* Balanced spacing (desktop + mobile) */
-  --padding-horizontal: clamp(16px, 4vw, 32px);
-
-  /* NEW: Tighter section spacing */
-  --section-padding: clamp(24px, 3vw, 40px);
-
-  /* Typography */
   --text-sm: 0.875rem;
-  --text-base: clamp(14px, 1.4vw, 16px);
-  --text-lg: clamp(16px, 1.8vw, 20px);
-  --text-xl: clamp(22px, 3vw, 32px);
-  --text-hero: clamp(32px, 5vw, 56px);
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-hero: 2rem;
 
-  /* Colors */
   --primary: #c8102e;
   --primary-dark: #a50e25;
   --primary-light: #e63946;
@@ -40,34 +32,51 @@
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
 
   --accent: #ffb703;
-
   --transition: all 0.3s ease;
 }
 
-/* -------------------------
-   BASE RESET
-------------------------- */
-* {
+@media (min-width: 768px) {
+  :root {
+    --padding-horizontal: clamp(20px, 4vw, 32px);
+    --section-padding: clamp(32px, 4vw, 48px);
+    --nav-height: 72px;
+    --text-base: clamp(15px, 1.4vw, 16px);
+    --text-lg: clamp(17px, 1.8vw, 20px);
+    --text-xl: clamp(24px, 3vw, 32px);
+    --text-hero: clamp(36px, 5vw, 56px);
+  }
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
-  font-size: var(--text-base);
+  scroll-padding-top: calc(var(--nav-height) + 12px);
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
   color: var(--text-dark);
   background: var(--bg-white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-/* -------------------------
-   LAYOUT
-------------------------- */
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -75,14 +84,11 @@ body {
   padding: 0 var(--padding-horizontal);
 }
 
-/* Section spacing (tight, premium rhythm) */
 section {
   padding: var(--section-padding) 0;
+  overflow-x: clip;
 }
 
-/* -------------------------
-   TYPOGRAPHY
-------------------------- */
 h1 {
   font-size: var(--text-hero);
   line-height: 1.2;
@@ -97,9 +103,13 @@ h3 {
   font-size: var(--text-lg);
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin: 0 0 1rem 0;
   font-weight: 700;
+  overflow-wrap: break-word;
 }
 
 p {
@@ -108,43 +118,40 @@ p {
   font-size: var(--text-base);
 }
 
-/* -------------------------
-   LINKS
-------------------------- */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* -------------------------
-   BUTTONS
-------------------------- */
+.btn-primary,
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+  width: 100%;
+}
+
 .btn-primary {
   background: var(--primary);
   color: var(--text-white);
-  padding: 14px 24px;
-  border-radius: 6px;
-  font-weight: 600;
-  display: inline-block;
-  transition: var(--transition);
-  cursor: pointer;
-  text-align: center;
-  min-height: 44px;
+  border: none;
 }
 
 .btn-primary:hover {
   background: var(--primary-dark);
-  transform: translateY(-2px);
 }
 
 .btn-outline {
   border: 2px solid var(--primary);
   color: var(--primary);
-  padding: 12px 20px;
-  border-radius: 6px;
-  transition: var(--transition);
-  cursor: pointer;
-  min-height: 44px;
+  background: transparent;
 }
 
 .btn-outline:hover {
@@ -152,107 +159,54 @@ a {
   color: var(--text-white);
 }
 
-/* -------------------------
-   FORMS
-------------------------- */
-input, textarea, select {
-  padding: 14px;
-  border: 1px solid var(--border-light);
-  border-radius: 6px;
-  font-size: 1rem;
-  width: 100%;
-  transition: var(--transition);
+@media (min-width: 768px) {
+  .btn-primary,
+  .btn-outline {
+    width: auto;
+    padding: 14px 24px;
+  }
 }
 
-input:focus, textarea:focus, select:focus {
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+input,
+textarea,
+select {
+  padding: 14px;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  font-size: 16px; /* prevents iOS zoom */
+  width: 100%;
+  max-width: 100%;
+  transition: var(--transition);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   border-color: var(--primary);
 }
 
-/* -------------------------
-   FLEX / GRID
-------------------------- */
-.flex {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
+.text-center {
+  text-align: center;
 }
-
-.flex-between {
-  justify-content: space-between;
+.text-left {
+  text-align: left;
 }
-
-.flex-center {
-  justify-content: center;
-  align-items: center;
+.text-right {
+  text-align: right;
 }
-
-.grid {
-  display: grid;
-  gap: 2rem;
+.shadow {
+  box-shadow: var(--shadow-soft);
 }
-
-.grid-2 {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-/* -------------------------
-   IMAGES
-------------------------- */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* -------------------------
-   UTILITIES
-------------------------- */
-.text-center { text-align: center; }
-.text-right { text-align: right; }
-.text-left { text-align: left; }
-
-.shadow { box-shadow: var(--shadow-soft); }
-.rounded { border-radius: 6px; }
-.transition { transition: var(--transition); }
-
-/* -------------------------
-   RESPONSIVE
-------------------------- */
-
-/* Tablet */
-@media (max-width: 1024px) {
-  .grid {
-    gap: 1.5rem;
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-
-  section {
-    padding: 28px 0; /* tighter mobile spacing */
-  }
-
-  h1 {
-    line-height: 1.25;
-  }
-
-  .flex {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .flex-center {
-    align-items: center;
-  }
-
-  .grid {
-    gap: 1.25rem;
-  }
-
-  .btn-primary,
-  .btn-outline {
-    width: 100%;
-  }
+.rounded {
+  border-radius: 8px;
 }

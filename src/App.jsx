@@ -10,6 +10,7 @@ import Analytics from "./components/Analytics/Analytics";
 import About from "./components/About/About";
 import Services from "./components/Services/Services";
 import Faq from "./components/Faq/Faq";
+import ServiceArea from "./components/ServiceArea/ServiceArea";
 import Testimonials from "./components/Testimonials/Testimonials";
 import Cta from "./components/Cta/Cta";
 import Contact from "./components/Contact/Contact";
@@ -47,6 +48,7 @@ function Home() {
       <Analytics />
       <About />
       <Services />
+      <ServiceArea />
       <Faq />
       <Testimonials />
       <Cta />

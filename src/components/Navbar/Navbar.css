@@ -1,5 +1,5 @@
 /* =========================
-   NAVBAR (GLOBAL CONSISTENT)
+   NAVBAR — mobile first
 ========================= */
 
 .navbar {
@@ -15,91 +15,53 @@
 
 .navbar-scrolled {
   border-bottom: 1px solid var(--border-light);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .navbar-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 72px;
+  height: var(--nav-height);
+  position: relative;
 }
 
-/* LOGO */
 .navbar-logo-wrap {
   display: flex;
   align-items: center;
+  z-index: 2;
 }
 
 .navbar-logo {
-  height: 42px;
+  height: 36px;
   width: auto;
 }
 
-/* =========================
-   NAV LINKS
-========================= */
-
-.navbar-links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-
-  /* FIX: remove bullet dots */
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar-links li a {
-  font-size: var(--text-base);
-  font-weight: 600;
-  color: var(--text-dark);
-  transition: var(--transition);
-}
-
-.navbar-links li a:hover {
-  color: var(--primary);
-}
-
-.active-link {
-  color: var(--primary);
-}
-
-/* CTA BUTTON */
-.navbar-cta .btn-primary {
-  padding: 10px 18px;
-  font-size: var(--text-base);
-  font-weight: 600;
-
-  /* FIX: ensure CTA text is white */
-  color: var(--text-white) !important;
-}
-
-/* =========================
-   MOBILE MENU
-========================= */
-
 .navbar-toggle {
-  display: none;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
+  padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  z-index: 2;
 }
 
 .navbar-toggle span {
-  width: 24px;
-  height: 3px;
+  width: 22px;
+  height: 2px;
   background: var(--text-dark);
   border-radius: 2px;
   transition: var(--transition);
+  display: block;
 }
 
-/* Hamburger animation */
 .navbar-toggle.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
 }
 
 .navbar-toggle.active span:nth-child(2) {
@@ -107,45 +69,95 @@
 }
 
 .navbar-toggle.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile dropdown */
-@media (max-width: 900px) {
-  .navbar-inner {
-    height: 64px;
+.navbar-links {
+  list-style: none;
+  margin: 0;
+  padding: 1.25rem var(--padding-horizontal) 1.5rem;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-white);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.25rem;
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  overflow-y: auto;
+}
+
+.navbar-links.open {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.navbar-links li a {
+  display: block;
+  padding: 14px 4px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.navbar-links li a:hover,
+.active-link {
+  color: var(--primary);
+}
+
+.navbar-cta {
+  margin-top: 1rem;
+}
+
+.navbar-cta .btn-primary {
+  width: 100%;
+  color: var(--text-white) !important;
+  border-bottom: none !important;
+}
+
+@media (min-width: 901px) {
+  .navbar-logo {
+    height: 42px;
   }
 
   .navbar-toggle {
-    display: flex;
+    display: none;
   }
 
   .navbar-links {
-    position: absolute;
-    top: 64px;
-    right: 0;
-    width: 100%;
-    background: var(--bg-white);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1.5rem;
-    gap: 1.25rem;
-    border-bottom: 1px solid var(--border-light);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-
-    transform: translateY(-200%);
-    opacity: 0;
-    pointer-events: none;
-    transition: var(--transition);
-  }
-
-  .navbar-links.open {
-    transform: translateY(0);
+    position: static;
+    transform: none;
     opacity: 1;
     pointer-events: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0;
+    overflow: visible;
+    background: transparent;
+    bottom: auto;
+  }
+
+  .navbar-links li a {
+    padding: 0;
+    font-size: var(--text-base);
+    border-bottom: none;
+  }
+
+  .navbar-cta {
+    margin-top: 0;
   }
 
   .navbar-cta .btn-primary {
-    width: 100%;
+    width: auto;
+    padding: 10px 18px;
   }
 }

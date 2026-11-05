@@ -13,6 +13,7 @@ const Footer = () => {
         <a href="#calculator">Calculator</a>
         <a href="#how-it-works">How it works</a>
         <a href="#services">Services</a>
+        <a href="#portland">Portland</a>
         <a href="#about">About</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
@@ -48,6 +49,7 @@ const Footer = () => {
         Helping Asian restaurant owners take control of their numbers and keep
         more of their hard-earned profit.
       </p>
+      <p className="footer-location">Based in Portland, OR · kao@wokprofit.com</p>
 
       <p className="footer-copy">
         © {new Date().getFullYear()} Wok Profit. All rights reserved.

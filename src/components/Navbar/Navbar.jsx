@@ -8,6 +8,7 @@ const NAV_SECTIONS = [
   { id: "calculator", label: "Calculator" },
   { id: "how-it-works", label: "How it works" },
   { id: "services", label: "Services" },
+  { id: "portland", label: "Portland" },
   { id: "about", label: "About" },
   { id: "contact", label: "Contact" },
 ];
@@ -32,9 +33,16 @@ const Navbar = () => {
       setActive(current);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -42,13 +50,20 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
       <div className="container navbar-inner">
         <a href="/" className="navbar-logo-wrap" onClick={closeMenu}>
-          <img src={logo} alt="Wok Profit Logo" className="navbar-logo" />
+          <img
+            src={logo}
+            alt="Wok Profit — Portland restaurant profit consulting"
+            className="navbar-logo"
+            width="120"
+            height="42"
+          />
         </a>
 
         <button
           className={`navbar-toggle ${menuOpen ? "active" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
         >
           <span></span>
           <span></span>
@@ -59,7 +74,7 @@ const Navbar = () => {
           {NAV_SECTIONS.map(({ id, label }) => (
             <li key={id}>
               <a
-                href={`/#${id}`}
+                href={`#${id}`}
                 className={active === id ? "active-link" : ""}
                 onClick={closeMenu}
               >
@@ -76,7 +91,7 @@ const Navbar = () => {
               rel="noopener noreferrer"
               onClick={closeMenu}
             >
-              Free audit
+              Free calculator
             </a>
           </li>
         </ul>

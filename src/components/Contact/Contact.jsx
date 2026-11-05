@@ -1,42 +1,14 @@
 // src/components/Contact/Contact.jsx
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import "./Contact.css";
-import logo from "../../assets/images/logo.png";
 import { AUDIT_LINK } from "../../config/Links";
 
 const Contact = () => {
-  const stickyRef = useRef(null);
-  const footerRef = useRef(null);
-
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
-
-  useEffect(() => {
-    const sticky = stickyRef.current;
-    const footer = footerRef.current;
-
-    if (!sticky || !footer) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            sticky.classList.add("hide-cta");
-          } else {
-            sticky.classList.remove("hide-cta");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(footer);
-
-    return () => observer.disconnect();
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -82,11 +54,10 @@ const Contact = () => {
     <section id="contact" className="contact-section">
       <div className="container contact-inner">
         <div className="contact-left">
-          <img src={logo} alt="Wok Profit Logo" className="contact-logo" />
-
           <p className="contact-text">
-            Prefer to talk first? Send a note with your restaurant name and
-            what’s been bothering you — food cost, labor, or a quiet month.
+            Based in Portland, Oregon. Prefer to talk first? Send a note with
+            your restaurant name and what’s been bothering you — food cost,
+            labor, or a quiet month.
           </p>
 
           <p className="contact-email">
@@ -143,7 +114,7 @@ const Contact = () => {
               <textarea
                 name="message"
                 placeholder="How can we help your business?"
-                rows="6"
+                rows="4"
               ></textarea>
 
               {error && <p className="contact-error">{error}</p>}
@@ -164,13 +135,11 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className="sticky-cta" ref={stickyRef}>
+      <div className="sticky-cta">
         <a href={AUDIT_LINK} target="_blank" rel="noopener noreferrer">
-          Get a free profit audit
+          See my profit leak
         </a>
       </div>
-
-      <div ref={footerRef} className="footer-sentinel"></div>
     </section>
   );
 };
