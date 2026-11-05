@@ -177,15 +177,24 @@ const ProfitCalculator = () => {
   return (
     <section id="calculator" className="calc-section">
       <div className="container calc-inner">
-        <span className="calc-eyebrow">Profit Leak Calculator</span>
+        <span className="calc-eyebrow">Quick estimate</span>
 
         <h2 className="calc-title">
           Try it with this month’s sales and costs
         </h2>
 
         <p className="calc-subtitle">
-          Enter your monthly sales, food cost, and labor. We’ll estimate how
-          much profit may be slipping away.
+          Rough pass on food + labor — about 30 seconds. For the full
+          calculator and walkthrough, use{" "}
+          <a
+            href={AUDIT_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="calc-inline-link"
+          >
+            See My Profit Leak
+          </a>
+          .
         </p>
 
         <div className="calc-card">
@@ -420,15 +429,15 @@ const ProfitCalculator = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Or start the full profit audit
+                Continue with See My Profit Leak →
               </a>
             </div>
           )}
         </div>
 
         <p className="calc-microcopy">
-          Your numbers are not stored or shared. This estimate is for guidance
-          only.
+          On-page numbers are a rough estimate only. Your inputs here are not
+          stored. The full calculator is a separate step.
         </p>
       </div>
     </section>

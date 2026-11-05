@@ -54,7 +54,7 @@ const Value = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Get My Free Profit Audit
+          See My Profit Leak
         </a>
       </div>
     </section>

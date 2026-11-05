@@ -28,7 +28,7 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              See my profit leak
+              See My Profit Leak
             </a>
 
             <a href="#how-it-works" className="btn-outline hero-secondary">
@@ -37,7 +37,7 @@ const Hero = () => {
           </div>
 
           <p className="hero-microcopy">
-            Free calculator. About 3 minutes. No credit card.
+            Free · About 3 minutes · No credit card
           </p>
         </div>
 

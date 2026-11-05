@@ -40,6 +40,17 @@
   line-height: 1.7;
 }
 
+.calc-inline-link {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.calc-inline-link:hover {
+  color: var(--primary-dark);
+}
+
 /* =========================
    CALCULATOR CARD (UPGRADED)
 ========================= */

@@ -1,6 +1,7 @@
 // src/components/Services/Services.jsx
 import React from "react";
 import "./Services.css";
+import { AUDIT_LINK } from "../../config/Links";
 
 import { LuCalculator } from "react-icons/lu";
 import { FiPieChart } from "react-icons/fi";
@@ -92,20 +93,25 @@ const Services = () => {
                 ))}
               </ul>
 
-              <div className="setup-fee">
-                First month: we clean the books and do the first review — $
-                {service.setupFee.toLocaleString()}
-              </div>
-
               <div className="service-price">
-                <span className="price-label">Monthly:</span>{" "}
+                <span className="price-label">Monthly</span>
                 <span className="price-main">
                   ${service.monthlyPrice.toLocaleString()}
                 </span>
               </div>
 
-              <a href="#contact" className="btn-outline service-card-cta">
-                Ask about this plan
+              <div className="setup-fee">
+                First month setup + review: $
+                {service.setupFee.toLocaleString()}
+              </div>
+
+              <a
+                href={AUDIT_LINK}
+                className="btn-outline service-card-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                See My Profit Leak
               </a>
             </div>
           ))}

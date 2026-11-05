@@ -164,20 +164,36 @@
   margin-right: 8px;
 }
 
-/* ========================= SETUP FEE ========================= */
+/* ========================= PRICE ========================= */
+
+.service-price {
+  text-align: center;
+  margin: 0 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.price-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.price-main {
+  font-size: calc(var(--text-xl) * 1.05);
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.1;
+}
 
 .setup-fee {
   text-align: center;
   font-size: var(--text-sm);
   color: var(--text-medium);
   line-height: 1.5;
-  margin-bottom: 0.75rem;
-}
-
-/* ========================= PRICE ========================= */
-
-.service-price {
-  text-align: center;
   margin-bottom: 1.25rem;
 }
 
@@ -186,18 +202,6 @@
   display: block;
   width: 100%;
   text-align: center;
-}
-
-.price-label {
-  font-size: var(--text-base);
-  font-weight: 600;
-  color: var(--text-medium);
-}
-
-.price-main {
-  font-size: var(--text-lg);
-  font-weight: 700;
-  color: var(--text-dark);
 }
 
 /* ========================= DIVIDER ========================= */

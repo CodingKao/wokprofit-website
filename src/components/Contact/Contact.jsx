@@ -137,7 +137,7 @@ const Contact = () => {
 
       <div className="sticky-cta">
         <a href={AUDIT_LINK} target="_blank" rel="noopener noreferrer">
-          See my profit leak
+          See My Profit Leak
         </a>
       </div>
     </section>

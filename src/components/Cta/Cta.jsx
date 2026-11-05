@@ -9,12 +9,12 @@ const Cta = () => {
     <section className="cta-section" aria-labelledby="cta-title">
       <div className="container cta-inner">
         <h2 id="cta-title" className="cta-title">
-          Start with a free look at this month’s numbers.
+          Ready for the full profit leak calculator?
         </h2>
 
         <p className="cta-subtitle">
-          About 3 minutes. You’ll see a first pass at food cost, labor, and
-          what to ask next — built for Portland restaurants.
+          About 3 minutes. A clearer pass at food cost, labor, and what to fix
+          next — built for Asian restaurants.
         </p>
 
         <a
@@ -23,7 +23,7 @@ const Cta = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          See my profit leak
+          See My Profit Leak
         </a>
       </div>
     </section>

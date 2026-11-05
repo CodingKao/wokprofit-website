@@ -32,9 +32,21 @@
 
 .testimonials-lead {
   max-width: 40rem;
-  margin: 0 0 1.75rem;
+  margin: 0 0 0.85rem;
   color: var(--text-medium);
   line-height: 1.7;
+}
+
+.testimonials-outcome {
+  max-width: 40rem;
+  margin: 0 0 1.75rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-white);
+  border-left: 3px solid var(--primary);
+  color: var(--text-dark);
+  font-weight: 600;
+  line-height: 1.55;
+  font-size: var(--text-base);
 }
 
 .case-layout {
